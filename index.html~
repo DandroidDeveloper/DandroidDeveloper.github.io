@@ -2,61 +2,60 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Daniel Marcoux</title>
+    <title>Home</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.red-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 <body>
+<style>
+.cardWide{
+	width: 100%;
+	padding:1%;
+	margin:1%;
+}
+</style>
 <!-- Simple header with scrollable tabs. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
 
       <!-- Title -->
-      <span class="mdl-layout-title">Title</span>
+      <span class="mdl-layout-title">Daniel Marcoux</span>
     </div>
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
-      <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
-      <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
-      <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
-      <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
-      <a href="#scroll-tab-6" class="mdl-layout__tab">Tab 6</a>
+      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Home</a>
+      <a href="#scroll-tab-2" class="mdl-layout__tab">About</a>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
+    <img src = "acorn.gif"></img>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="index.html">Home</a>
+      <a class="mdl-navigation__link" href="resume.html">Resume</a>
+      <a class="mdl-navigation__link" href="projects.html">Projects</a>
+      <a class="mdl-navigation__link" href="code.html">Life, the Universe, and Everything</a>
     </nav>
   </div>
-     <div className="mdl-layout__drawer-button">
-        <i className="material-icons">menu</i>
-      </div>
   <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-      <div class="page-content"><!-- Your content goes here --></div>
+      <div class="page-content">
+	<div class = "cardWide mdl-card mdl-shadow--2dp">
+	<img src = "profile.jpg" style = "width:33%; border-radius: 100%; padding:1%;"></img>
+	<br>
+	<li><a href = "resume.html">Resume:</a>Your normal black and white resume.</li>
+	<li><a href = "projects.html">Projects:</a>Various projects I documented</li>
+	<li><a href = "code.html">Life, the Universe, and Everything:</a>A blog about everything I have ever learned about math.</li>
+	<img src = "SymmetryBreaking.gif"></img>
+	</div>
+      </div>
     </section>
     <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-      <div class="page-content"><!-- Your content goes here --></div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-3">
-      <div class="page-content"><!-- Your content goes here --></div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-4">
-      <div class="page-content"><!-- Your content goes here --></div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-5">
-      <div class="page-content"><!-- Your content goes here --></div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="scroll-tab-6">
       <div class="page-content"><!-- Your content goes here --></div>
     </section>
   </main>
