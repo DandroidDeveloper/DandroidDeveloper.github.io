@@ -12266,38 +12266,38 @@ FAST_RUN
         <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span> 
     
 <span class="c1">#Set our clip to the middle of the image    </span>
-<span class="n">newClip</span> <span class="o">=</span> <span class="n">NewClip</span><span class="p">((</span><span class="mi">640</span><span class="o">/</span><span class="mi">2</span><span class="p">),(</span><span class="mi">480</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1">#newClip = NewClip((640/2),(480/2))</span>
 
-<span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;test_image.png&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#img = cv2.imread(&#39;test_image.png&#39;,0)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="c1">#fig = plt.figure()</span>
 
 <span class="c1">#Display image with inverse grey scale...gray? make up your fucking mind english.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Greys&#39;</span><span class="p">)</span>
+<span class="c1">#plt.imshow(img, cmap = &#39;Greys&#39;)</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
-<span class="n">currentAxis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">newClip</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">newClip</span><span class="o">.</span><span class="n">Y</span><span class="p">),</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span>
+<span class="c1">#ax = plt.subplot()</span>
+<span class="c1">#currentAxis = plt.gca()</span>
+<span class="c1">#rect = Rectangle((newClip.X, newClip.Y), 28, 28,</span>
                       <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">newClip</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">newClip</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span>
-<span class="n">currentAxis</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
-<span class="n">dr</span> <span class="o">=</span> <span class="n">DraggableRectangle</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
-<span class="n">dr</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#print(newClip.X, newClip.Y)</span>
+<span class="c1">#currentAxis.add_patch(rect)</span>
+<span class="c1">#dr = DraggableRectangle(rect)</span>
+<span class="c1">#dr.connect()</span>
+<span class="c1">#plt.show()</span>
 
 
 <span class="c1">#Show center points</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">newClip</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">newClip</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span>
+<span class="c1">#print(newClip.X, newClip.Y)</span>
 
-<span class="n">clip</span> <span class="o">=</span> <span class="n">img</span><span class="p">[((</span><span class="mi">480</span> <span class="o">-</span> <span class="n">newClip</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span> <span class="o">-</span><span class="mi">14</span><span class="p">):((</span><span class="mi">480</span> <span class="o">-</span> <span class="n">newClip</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span> <span class="o">+</span> <span class="mi">14</span><span class="p">),</span> 
-           <span class="p">((</span><span class="n">newClip</span><span class="o">.</span><span class="n">X</span><span class="p">)</span> <span class="o">-</span> <span class="mi">14</span><span class="p">):((</span><span class="n">newClip</span><span class="o">.</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="mi">14</span><span class="p">)]</span>
+<span class="c1">#clip = img[((480 - newClip.Y) -14):((480 - newClip.Y) + 14), </span>
+<span class="c1">#           ((newClip.X) - 14):((newClip.X) + 14)]</span>
 
 <span class="c1">#Verify that our clip is the correct dimension</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">clip</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">clip</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">cmdstring</span> <span class="o">=</span> <span class="s2">&quot;espeak &#39;If you are unsatisfied with the sample image, please restart the program.&#39;&quot;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmdstring</span><span class="p">)</span>
+<span class="c1">#print(clip.shape)</span>
+<span class="c1">#plt.imshow(clip, cmap = &#39;gray&#39;)</span>
+<span class="c1">#plt.show()</span>
+<span class="c1">#cmdstring = &quot;espeak &#39;If you are unsatisfied with the sample image, please restart the program.&#39;&quot;</span>
+<span class="c1">#os.system(cmdstring)</span>
 </pre></div>
 
 </div>
