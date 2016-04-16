@@ -1,0 +1,33 @@
+.pic img{
+opacity:0.5;
+position:relative;
+height:100px;
+width:100px;
+border-radius: 150px;
+-webkit-animation-name:pic;
+-webkit-animation-duration:1s;
+-webkit-animation-timing-function:linear;
+-webkit-animation-iteration-count:1;
+-webkit-animation-play-state:running;
+animation-name:pic;
+animation-duration:1s;
+animation-timing-function:linear;
+animation-iteration-count:1;
+animation-play-state:running;
+}
+@-webkit-keyframes pic
+{
+0%   {left:0px; top:-400px;}
+25%  {left:0px; top:-300px;}
+50%  {left:0px; top:-200px;}
+75%  {left:0px; top:-100px;}
+100% {left:0px; top:0px;}
+}
+@keyframes pic
+{
+0%   {left:0px; top:-400px;}
+25%  {left:0px; top:-300px;}
+50%  {left:0px; top:-200px;}
+75%  {left:0px; top:-100px;}
+100% {left:0px; top:0px;}
+}

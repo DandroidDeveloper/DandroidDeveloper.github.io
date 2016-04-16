@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project Euler 1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="jumbotron" style="background:#009688
+; color:white;">
+    <h1>Daniel Marcoux</h1>
+    <p>Project Euler Solution 1</p> 
+  </div>
+  <div class="container-fluid">
+    <h1>The Problem.</h1>
+    <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.<br></br>
+
+Find the sum of all the multiples of 3 or 5 below 1000.</p>
+    <h1>First Attempt.</h1>
+    <p>I decided to approach this problem with a brute force method for the sake of dipping my toes back into <a href="https://projecteuler.net/">Project Euler. </a>Because the problem is not that complicated, I decided to simply use a for loop to iterate from 0 to less than 1000, keeping a sum of the numbers divisible by 3 and 5.</p>
+    <script src="https://gist.github.com/anonymous/e04831e16842bda663fa.js"></script>
+    <blockquote>
+	<li>Time: 23047 nanoseconds</li>
+    </blockquote>
+    <h1>Second Attempt</h1>
+    <p>Another way to calculate the sum would be to make use of arithmetic progressions. We are asked to find the series sum for multiples of 3's and 5's. Because 3 and 5 have 15 in common, we must also subtract the series for 15 from our sum. Additionally, the problem states that we must find the sum below 1000. Therefore, we can use 999 as our upper bounds, as 1000 is a multiple of 5. Our rule for arithmetic progressions is <a href="https://www.mathsisfun.com/algebra/sequences-sums-arithmetic.html">n/2(2a+(n-1)d),</a> where a is the first number in the progression, and d is the distance between the numbers in our progression. This expression can be rewritten in our case to a+(n-1)d=x, and, taking account for computational concurrency and solving for n, n=int((x-a)/d+1). Because we are finding the sums for each progression (3 and 5), we can set a=d and we get n=int(x/d-d/d+1)=int(x/d). The nth, last term, is given by l=a+(n-1)d=d+(int(x/d)-1*d=d*int(x/d). <br></br>
+
+Combining the first equation with our nth term equation to find the sum, we get S=(n/2)(a+1)=(int(x/d)/2*(d+d*int(x/d)). This can be simplified to S=d*int(x/d)*(1+int(x/d))/2. <br></br>Again, our equation must find the sum of multiples of 3's, the sum of the multiples of 5, and subtract the sum of multiples of 15. Thus, our equation becomes S=3*int(999/3)*(1+int(999/3))/2+5*int(999/5)*(1+int(999/5))/2-15*int(999/15)*(1+int(999/15))/2.</p>
+    <script src="https://gist.github.com/anonymous/19a78e28a5d571866eae.js"></script>
+    <blockquote>
+	<li>Time: 172 nanoseconds</li>
+    </blockquote>
+    <div style="height:100vh;"></div>
+    <h2>Cheers!</2>
+  </div>
+</div>
+
+</body>
+</html>

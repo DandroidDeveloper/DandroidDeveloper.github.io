@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Material Design To Do List Tutorial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<div class="container">
+  <div class="jumbotron">
+    <h1>Material Design To Do List Tutorial</h1>
+    <p>by <a href="About.html">Dan Marcoux</a></p> 
+			<li>If you would like to download this application for free visit 
+			<a href="https://github.com/DandroidDeveloper/List">the repo</a> and 			download the zip file.</li>
+			</ul>
+  </div>
+ </div>
+<div class="container">
+	<div class="jumbotron">
+    		<h1>List</h1>
+		<p>
+		<img src="list.png" alt="List App Picture" class="img-responsive">
+		</p>
+	</div>
+</div>
+<div class="container">
+	<div class="jumbotron">
+    		<h1>The action bar or floating action button will launch an editable text fragment. </h1>
+		<img src="edit.png" alt="List App Picture" class="img-responsive">
+	</div>
+</div>
+<div class="container">
+	<div class="jumbotron">
+    		<h1>The to do list automatically enters a scrollview when inflated.</h1>
+		
+		<p>--Additionally a swipe will delete a list item!<p>
+		<p>--Pressing the delete button will also delete items with the same name.</p>
+		<img src="populatedlist.png" alt="List App Picture" class="img-responsive">
+	</div>
+</div>
+
+<div class="container">
+	<div class="jumbotron">
+    		<h1>What do I need to know before I begin?</h1>
+			<p>1. How to setup and run Android Studio.</p>
+			<ul>
+			<li>If you cannot setup and run Android Studio, visit 
+			<a href="https://developer.android.com/sdk/installing/index.html">The 				Google Developer Page</a> to get started.</li>
+			</ul>
+			<p>2. How to debug your code in the case something becomes 
+			deprecated.</p>
+			<ul>
+			<li>If you cannot debug your code, 
+			<a href="http://stackoverflow.com/">StackOverflow</a> is a great 				place to get started.</li>
+			</ul>
+  	</div>
+</div>
+<div class="container">
+	<div class="jumbotron">
+    		<h1>Features.</h1>
+			<p>1. Navigation Drawer</p>
+			<ul>
+			<li>If you need help with Navigation Drawers, check out 
+			<a href="http://blog.evizija.si/android-layout/">This blog</a>
+			</li>
+			</ul>
+			<p>2. Floating Action Button</p>
+			<ul>
+			<li>If you need help with Floating Action Buttons, check out 
+			<a href="http://www.myandroidsolutions.com/2015/01/01/android-floating-action-button-fab-tutorial/">This Website</a>
+			</li>
+			</ul>
+			<p>3. Material Themes and Animations</p>
+			<ul>
+			<li>If you need help with Material Themes, check out 
+			<a href="http://www.google.com/design/spec/material-design/introduction.html">The Material Design 				Page</a>
+			</li>
+			</ul>
+			<p>4. Swipe to Delete</p>
+			<ul>
+			<li>If you need help with Swipe to Delete, check out 
+			<a href="https://github.com/romannurik/android-swipetodismiss">This 				fantastic github page</a>
+			</li>
+			</ul>
+			<p>5. WebView</p>
+			<p>6. Action Bar</p>
+  	</div>
+</div>
+<div class="container">
+ 	<div class="jumbotron">
+    		<h1>Let's Do This!</h1>
+		<p>0. Download the zip file or fork my <a href="https://github.com/DandroidDeveloper/List">repository</a> and open the about section of the List.</p>
+    		<p>1. Start by creating a new Project. Be sure to choose the newest minimum 			SDK value. 
+		</p> 
+		<img src="NewProject.png" alt="List App Picture" class="img-responsive">
+		<p>2. Select Navigation Drawer Activity when prompted.</p>
+		<img src="navigationdraweractivity.png" alt="List App Picture" class="img-rounded">
+		<p>3. Create the following objects within your main activity.</p>
+<script src="https://gist.github.com/DandroidDeveloper/724875041e2056a2ecac.js"></script>
+		<p>4. Create a new java class named TodoListSQLHelper and copy the following 			code.</p>
+<script src="https://gist.github.com/DandroidDeveloper/451552d7dedb17b40b97.js"></script>
+		<p>5. Add A list of strings to your onCreate method that will be stored 		within 	our List Database to our main activity and add a custom adapter class 			to our onCreate to add data to our ListView.</p>
+<script src="https://gist.github.com/DandroidDeveloper/7448151e86774f0bedaa.js"></script>
+		<p>6. Create a Class named MyCustomAdapter to handle posting data to ListView.</p>
+<script src="https://gist.github.com/DandroidDeveloper/62734b1ed8ed1f9b9df7.js"></script>
+		<p>7. Add the above code to your onCreate method of your main activity to implement 			the dismiss on swipe features to the listview.</p>
+<script src="https://gist.github.com/DandroidDeveloper/56f89ee775c7d943a2fd.js"></script>
+		<p>8. Create a new layout resource for your list items named due.xml. At this point 			Android Studio will throw an error within your XML file because you do not have the 			image resource for the remove button associated with our list. Fear not however, 			you can create your own or simply download this entire source code from <a 			href="">github</a>/fork a brotha! Additionally, you may receive more missing 			resource errors in the creation of this project and these can be solved in the same 			fashion. </p>
+		<p>9. Add ListView and ImageButton to onCreate method of main activity.</p>
+<script src="https://gist.github.com/DandroidDeveloper/5127db2a1f28a1686c24.js"></script>
+		<p>10. Add the following code to the onCreate method of your main activity. Set the 			on touch listener within the listview to detect our flings (or swipes). Create an 			on click listener for our floating action button. Update our List onCreate()</p>
+<script src="https://gist.github.com/DandroidDeveloper/9734ab9f30aec259edc4.js"></script>
+		<p>11. Modify your main activities xml file container fragment to include the 			listview and action button.</p>
+<script src="https://gist.github.com/DandroidDeveloper/8f00b26bd4a1248dfcf7.js"></script>
+		<p>12. Add dimensions for the floating action button's position on the screen and 			size/elevation.Add the incredible SwipeDismissListViewTouchListener class found 
+		<a href="https://github.com/romannurik/android-swipetodismiss">here</a>.</p>
+<script src="https://gist.github.com/DandroidDeveloper/aebabf2946bdcff7dbbf.js"></script>
+		<p>13. Add an update and onDelete button click method to your onCreate to handle 			updates to the database during a fling/onDelete/onAdd event.</p>
+<script src="https://gist.github.com/DandroidDeveloper/548151bd2e08ad1c92dd.js"></script>
+		<p>14. Create a resource directory named anim-v21 and an xml file named 		button_elevation.xml to use android lollipop animation on fab click.</p>
+<script src="https://gist.github.com/DandroidDeveloper/2bf50c937909d16ed8ef.js"></script>
+		<p>15. Add the following xml file to your drawable folder and name it fab_shape. 			This will create the Material Design FAB.</p>
+<script src="https://gist.github.com/DandroidDeveloper/fc78d09445714da60bce.js"></script>
+		<p>16. Create a new drawable-v21 directory and add oval_ripple.xml for buttonClick 			animation.</p>
+<script src="https://gist.github.com/DandroidDeveloper/0ae5c94c24d991cb5c99.js"></script>
+		<p>17. At this point, assuming you included the add and remove drawables in 			your mipmap folder, your application should run without any problems using 			the support colors provided by androids theme. Additionally, all the sections will 			display the same information. We will fix these two issues now.</p>
+		<p>18. First, create a colors.xml resource file within your values.</p>
+<script src="https://gist.github.com/DandroidDeveloper/8d6417a867051399405c.js"></script>
+		<p>19. Next, modify your styles.xml as shown.</p>
+<script src="https://gist.github.com/DandroidDeveloper/8602bc618080935a2f57.js"></script>
+		<p>20. Create a new directory named values-v21 and add styles.xml resource file as 			shown. Your application should now use default Material Theme colors.
+<script src="https://gist.github.com/DandroidDeveloper/76fc58c55a83809c7ab9.js"></script>
+		<p>21. Now add the following code to your main activities onNavDrawerItemSelected 			method so your navigation drawer will launch a new intent when section 2 is 			clicked.</p>
+<script src="https://gist.github.com/DandroidDeveloper/974995550706e99ab53a.js"></script>
+		<p>22. Modify onSectionAttached in main activity.</p>	
+<script src="https://gist.github.com/DandroidDeveloper/26e6b3f6484d58b7337a.js"></script>
+		<p>23. Add an about class that displays a webview.</p>
+<script src="https://gist.github.com/DandroidDeveloper/76b2b91ce630f19955ae.js"></script>
+		<p>24. In your android manifest, add the about activity and permissions to access 			the internet. Create a string value resource for the label.</p>
+<script src="https://gist.github.com/DandroidDeveloper/29d3075f0a9b9a84b1db.js"></script>
+		<p>25. Create about.xml layout and include webview.</p>
+<script src="https://gist.github.com/DandroidDeveloper/6a16eb123cd34a0e473b.js"></script>
+		<p>26. Create a menu resource for your activity named menu_about.xml.</p>
+<script src="https://gist.github.com/DandroidDeveloper/8e1e457061147d7a7b6f.js"></script>
+		<p>27. Modify your strings.</p>
+<script src="https://gist.github.com/DandroidDeveloper/60111a3c52120a4eeb8a.js"></script>
+		<p>28. Run your program and your should receive an error within your navDrawer 			class, just delete the line inserting section 3, as we deleted it in our strings 			and app.</p>
+		<p>29. Update your ActionBars onClick method in your main activity.</p>
+<script src="https://gist.github.com/DandroidDeveloper/5e5c4dce36646639f976.js"></script>
+		<p>30. Update your main menu.</p>
+<script src="https://gist.github.com/DandroidDeveloper/ff7775ef42d111e8abdd.js"></script>
+		<p>31. Update your action_settings string to say Add.</p>
+		<p>32. Run your application and delete the line in your navDrawer class that throws 			an error.</p>
+		<p>33. The last step is to modify your About class to navigate to the website of 			your choice.</p>
+
+
+	</div>
+</div>
+<div class="container">
+	<div class="jumbotron">
+    		<h1>Now re-run your application. Your screen should look like the one below. </h1>
+		<img src="list.png" alt="List App Picture" class="img-responsive">
+	</div>
+</div>
+
+<div class="container">
+	<div class="jumbotron">
+    		<h1>Your application is now completely responsive, and backwards compatible! </h1>
+		<h2>Phone:</h2>
+		<img src="list.png" alt="List App Picture" class="img-responsive">
+		<h2>Tablet:</h2>
+		<img src="tablet.png" alt="List App Picture" class="img-responsive">
+		<h2>Television:</h2>
+		<img src="tv.png" alt="List App Picture" class="img-responsive">
+	</div>
+</div>
+
+</div>
+</body>
+</html>
+

@@ -13,11 +13,17 @@
   </head>
 <body>
 <style>
+
 .cardWide{
 	width: 100%;
 	padding:1%;
 	margin:1%;
 }
+.demo-card-image.mdl-card {
+  width: 256px;
+  height: 256px;
+}
+
 </style>
 <!-- Simple header with scrollable tabs. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -46,17 +52,61 @@
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
       <div class="page-content">
 	<div class = "cardWide mdl-card mdl-shadow--2dp">
-	<img src = "profile.jpg" style = "width:33%; border-radius: 100%; padding:1%;"></img>
+	<img src = "acorn.gif" style = "width:33%; padding:1%;"></img>
 	<br>
 	<li><a href = "resume.html">Resume:</a>Your normal black and white resume.</li>
 	<li><a href = "projects.html">Projects:</a>Various projects I documented</li>
 	<li><a href = "code.html">Life, the Universe, and Everything:</a>A blog about everything I have ever learned about math.</li>
-	<img src = "SymmetryBreaking.gif"></img>
 	</div>
       </div>
     </section>
     <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-      <div class="page-content"><!-- Your content goes here --></div>
+      <div class="page-content">
+	<div class = "cardWide mdl-card mdl-shadow--2dp">
+	<img src = "profile.jpg" style = "width:33%; border-radius: 100%; padding:1%;"></img>
+	<br>
+	<p style = "width:33%;">I am a carbon based, bipedal lifeform who resides on the planet Earth. My interests include programming, rock climbing, and music.</p>
+      </div>
+		<table class="mdl-data-table mdl-shadow--2dp" style = "padding:1%; margin:1%; width:33%">
+		  <tbody>
+		    <tr>
+			<td>
+			<div class="demo-card-image mdl-card mdl-shadow--2dp">
+			<img src = "robots.jpg" style = "width:256px; height:256px;"></img>
+			</div>
+			</td>
+			<td>
+			<div class="demo-card-image mdl-card mdl-shadow--2dp">
+			<img src = "slackline.jpg" style = "width:256px; height:256px;"></img>
+			</div>
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			<div class="demo-card-image mdl-card mdl-shadow--2dp">
+			<img src = "danguitar.jpg" style = "width:256px; height:256px;"></img>
+			</div>
+			</td>
+			<td>
+			<div class="demo-card-image mdl-card mdl-shadow--2dp">
+			<img src = "rockclimber.jpg" style = "width:256px; height:256px;"></img>
+			</div>
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			<div class="demo-card-image mdl-card mdl-shadow--2dp">
+			<img src = "adventure.jpg" style = "width:256px; height:256px;"></img>
+			</div>
+			</td>
+			<td>
+			<div class="demo-card-image mdl-card mdl-shadow--2dp">
+			<img src = "instruments.jpg" style = "width:256px; height:256px;"></img>
+			</div>
+			</td>
+		    </tr>
+		  </tbody>
+		</table>
     </section>
   </main>
 </div>
