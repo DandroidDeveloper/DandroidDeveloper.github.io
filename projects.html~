@@ -95,6 +95,9 @@
 		</ul>
 	</span>
 	<img src = "list.png" width = "80px"></img>
+	<p>
+	During my second semester at Albright I took an android programming course. As a final project I created this list application which used material design a couple months after it's release.
+	</p>
 	<br>
 	<span> Critical Thinking Web Application
 		<button id="demo-menu-lower-left3"
@@ -125,6 +128,9 @@
 		</ul>
 	</span>
 	<img src = "dontPanic.jpg" width = "80px"></img>
+	<p>
+	During my last semester at Albright I took an Independent Study Course on Artificial Intelligence. I ended up teaching and reteaching myself everything I wanted to know before I graduated about programming.
+	</p>
       </div>
       </div>
     </section>
