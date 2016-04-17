@@ -2551,11 +2551,2046 @@ False
 <li>hashing</li>
 <li>trees and tree algorithms</li>
 <li>graphs and graph algorithms</li>
-<li>goodwill hunting problem</li>
-<li>databases</li>
-<li>AI</li>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4>Good Will Hunting Problem</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src = "goodWillHunting.png" align = "left">&lt;/src&gt;</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Draw all homeomorphically irreducible trees of size n = 10.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+AEDC/g+7ix6gF1rPcgAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+/w+4iHq0V9RXMwAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+HzKwkrTXR8RCAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+yPZJTcaVsp6trI/t22xvz353p3WqtlZrtD3L9qtZh77B9o2drjGr4y7be2w/M8yYUtcyq2HYOquw
+nrbPsP2Y7c22N9n+fJNxo1vPiCjtJulvJPVk92+S9G8NxvRIel7SJEnHSeqXNKXDdZ4nabKkxyRd
+OMy4FyS9tcT1HLHOiqznzZL+Obu/UNJNVVnPVtZH0hxJj2b33y/piQrWOEvSyjJ+D4+o4y8lTZP0
+TJPnS13LUdRZ+npKOk3StOz+iZK2FfG7WWonEF3yZbOI2BYR2zXw8djhWCV2Vy3WWfp6ZvPdnd2/
+W9KlTcaVsZ6trM88SfdIUkQ8Kekk2xPUOa3+Oyz9QxYRsU7SK8MMKXstlc09Up1SyesZEb+JiP7s
+/l5JW3T0d65GvZ5V+g/IjYUvm4UG3iRfb/vqsotpogrreWpE7JEGfrElndpkXBnr2cr6HDlmZ4Mx
+7dTqv8OLsksCj9p+b2dKG7Wy13I0KrOets/SQOfy5BFPjXo9c31EtBXd8mWzVupswcyI2G37HRp4
+8dqS7TCqVmfbDVNno2upzT6d0Pb1HMOeknRmROyzPUfS9yW9u+Saulll1tP2iZLul/SFrCPIpe0h
+EBEfHO757MtmcyV9oMmQnZLOHPL4jOxYoUaqs8Vz7M7++VvbD2qgbS/0RauAOktfz+wNuAkRscf2
+aZJebnKOtq9nA62sz05J7xxhTDuNWOPQF4eIWGV7me1TIuL3HaqxVWWvZUuqsp62x2kgAO6NiIca
+DBn1epb96aDDXzb7aLTwZTPb4zXwZbOVnaqxgYbXBW33Zgkt2ydI+pCkZztZ2JElNTlehfVcKenK
+7P5nJB31y1zierayPislfTqrbYakVw9f3uqQEWsceh3Y9nQNfBy8rACwmv8+lr2WQzWts0Lr+Q1J
+v4iIrzd5fvTrWfK73dslvShpQ3Zblh2fKOmRIeNma+Cd8O2Sbiihzks1cJ1tvwa+9bzqyDolna2B
+T2lslLSpqnVWZD1PkfTjrIbVkk6u0no2Wh9J10j63JAxSzXwCZ2nNcwnxsqqUdK1GgjNjZIel/T+
+TteY1XGfpF2SXpf0a0mfrdpatlJnFdZT0kxJB4f8/2JD9nuQaz35shgAJKxKnw4CAHQYIQAACSME
+ACBhhAAAJIwQAICEEQIAkDBCAAASRggAQML+D4YWqXT/XHCPAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+D8wOd66wFrY5AAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> 
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
+<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">codes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="n">Path</span><span class="o">.</span><span class="n">LINETO</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">PathPatch</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Populating the interactive namespace from numpy and matplotlib
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+AUlq2P8DWCxxukwts7wAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4>Databases</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When one usually thinks of databases, they think of websites storing boring old data. This is sooooooooo wrong. Databases themselves are actually an incredibly complex and useful object. One of the coolest places databases are utilized is within language recognition. Natural language is very complex. Generally, when you have a command you want your computer to understand you have to translate it somehow so the computer understands you. Databases, specifically Relational Databases provide a gigantic piece of this puzzle as you will see in my example below.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><p>Database designers and UI designers have come up for an acronym to describe the basic functions a database should provide. CRUD.</p></p>
+<li>C: Create (Insert in SQL syntax)</li>
+<li>R: Read (Select in SQL syntax. In UI, read should also retrieve, search, and view)</li>
+<li>U: Update (Update in SQL syntax)</li>
+<li>D: Delete (Delete in SQL syntax)</li>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Initialize </span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;newDB.db&quot;</span><span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;DROP TABLE Contacts;&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">sql_command</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE Contacts ( </span>
+<span class="s2">Contact_ID INTEGER PRIMARY KEY, </span>
+<span class="s2">First_Name VARCHAR(30), </span>
+<span class="s2">Middle_Initial CHAR(1),</span>
+<span class="s2">Last_Name VARCHAR(30),</span>
+<span class="s2">Phone_Number VARCHAR(20));&quot;&quot;&quot;</span>
+
+<span class="c1">#Create</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_command</span><span class="p">)</span>
+
+<span class="n">sql_command</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO Contacts (Contact_ID, First_Name, Middle_Initial, Last_Name, Phone_Number) VALUES (NULL, &quot;John&quot;, &quot;A&quot;, &quot;Doe&quot;, &quot;867-5309&quot;);&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_command</span><span class="p">)</span>
+<span class="n">sql_command</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO Contacts (Contact_ID, First_Name, Middle_Initial, Last_Name, Phone_Number) VALUES (NULL, &quot;Ziggy&quot;, &quot;A&quot;, &quot;Stardust&quot;, &quot;867-5309&quot;);&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_command</span><span class="p">)</span>
+
+<span class="c1"># never forget this, if you want the changes to be saved:</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Read</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;newDB.db&quot;</span><span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM Contacts&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read:&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span> 
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Read:
+(1, &apos;John&apos;, &apos;A&apos;, &apos;Doe&apos;, &apos;867-5309&apos;)
+(2, &apos;Ziggy&apos;, &apos;A&apos;, &apos;Stardust&apos;, &apos;867-5309&apos;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Update</span>
+<span class="k">def</span> <span class="nf">Update</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">identifier1</span><span class="p">,</span> <span class="n">identifier2</span><span class="p">):</span>
+    <span class="c1">#Initialize </span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;newDB.db&quot;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="c1">#Case (python3 does not provide switch statements, so we will use ifs)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">parameter</span> <span class="o">==</span> <span class="s2">&quot;First_Name&quot;</span><span class="p">):</span>
+        <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;SELECT FIRST_NAME FROM Contacts WHERE First_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot; AND Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">command2</span> <span class="o">=</span> <span class="s1">&#39;UPDATE Contacts SET First_Name = &quot;&#39;</span><span class="o">+</span><span class="n">data</span><span class="o">+</span><span class="s1">&#39;&quot; WHERE First_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot; AND Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">command2</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command2</span><span class="p">)</span>
+        <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;SELECT FIRST_NAME FROM Contacts WHERE First_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">data</span><span class="o">+</span><span class="s1">&#39;&quot; AND Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">parameter</span> <span class="o">==</span> <span class="s2">&quot;Last_Name&quot;</span><span class="p">):</span>
+        <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;SELECT Last_NAME FROM Contacts WHERE Last_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot; AND First_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">command2</span> <span class="o">=</span> <span class="s1">&#39;UPDATE Contacts SET Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">data</span><span class="o">+</span><span class="s1">&#39;&quot; WHERE First_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot; AND Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">command2</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command2</span><span class="p">)</span>
+        <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;SELECT Last_NAME FROM Contacts WHERE Last_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">data</span><span class="o">+</span><span class="s1">&#39;&quot; AND First_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            
+    <span class="k">elif</span><span class="p">(</span><span class="n">parameter</span> <span class="o">==</span> <span class="s2">&quot;Phone_Number&quot;</span><span class="p">):</span>
+        <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;SELECT Phone_Number FROM Contacts WHERE First_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot; AND Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">command2</span> <span class="o">=</span> <span class="s1">&#39;UPDATE Contacts SET Phone_Number = &quot;&#39;</span><span class="o">+</span><span class="n">data</span><span class="o">+</span><span class="s1">&#39;&quot; WHERE First_Name = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot; AND Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">command2</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command2</span><span class="p">)</span>
+        <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;SELECT Phone_Number FROM Contacts WHERE Phone_Number = &quot;&#39;</span>\
+        <span class="o">+</span><span class="n">data</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            
+            
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="n">Update</span><span class="p">(</span><span class="s2">&quot;First_Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Moon Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Doe&quot;</span><span class="p">)</span>
+<span class="n">Update</span><span class="p">(</span><span class="s2">&quot;Last_Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Zappa&quot;</span><span class="p">,</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Doe&quot;</span><span class="p">)</span>
+<span class="n">Update</span><span class="p">(</span><span class="s2">&quot;Phone_Number&quot;</span><span class="p">,</span> <span class="s2">&quot;1-800-MYLEMON&quot;</span><span class="p">,</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Doe&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>SELECT FIRST_NAME FROM Contacts WHERE First_Name = &quot;John&quot; AND Last_Name = &quot;Doe&quot;
+John
+UPDATE Contacts SET First_Name = &quot;Moon Unit&quot; WHERE First_Name = &quot;John&quot; AND Last_Name = &quot;Doe&quot;
+Moon Unit
+
+SELECT Last_NAME FROM Contacts WHERE Last_Name = &quot;Doe&quot; AND First_Name = &quot;John&quot;
+Doe
+UPDATE Contacts SET Last_Name = &quot;Zappa&quot; WHERE First_Name = &quot;John&quot; AND Last_Name = &quot;Doe&quot;
+Zappa
+
+SELECT Phone_Number FROM Contacts WHERE First_Name = &quot;John&quot; AND Last_Name = &quot;Doe&quot;
+867-5309
+UPDATE Contacts SET Phone_Number = &quot;1-800-MYLEMON&quot; WHERE First_Name = &quot;John&quot; AND Last_Name = &quot;Doe&quot;
+1-800-MYLEMON
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Delete</span>
+<span class="k">def</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">identifier1</span><span class="p">,</span> <span class="n">identifier2</span><span class="p">):</span>
+    <span class="c1">#Initialize </span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;newDB.db&quot;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;DELETE FROM Contacts WHERE First_Name = &quot;&#39;</span>\
+    <span class="o">+</span><span class="n">identifier1</span><span class="o">+</span><span class="s1">&#39;&quot; AND Last_Name = &quot;&#39;</span><span class="o">+</span><span class="n">identifier2</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+    <span class="n">command1</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM Contacts&#39;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command1</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Read:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+<span class="n">Delete</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Doe&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>DELETE FROM Contacts WHERE First_Name = &quot;John&quot; AND Last_Name = &quot;Doe&quot;
+Read:
+
+(2, &apos;Ziggy&apos;, &apos;A&apos;, &apos;Stardust&apos;, &apos;867-5309&apos;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
