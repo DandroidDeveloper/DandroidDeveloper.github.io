@@ -21,7 +21,6 @@
 	margin:1%;
 }
 .mdl-card1{
-	float:left;
 	padding:1%;
 	margin:1%;
 }
