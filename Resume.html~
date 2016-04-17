@@ -47,7 +47,7 @@
       <div class="page-content">
 	<div class = "cardWide mdl-card mdl-shadow--2dp">
 		<object data="ResumeMachThree.pdf" type="application/pdf" width="100%" height="100%">
-		<a href="ResumeMachThree.pdf">resume.pdf</a>
+		<a href="resume.pdf">resume.pdf</a>
 		</object>
 	</div>
       </div>
