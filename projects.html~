@@ -61,6 +61,7 @@
 		</ul>
 	</span>
 	<img src = "euler.png" width = "80px"></img>
+	<br>
 	<p>
 	Project Euler is a website that provides elegant problems, usually best solved with a computer. 
 	A close friend of mine suggested that I start my journey into computer science by attempting these problems. I completed 10...
@@ -78,6 +79,7 @@
 		</ul>
 	</span>
 	<img src = "dashboard.png" width = "80px"></img>
+	<br>
 	<p>
 	My first semester at Albright I took a graphics course on openGL. In my free time, I learned webGL, and created this application which built off a Three.js example.
 	</p>
@@ -95,6 +97,7 @@
 		</ul>
 	</span>
 	<img src = "list.png" width = "80px"></img>
+	<br>
 	<p>
 	During my second semester at Albright I took an android programming course. As a final project I created this list application which used material design a couple months after it's release.
 	</p>
@@ -111,6 +114,7 @@
 		</ul>
 	</span>
 	<img src = "criticalThinking.png" width = "80px"></img>
+	<br>
 	<p>
 	During my third semester at Albright I took a critical thinking course. In my free time, I created this web application.
 	</p>
@@ -128,6 +132,7 @@
 		</ul>
 	</span>
 	<img src = "dontPanic.jpg" width = "80px"></img>
+	<br>
 	<p>
 	During my last semester at Albright I took an Independent Study Course on Artificial Intelligence. I ended up teaching and reteaching myself everything I wanted to know before I graduated about programming.
 	</p>
