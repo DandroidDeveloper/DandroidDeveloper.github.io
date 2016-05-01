@@ -37,7 +37,7 @@
     <img src = "diehard.gif"></img>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="index.html">Home</a>
-      <a class="mdl-navigation__link" href="resume.html">Resume</a>
+      <a class="mdl-navigation__link" href="Resume.html">Resume</a>
       <a class="mdl-navigation__link" href="projects.html">Projects</a>
       <a class="mdl-navigation__link" href="code.html">Life, the Universe, and Everything</a>
     </nav>
@@ -135,6 +135,25 @@
 	<br>
 	<p>
 	During my last semester at Albright I took an Independent Study Course on Artificial Intelligence. I ended up teaching and reteaching myself everything I wanted to know before I graduated about programming.
+	</p>
+	<br>
+	<span> React Native Example Apps
+		<button id="demo-menu-lower-left5"
+			class="mdl-button mdl-js-button mdl-button--icon">
+		  <i class="material-icons">more_vert</i>
+		</button>
+
+		<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+		    for="demo-menu-lower-left5">
+		  <li class="mdl-menu__item "><a href = "https://github.com/DandroidDeveloper/ReactNativeExampleApps">Github</a></li>
+		</ul>
+	</span>
+	<img src = "output.gif" width = "10%"></img>
+	<br>
+	<p>
+	This finals week, I translated my anxiety into learning 
+	React Native. I put together this app which showcased what 
+	I was able to teach myself in simply one week.
 	</p>
       </div>
       </div>
