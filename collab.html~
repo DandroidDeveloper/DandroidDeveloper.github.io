@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>three.js css3d - periodic table</title>
+		<title>Collab</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -9,9 +9,6 @@
 		</style>
 	</head>
 	<body>
-<video controls>
-  <source src="ReactNative1.ogv" type="video/ogg">
-  Your browser does not support HTML5 video.
-</video>
+<img source="ReacNative1.gif">
 	</body>
 </html>
