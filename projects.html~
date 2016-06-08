@@ -151,9 +151,9 @@
 	<img src = "output.gif" width = "10%"></img>
 	<br>
 	<p>
-	This finals week, I translated my anxiety into learning 
+	This finals week, I translated my finals anxiety into 		learning 
 	React Native. I put together this app which showcased what 
-	I was able to teach myself in simply one week.
+	I was able to teach myself in simply one week. React native is neat because it has the ability to compile on both IOS and Android mobile devices. The list application uses a cloud database called firebase, and the navigation package is from the facebook UIExplorer example.
 	</p>
       </div>
       </div>
