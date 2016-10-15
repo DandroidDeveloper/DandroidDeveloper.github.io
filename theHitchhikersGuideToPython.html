@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name=viewport content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+<meta name=description content="My personal guide to Python."/>
+<title>The Hitchhiker's Guide to Python</title>
+<style>
+/* Navigation Menu - Background */
+.navigation {
+  /* critical sizing and position styles */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  /* non-critical appearance styles */
+  list-style: none;
+  background: #111;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+/* Navigation Menu - List items */
+.nav-item {
+  /* non-critical appearance styles */
+  width: 200px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #000;
+}
+.nav-item a {
+  /* non-critical appearance styles */
+  display: block;
+  padding: .75em;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  transition: color 0.2s, background 0.5s;
+}
+.nav-item a:hover {
+  color: #c74438;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(75,20,20,0.65) 100%);
+}
+/* Site Wrapper - Everything that isn't navigation */
+.site-wrap {
+  /* Critical position and size styles */
+  height: 100%;
+  min-width: 100%;
+  background-color: white; /* Needs a background or else the nav will show through */
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+  /* non-critical apperance styles */
+  background-image: white;
+  overflow:hidden;
+}
+/* Nav Trigger */
+.nav-trigger {
+  /* critical styles - hide the checkbox input */
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+label[for="nav-trigger"] {
+  /* critical positioning styles */
+  position: fixed;
+  left: 15px; top: 15px;
+  z-index: 2;
+  /* non-critical apperance styles */
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+  background-size: contain;
+}
+/* Make the Magic Happen */
+.nav-trigger + label, .site-wrap {
+  transition: left 0.2s;
+}
+.nav-trigger:checked + label {
+  left: 215px;
+}
+.nav-trigger:checked ~ .site-wrap {
+  left: 200px;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+body {
+    /* Without this, the body has excess horizontal scroll when the menu is open */
+  overflow-x: hidden;
+}
+/* Micro reset */
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<ul class="navigation">
+    <li class="nav-item"><a href="introduction.html" target="content">Introduction</a></li>
+    <li class="nav-item"><a href="dontPanic.html" target="content">Don't Panic</a></li>
+    <li class="nav-item"><a href="inputProcessingAndOutput.html" target="content">Input, Processing, and Output</a></li>
+    <li class="nav-item"><a href="decisionStructuresAndBooleanLogic.html" target="content">Decision Structures and Boolean Logic</a></li>
+    <li class="nav-item"><a href="#">Repetition Structures</a></li>
+    <li class="nav-item"><a href="#">Functions</a></li>
+    <li class="nav-item"><a href="#">Files and Exceptions</a></li>
+    <li class="nav-item"><a href="#">Lists and Tuples</a></li>
+    <li class="nav-item"><a href="#">More About Strings</a></li>
+    <li class="nav-item"><a href="#">Dictionaries and Sets</a></li>
+    <li class="nav-item"><a href="#">Classes and Object-Oriented Programming</a></li>
+    <li class="nav-item"><a href="#">Inheritance</a></li>
+    <li class="nav-item"><a href="#">Recursion</a></li>
+    <li class="nav-item"><a href="#">Algorithm Analysis</a></li>
+    <li class="nav-item"><a href="#">Basic Data Structures</a></li>
+    <li class="nav-item"><a href="#">Recursion Revisited</a></li>
+    <li class="nav-item"><a href="#">Searching and Sorting</a></li>
+    <li class="nav-item"><a href="#">Trees</a></li>
+    <li class="nav-item"><a href="#">Graphs</a></li>
+    <li class="nav-item"><a href="#">Math and Physics</a></li>
+    <li class="nav-item"><a href="#">Artificial Intelligence</a></li>
+</ul>
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger"></label>
+<div class="site-wrap">
+<iframe src="introduction.html" height="100%" width="100%" frameBorder="0" name="content">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+</div>
+</body>
+</html>
