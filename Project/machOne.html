@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Music Theory</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!-- polyfill -->
+	<script src="./JS/Base64.js" type="text/javascript"></script>
+	<script src="./JS/Base64binary.js" type="text/javascript"></script>
+	<script src="./JS/WebAudioAPI.js" type="text/javascript"></script>
+	<!-- midi.js package -->
+	<script src="./JS/audioDetect.js" type="text/javascript"></script>
+	<script src="./JS/gm.js" type="text/javascript"></script>
+	<script src="./JS/loader.js" type="text/javascript"></script>
+	<script src="./JS/plugin.audiotag.js" type="text/javascript"></script>
+	<script src="./JS/plugin.webaudio.js" type="text/javascript"></script>
+	<script src="./JS/plugin.webmidi.js" type="text/javascript"></script>
+	<!-- utils -->
+	<script src="./JS/dom_request_xhr.js" type="text/javascript"></script>
+	<script src="./JS/dom_request_script.js" type="text/javascript"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<style type="text/css">
+html,body {
+	padding:0; 
+	margin:0;
+	font-family: 'Roboto', sans-serif;
+	margin:0;
+}
+.header{
+	background-color:#3F51B5;
+	width:100%;
+	padding:16px;
+}
+.header h1{
+	margin:0;
+	margin-left:4%;
+	color:white;
+	font-size:300%;
+}
+.paragraph{
+	width:86%;
+	margin-left:8%;
+	margin-bottom:4%;
+	border-bottom:thin solid gray;
+}
+.paragraph h1{
+	margin-left:0%;
+	font-size:250%;
+}
+.paragraph p{
+	margin-left:4%;
+	margin-right:4%;
+	font-size:150%;
+}
+.paragraph li{
+	margin-left:4%;
+	margin-right:4%;
+	font-size:150%;
+	list-style-type:disc;
+	cursor:default;
+}
+.playChord{
+  margin:3em auto; position:relative; 
+	background-color:red;
+	width:200px;
+	text-align:center;
+	font-size:150%;
+	padding:16px;
+	color:white;
+	border-radius:4%;
+	cursor:pointer;
+}
+.playChord:hover{
+	background-color:green;
+}
+/*PIANO-------------------------------------------------*/
+/*Sauce: http://codepen.io/zastrow/pen/oDBki*/
+* { box-sizing:border-box; }
+ul {
+	height:18.875em; width:38em;
+  margin:5em auto; padding:3em 0 0 3em; position:relative; 
+  border:1px solid #160801; border-radius:1em; 
+  background:-webkit-gradient(linear, right bottom, left top, color-stop(0%,rgba(0,0,0,0.3)), color-stop(100%,rgba(0,0,0,0))), url('http://f.cl.ly/items/2q1f3t0C3R1b0g081w3n/vwood.png');
+box-shadow:0 0 50px rgba(0,0,0,0.5) inset, 0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5); }
+li { margin:0; padding:0; list-style:none; position:relative; float:left; cursor:pointer;}
+
+ul .white {
+	height:16em; width:4em; z-index:1;
+	border-left:1px solid #bbb;
+	border-bottom:1px solid #bbb;
+	border-radius:0 0 5px 5px;
+	box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0,0,0,0.2);
+	background: white;
+}
+
+ul .white:active {
+	border-top:1px solid #777;
+	border-left:1px solid #999;
+	border-bottom:1px solid #999;
+	box-shadow:2px 0 3px rgba(0,0,0,0.1) inset, -5px 5px 20px rgba(0,0,0,0.2) inset,0 0 3px rgba(0,0,0,0.2);
+	background: linear-gradient(top, #fff 0%,#e9e9e9 100%);
+}
+ul .good:hover {
+	background:green;
+}
+ul .bad:hover {
+	background:red;
+}
+ul .on {
+	background:green;
+}
+ul .off {
+	background:red;
+}
+
+.black {
+	height:8em; width:2em; margin:0 0 0 -1em; z-index:2;
+	border:1px solid #000;
+	border-radius:0 0 3px 3px;
+	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -5px 2px 3px rgba(0,0,0,0.6) inset, 0 2px 4px rgba(0,0,0,0.5);
+	background:linear-gradient(45deg, #222 0%,#555 100%);
+}
+
+.black:active {
+	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -2px 2px 3px rgba(0,0,0,0.6) inset, 0 1px 2px rgba(0,0,0,0.5);
+	background:linear-gradient(left, #444 0%,#222 100%);
+}
+.letter{
+	margin-top:200px;
+	color:transparent;
+}
+li:hover .letter{
+	color:black;
+}
+.a,.g,.f,.d,.c { margin:0 0 0 -1em;  }
+
+ul li:first-child { border-radius:5px 0 5px 5px; }
+ul li:last-child { border-radius:0 5px 5px 5px; }
+/*PIANO-------------------------------------------------*/
+</style>
+</head>
+<body>
+<div class="header">
+<h1>Music Theory</h1>
+</div>
+<div class="paragraph">
+	<h1>Introduction</h1>
+	<br>
+	<p>Over the past two days I have begun to teach myself music theory. I figured the best way to solidify my knowledge would be to teach other people what I have learned so far in as simple a way possible.</p>
+	<br>
+	<p>If you can memorize 7 patterns, you can learn most popular songs on piano. These patterns are not even that challenging to memorize! All they require is the ability to count to 12. So, without further ado, let's learn some chords!</p>
+</div>
+<div class="paragraph">
+	<h1>1. Major Chords</h1>
+	<p>A major chord is one of four types of <b>triads</b>. A triad is a chord containing three notes. A triad consists of:</p>
+	<li>A <b>Root</b> note</li>
+	<br>
+	<br>
+	<li>A <b>Major 3rd</b></li>
+	<br>
+	<br>
+	<li>And a <b>Perfect 5th</b></li>
+	<br>
+	<br>
+	<p><b>Root Note</b><br>A Root Note is the identifying note in a chord. As an example, an F, or F major chord will be written like this:
+	</p>
+	<li>F</li> 
+	<br>
+	<br>
+	<li>Fmaj</li>
+	<br>
+	<p>
+	Note that an F is the same thing as an Fmaj, these are just two different ways to write the chord. The first way is short-hand, and the second way contains the chord <b>quality</b> (maj, or major). On a piano, an F major (or F) looks like this... 
+	</p>
+</div>
+<ul class="set">
+  <li class="white b on" onClick="playNote(53)"><center class="letter">F</center></li>
+  <li class="black as" onClick="playNote(54)"></li>
+  <li class="white a" onClick="playNote(55)"><center class="letter">G</center></li>
+  <li class="black gs" onClick="playNote(56)"></li>
+  <li class="white g on" onClick="playNote(57)"><center class="letter">A</center></li>
+  <li class="black fs" onClick="playNote(58)"></li>
+  <li class="white f" onClick="playNote(59)"><center class="letter">B</center></li>
+  <li class="white e on" onClick="playNote(60)"><center class="letter">C</center></li>
+  <li class="black ds" onClick="playNote(61)"></li>
+	<li class="white d" onClick="playNote(62)"><center class="letter">D</center></li>
+	<li class="black cs" onClick="playNote(63)"></li>
+	<li class="white c" onClick="playNote(64)"><center class="letter">E</center></li>
+  <li class="white b" onClick="playNote(65)"><center class="letter">F</center></li>
+</ul>
+<div class="playChord" onClick="playChord(53, 57, 60)">
+	<b>Play Chord</b>
+</div>
+<div class="paragraph">
+	<p><b>Major 3rd</b><br>As I said in the introduction, I will only be teaching you seven patterns. Our first pattern comes from the chord quality of an F major. Any time your chord quality is major, there is a pattern for the <b>interval</b> between the notes. The interval between the root note and the next note in the chord is referred to as a <b>major 3rd</b>. Every major chord's <b>major 3rd</b> is four notes above the root note (including the black notes!). Again, this works for EVERY ROOT NOTE!</p>
+	<li>Major 3rd = 4 notes above Root note.</li>
+	<br>
+	<br>
+	<br>
+	<p>
+	For practice, try and determine the <b>root</b> and <b>major 3rd</b> for a G major chord below. Hovering over the correct notes will change the color so you can know if you are correct. Additionally, feel free to click the keys! I am awesome and made all the pianos interactive.
+	</p>
+</div>
+<ul class="set">
+  <li class="white b bad" onClick="playNote(53)"><center class="letter">F</center></li>
+  <li class="black as bad" onClick="playNote(54)"></li>
+  <li class="white a good" onClick="playNote(55)"><center class="letter">G</center></li>
+  <li class="black gs bad" onClick="playNote(56)"></li>
+  <li class="white g bad" onClick="playNote(57)"><center class="letter">A</center></li>
+  <li class="black fs bad" onClick="playNote(58)"></li>
+  <li class="white f good" onClick="playNote(59)"><center class="letter">B</center></li>
+  <li class="white e bad" onClick="playNote(60)"><center class="letter">C</center></li>
+  <li class="black ds bad" onClick="playNote(61)"></li>
+	<li class="white d bad" onClick="playNote(62)"><center class="letter">D</center></li>
+	<li class="black cs bad" onClick="playNote(63)"></li>
+	<li class="white c bad" onClick="playNote(64)"><center class="letter">E</center></li>
+  <li class="white b bad" onClick="playNote(65)"><center class="letter">F</center></li>
+</ul>
+<div class="paragraph">
+	<p>Another way to think of intervals is with <b>whole steps</b> and <b>half steps</b>. A whole step is simply an interval of two notes, and a half step is an interval of 1 note. 
+	</p>
+	<br>
+	<br>
+	<li>Half step = 1 note</li>
+	<br>
+	<br>
+	<li>Whole step = 2 notes</li>
+	<br>
+	<br>
+	<p><b>Perfect 5th</b><br>The final interval you have to memorize is called a <b>Perfect 5th</b>. A perfect 5th is 7 notes above your root note, and therefore 3 notes above your major 3rd.</p>
+	<li>Perfect 5th = 7 notes above Root note.</li>
+	<br>
+	<br>
+	<p>Now that you know all the notes in a major chord, try the root note, major 3rd, and perfect 5th of a G major by hovering over the piano below.</p>
+</div>
+<ul class="set">
+  <li class="white b bad" onClick="playNote(53)"><center class="letter">F</center></li>
+  <li class="black as bad" onClick="playNote(54)"></li>
+  <li class="white a good" onClick="playNote(55)"><center class="letter">G</center></li>
+  <li class="black gs bad" onClick="playNote(56)"></li>
+  <li class="white g bad" onClick="playNote(57)"><center class="letter">A</center></li>
+  <li class="black fs bad" onClick="playNote(58)"></li>
+  <li class="white f good" onClick="playNote(59)"><center class="letter">B</center></li>
+  <li class="white e bad" onClick="playNote(60)"><center class="letter">C</center></li>
+  <li class="black ds bad" onClick="playNote(61)"></li>
+	<li class="white d good" onClick="playNote(62)"><center class="letter">D</center></li>
+	<li class="black cs bad" onClick="playNote(63)"></li>
+	<li class="white c bad" onClick="playNote(64)"><center class="letter">E</center></li>
+  <li class="white b bad" onClick="playNote(65)"><center class="letter">F</center></li>
+</ul>
+<div class="playChord" onClick="playChord(55, 59, 62)">
+	<b>Play Chord</b>
+</div>
+<div class="paragraph">
+	<p>Congratulations! You now know the pattern for EVERY major chord.</p>
+	<li>1: Find Root note.</li>
+	<br>
+	<br>
+	<br>
+	<li>2: Find Major 3rd (4 notes, or 2 whole steps above the Root note)</li>
+	<br>
+	<br>
+	<br>
+	<br>
+	<li>3: Find Perfect 5th (7 notes, or 3 whole steps and a half step above the Root note)</li>
+	<br>
+	<br>
+	<br>
+	<p>Just to solidify the pattern, try to find the notes for a G Sharp Major chord (G Sharp is a half step, or 1 note, above G).</p>
+</div>
+<ul class="set">
+  <li class="white b bad" onClick="playNote(53)"><center class="letter">F</center></li>
+  <li class="black as bad" onClick="playNote(54)"></li>
+  <li class="white a bad" onClick="playNote(55)"><center class="letter">G</center></li>
+  <li class="black gs good" onClick="playNote(56)"></li>
+  <li class="white g bad" onClick="playNote(57)"><center class="letter">A</center></li>
+  <li class="black fs bad" onClick="playNote(58)"></li>
+  <li class="white f bad" onClick="playNote(59)"><center class="letter">B</center></li>
+  <li class="white e good" onClick="playNote(60)"><center class="letter">C</center></li>
+  <li class="black ds bad" onClick="playNote(61)"></li>
+	<li class="white d bad" onClick="playNote(62)"><center class="letter">D</center></li>
+	<li class="black cs good" onClick="playNote(63)"></li>
+	<li class="white c bad" onClick="playNote(64)"><center class="letter">E</center></li>
+  <li class="white b bad" onClick="playNote(65)"><center class="letter">F</center></li>
+</ul>
+<div class="playChord" onClick="playChord(56, 60, 63)">
+	<b>Play Chord</b>
+</div>
+<!--JS-->
+<script type="text/javascript">
+var playNote = function (Note) {
+	MIDI.loadPlugin({
+		soundfontUrl: "./soundfont/",
+		instrument: "acoustic_grand_piano",
+		onprogress: function(state, progress) {
+			console.log(state, progress);
+		},
+		onsuccess: function() {
+			var delay = 0; // play one note every quarter second
+			var note = Note; // the MIDI note
+			var velocity = 127; // how hard the note hits
+			// play the note
+			MIDI.setVolume(0, 127);
+			MIDI.noteOn(0, note, velocity, delay);
+			MIDI.noteOff(0, note, delay + 0.50);
+		}
+	});
+};
+var playChord = function (Note1, Note2, Note3) {
+	MIDI.loadPlugin({
+		soundfontUrl: "./soundfont/",
+		instrument: "acoustic_grand_piano",
+		onprogress: function(state, progress) {
+			console.log(state, progress);
+		},
+		onsuccess: function() {
+			var delay = 0; // play one note every quarter second
+			var note1 = Note1; // the MIDI note
+			var note2 = Note2; // the MIDI note
+			var note3 = Note3; // the MIDI note
+			var velocity = 127; // how hard the note hits
+			// play the note
+			MIDI.setVolume(0, 127);
+			MIDI.chordOn(0, [note1, note2, note3], velocity, delay);
+			MIDI.chordOff(0, [note1, note2, note3], delay + 1.75);
+		}
+	});
+};
+</script>
+</body>
+</html>
