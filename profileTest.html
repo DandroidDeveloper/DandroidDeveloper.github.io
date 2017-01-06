@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Daniel Marcoux</title>
+		<style>
+
+			html,body {
+				padding:0; 
+				margin:0;
+				font-family: 'Roboto', sans-serif;
+				margin:0;
+				background-color:#EEEEEE;
+			}	
+			.box{
+				height:200px;
+				width:200px;
+				background-color:red;
+				overflow:hidden;
+			}
+			.header{
+				width:100%;
+				background-color:#F44336;
+				text-align:center;
+				display:inline-block;
+				color:white;
+			}
+			.circle{
+				background-color:white;
+				opacity: 0.5;
+			}
+			.background img{
+				width:100%;
+				position:fixed;
+				top:0;
+				z-index:1;
+				-webkit-filter: brightness(50%); /* Safari 6.0 - 9.0 */
+    		filter: brightness(50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="background">
+			<img src="schoolOfAthens.png"></img>
+		</div>
+	</body>
+	<script>
+	function splash(event) {
+		var myDiv = document.getElementById("box");
+		var position = myDiv.getBoundingClientRect();
+		var x = position.left;
+		var y = position.top;
+		var newDiv = document.createElement("div");
+		newDiv.className = "circle";
+		newDiv.id = "circle";
+		console.log(newDiv.id);
+		newDiv.style.position = "relative";
+		document.getElementById("box").appendChild(newDiv);
+		var id = setInterval(draw, 1);
+		var i = 0;
+		function draw(){
+			if (i >= (myDiv.height * 3)){
+				clearInterval(id);
+			}
+			else {
+				i = i+10
+				newDiv.style.height = i + 'px';
+				newDiv.style.width = i + 'px';
+				newDiv.style.borderRadius = (i/2) + 'px';
+				newDiv.style.top = ((event.clientY -y) - (i/2)) + 'px';
+				newDiv.style.left = ((event.clientX -x) - (i/2)) + 'px';
+			}
+		}
+	}
+	function deleteCircle(event){
+		document.getElementById("circle").remove();
+	}
+	document.getElementById("box").addEventListener("mousedown", splash);
+	document.addEventListener("mouseup", deleteCircle);
+	</script>
+</html>
