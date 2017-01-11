@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>About</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			html,body {
+				padding:0; 
+				margin:0;
+				font-family: 'Roboto-Thin', sans-serif;
+				min-width:350px;
+				background-color:#FAFAFA;
+			}
+			.header{
+				width:100%;
+				height:56px;
+				background-color:none;
+			}
+			.headerItem{
+				background-color:none;
+				display:inline-block;
+				float:right;
+				margin:16px;
+				padding:8px;
+				cursor:pointer;
+			}
+			.underline{
+				margin-top:0px;
+				width:0%;
+				height:4px;
+				background-color:none;
+				border-radius:8px;
+				-webkit-transition: width .5s; /* For Safari 3.1 to 6.0 */
+				transition: width .5s;
+			}
+			.headerItem:hover .underline{
+				background-color:#3F51B5;
+				width:100%;
+				cursor:pointer;
+			}
+			.content{
+				background-color:none;
+				width:100%;
+				height:500px;
+				text-align:center;
+				padding-top:72px;
+			}
+			.profilePic{
+				height:150px;
+				width:150px;
+				border-radius:75px;
+			}
+			.name{
+				font-size:250%;
+			}
+			.intro{
+				font-size:150%;
+			}
+			.seperator{
+				border-bottom:thin solid gray;
+				margin:auto;
+				width:500px;
+				margin-bottom:32px;
+			}
+			.paragraph{
+				width:500px;
+				background-color:none;
+   		  margin: auto;
+				margin-bottom:56px;
+			}
+			.bulletPoint{
+				float:left;
+				width:100px;
+				height:100px;
+				background-color:none;
+				margin-right:32px;
+			}
+			.computer{
+				width:100px;
+				height:70px;
+				background-color:#424242;
+				border-radius:8px;
+				position:absolute;
+				box-shadow: 2px 4px 5px #888888;
+			}
+			.screen{
+				width:80px;
+				height:50px;
+				background-color:white;
+				position:absolute;
+				margin-top:10px;
+				margin-left:10px;
+			}
+			.webcam{
+				position:absolute;
+				margin-top:2.5px;
+				margin-left:47.5px;
+				height:5px;
+				width:5px;
+				border-radius:2.5px;
+				background-color:#EEEEEE;
+			}
+			.trapezoid {
+				position:absolute;
+				margin-top:70px;
+				margin-left:30px;
+				border-bottom: 20px solid #BDBDBD;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				height: 0;
+				width: 20px;
+			}
+			.base{
+				width:60px;
+				height:5px;
+				position:absolute;
+				margin-top:90px;
+				margin-left:20px;
+				background-color:#9E9E9E;
+			}
+			.heading {
+				font-size:150%;
+				margin-bottom:8px;
+			}
+			.description{
+				width:384px;
+				margin-left:132px;
+				background-color:none;
+				text-align:left;
+			}
+			.description p{
+				line-height:200%;
+				margin-top:0;
+    		opacity: 0.70;
+			}
+		</style>
+	</head>
+	<body onload="markAboutActive()">
+		<div class="header">
+			<div class="headerItem" id="about">
+				About
+				<div class="underline" id="aboutUnderline"></div>
+			</div>
+			<div class="headerItem" id="github">
+				Github
+				<div class="underline"></div>
+			</div>
+			<div class="headerItem" id="resume">
+				Resume
+				<div class="underline"></div>
+			</div>
+			<div class="headerItem" id="website">
+				Website
+				<div class="underline"></div>
+			</div>
+		</div>
+		<div class="content">
+			<img src="profile.png" class="profilePic"></img>
+			<h1 class="name">Daniel Marcoux</h1>
+			<p class="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#3F51B5;">computer science</span></p>
+			<div class="seperator"></div>
+
+			<div class="paragraph">
+				<div class="bulletPoint">
+					<div class="computer"></div>
+					<div class="screen"></div>
+					<div class="webcam"></div>
+					<div class="trapezoid"></div>
+					<div class="base"></div>
+				</div>
+				<div class="description">
+					<div class="heading">Website</div>
+					<p>My collection of notes that I have kept about various projects. Topics include Mathematics, Computer Science, and Music Theory.</p>
+				</div>
+			</div>
+
+			<div class="paragraph">
+				<div class="bulletPoint"></div>
+				<div class="description">
+					<div class="heading">Website</div>
+					<p>My collection of notes that I have kept about various projects. Topics include Mathematics, Computer Science, and Music Theory.</p>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script>
+		function markAboutActive(){
+			document.getElementById("aboutUnderline").style.width = "100%";
+			document.getElementById("aboutUnderline").style.backgroundColor = "#3F51B5";
+		};
+	</script>
+</html>
