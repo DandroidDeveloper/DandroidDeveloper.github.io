@@ -34,10 +34,12 @@
 				opacity: 0.25;
 			}
 			.underline{
-				width:100%;
-				background-color:black;
+				width:0%;
+				background-color:#3F51B5;
 				height:2px;
 				margin-top:-26px;
+				-webkit-transition: width .5s; /* For Safari 3.1 to 6.0 */
+				transition: width .5s;
 			}
 			.info{
 				width:100%;
@@ -62,25 +64,146 @@
 				width:500px;
 				margin-bottom:32px;
 			}
+			.websiteInfo{
+				margin:auto;
+				margin-bottom:56px;
+				width:500px;
+				background-color:none;
+				-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+			}
+			.bulletPoint{
+				float:left;
+				width:100px;
+				height:100px;
+				margin-right:32px;
+			}
+			.computer{
+				width:100px;
+				height:70px;
+				background-color:#424242;
+				border-radius:8px;
+				position:absolute;
+				box-shadow: 2px 4px 5px #888888;
+				-webkit-transition: width 1s, height 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+			}
+			.screen{
+				width:80px;
+				height:50px;
+				background-color:white;
+				position:absolute;
+				margin-top:10px;
+				margin-left:10px;
+				-webkit-transition: width 1s, height 1s, margin 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s, margin 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+			}
+			.webcam{
+				position:absolute;
+				margin-top:2.5px;
+				margin-left:47.5px;
+				height:5px;
+				width:5px;
+				border-radius:2.5px;
+				background-color:#EEEEEE;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+			}
+			.trapezoid {
+				position:absolute;
+				margin-top:70px;
+				margin-left:30px;
+				border-bottom: 20px solid #BDBDBD;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				height: 0;
+				width: 20px;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+			}
+			.base{
+				width:60px;
+				height:5px;
+				position:absolute;
+				margin-top:90px;
+				margin-left:20px;
+				background-color:#9E9E9E;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+			}
+			.heading {
+				font-size:150%;
+				margin-bottom:8px;
+				cursor:pointer;
+				color:#3F51B5;
+			}
+			.description{
+				width:384px;
+				margin-left:132px;
+				background-color:none;
+				text-align:left;
+			}
+			.description p{
+				line-height:200%;
+				margin-top:0;
+			}
 		</style>
 	</header>
-	<body>
+	<body onload="markActive('aboutUnderline')">
+
 		<div class="header">
-			<div class="headerItem" id="github">Github<div class="underline"></div></div>
-			<div class="headerItem" id="resume">Resume<div class="underline"></div></div>
-			<div class="headerItem" id="website">Website<div class="underline"></div></div>
-			<div class="headerItem" id="about">About<div class="underline"></div></div>
+			<div class="headerItem" id="github">Github<div class="underline" id="githubUnderline"></div></div>
+			<div class="headerItem" id="resume">Resume<div class="underline" id="resumeUnderline"></div></div>
+			<div class="headerItem" id="website">Website<div class="underline" id="websiteUnderline"></div></div>
+			<div class="headerItem" id="about">About<div class="underline" id="aboutUnderline"></div></div>
 		</div>
 		<div class="info">
 			<img src="profile.png" class="profilePic"></img>
-			<h1 class="name" id="myName">Daniel Marcoux</h1>
-			<p class="intro" id="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#E91E63;">computer science</span></p>
-			<div class="seperator" id="seperator"></div>
+			<h1 class="name">Daniel Marcoux</h1>
+			<p class="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#E91E63;">computer science</span></p>
+			<div class="seperator"></div>
 		</div>
+
+		<div class="websiteInfo" id="websiteInfo">
+				<div class="bulletPoint">
+					<div class="computer" id="computer"></div>
+					<div class="screen" id="screen"></div>
+					<div class="webcam" id="webcam"></div>
+					<div class="trapezoid" id="trapezoid"></div>
+					<div class="base" id="base"></div>
+				</div>
+				<div class="description">
+					<div class="heading" onclick="markActive('websiteUnderline');">Website</div>
+					<p>
+						My collection of notes that I have kept about various projects. Topics include Mathematics, Computer Science, and Music Theory.
+					</p>
+				</div>
+		</div>
+
 	</body>
 	<script>
+		//Splash Animation
+		////////////////////////
+
 		function splash(event) {
 			var ID = event.toElement.id;
+			markActive(ID+'Underline');
 			var myDiv = document.getElementById(ID);
 			var position = myDiv.getBoundingClientRect();
 			var x = position.left;
@@ -114,5 +237,50 @@
 		document.getElementById("website").addEventListener("mousedown", splash);
 		document.getElementById("resume").addEventListener("mousedown", splash);
 		document.getElementById("github").addEventListener("mousedown", splash);
+		////////////////////////////////////////////////////////////////////////
+
+		//Underline Animation
+		////////////////////////////
+		function markActive(ID){
+			var idList = ['about', 'website', 'resume', 'github'];
+			var i;
+			for (i in idList){
+				if ((idList[i]+'Underline') == ID){
+				animationHandler(idList[i]);
+				document.getElementById(ID).style.width = "100%";
+				}
+				else{
+					markInactive(idList[i]+'Underline');
+				}
+			}
+		};
+		function markInactive(someID){
+			document.getElementById(someID).style.width = "0%";
+		};
+		//
+		
+		//Animation Handler
+		//////////////////////////////
+		function animationHandler(ID){
+			if (ID == 'website'){
+				websiteClick();
+			}
+		};
+		//
+
+		//Website Animation
+		function websiteClick(){
+		  var w = window.innerWidth;
+		  var h = window.innerHeight;
+			document.getElementById('websiteInfo').style.width = '100%';
+			document.getElementById('computer').style.width = w+'px';
+			document.getElementById('computer').style.height = '100%';
+			document.getElementById('screen').style.margin = '4%';
+			document.getElementById('screen').style.width = '92%';
+			document.getElementById('screen').style.height = '92%';
+			document.getElementById('webcam').style.opacity = '0';
+			document.getElementById('trapezoid').style.opacity = '0';
+			document.getElementById('base').style.opacity = '0';
+		};
 	</script>
 </html>

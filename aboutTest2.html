@@ -270,9 +270,11 @@
 
 		//Website Animation
 		function websiteClick(){
+		  var w = window.innerWidth;
+		  var h = window.innerHeight;
 			document.getElementById('websiteInfo').style.width = '100%';
-			document.getElementById('computer').style.width = '100%';
-			document.getElementById('computer').style.height = '100%';
+			document.getElementById('computer').style.width = w+'px';
+			document.getElementById('computer').style.height = h+'px';
 			document.getElementById('screen').style.margin = '4%';
 			document.getElementById('screen').style.width = '92%';
 			document.getElementById('screen').style.height = '92%';
