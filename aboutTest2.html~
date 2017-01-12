@@ -270,7 +270,7 @@
 
 		//Website Animation
 		function websiteClick(){
-		  var w = window.innerWidth;
+		  var w = document.body.scrollWidth;
 		  var h = window.innerHeight;
 			document.getElementById('websiteInfo').style.width = '100%';
 			document.getElementById('computer').style.width = (w - 16)+'px';
