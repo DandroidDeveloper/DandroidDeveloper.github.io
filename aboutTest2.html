@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>About</title>
+	<title>Daniel Marcoux</title>
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style type="text/css">
@@ -154,8 +154,8 @@
 				height: 0;
 				width: 20px;
 				opacity:1;
-				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
-				transition: opacity 1s;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
 				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
@@ -188,11 +188,20 @@
 				line-height:200%;
 				margin-top:0;
 			}
-			.websiteIframe{
-				width:100px;
+			.websiteFrame{
 				height:100px;
+				background-color:transparent;
 				position:absolute;
-				background-color:red;
+				top:92px;
+				left:16px;
+			}
+			.websiteIframe{
+				width:0%;
+				height:0%;
+				-webkit-transition: width 1s, height 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 		</style>
 	</header>
@@ -294,7 +303,9 @@
 		//////////////////////////////
 		function animationHandler(ID){
 			if (ID == 'website'){
-				websiteClick();
+				websiteClick( function(){
+					styleWebsiteIframe();
+				});
 			}
 			if (ID == 'about'){
 				aboutClick();
@@ -303,7 +314,8 @@
 		//
 
 		//Website Animation
-		function websiteClick(){
+		////////////////////////
+		function websiteClick(callback){
 		  var w = window.innerWidth;
 		  var h = (window.innerHeight - 80);
 			document.getElementById('info').style.height = '0px';
@@ -321,24 +333,42 @@
 			document.getElementById('webcam').style.opacity = '0';
 			document.getElementById('trapezoid').style.opacity = '0';
 			document.getElementById('base').style.opacity = '0';
+			var newDiv = document.createElement("div");
+			newDiv.className = "websiteFrame";
+			newDiv.id = "websiteFrame";
+			document.body.append(newDiv);
+			document.getElementById('websiteFrame').style.width = (w - 32)+'px';
+			document.getElementById('websiteFrame').style.height = (h - 32)+'px';
+			document.getElementById('websiteFrame').innerHTML = '<iframe src="cardAnim.html" class="websiteIframe" id="websiteIframe"></iframe>';
+			callback && callback();
 		};
 
-	function aboutClick(){
-			document.getElementById('info').style.height = '350px';
-			document.getElementById('info').style.padding = '72px 0px 0px 0px';
-			document.getElementById('profilePic').style.opacity = '1';
-			document.getElementById('myName').style.opacity = '1';
-			document.getElementById('intro').style.opacity = '1';
-			document.getElementById('seperator').style.opacity = '1';
-			document.getElementById('websiteInfo').style.width = '500px';
-			document.getElementById('computer').style.width = '100px';
-			document.getElementById('computer').style.height = '70px';
-			document.getElementById('screen').style.margin = '10px';
-			document.getElementById('screen').style.width = '80px';
-			document.getElementById('screen').style.height = '50px';;
-			document.getElementById('webcam').style.opacity = '1';
-			document.getElementById('trapezoid').style.opacity = '1';
-			document.getElementById('base').style.opacity = '1';
-	};
+		function styleWebsiteIframe(){
+			setTimeout( function(){
+					document.getElementById('websiteIframe').style.width = '100%';
+					document.getElementById('websiteIframe').style.height = '100%';
+			}, 1000 );
+		};
+
+		function aboutClick(){
+				if (document.getElementById("websiteFrame") != null){
+					document.getElementById("websiteFrame").remove();
+				}
+				document.getElementById('info').style.height = '350px';
+				document.getElementById('info').style.padding = '72px 0px 0px 0px';
+				document.getElementById('profilePic').style.opacity = '1';
+				document.getElementById('myName').style.opacity = '1';
+				document.getElementById('intro').style.opacity = '1';
+				document.getElementById('seperator').style.opacity = '1';
+				document.getElementById('websiteInfo').style.width = '500px';
+				document.getElementById('computer').style.width = '100px';
+				document.getElementById('computer').style.height = '70px';
+				document.getElementById('screen').style.margin = '10px';
+				document.getElementById('screen').style.width = '80px';
+				document.getElementById('screen').style.height = '50px';;
+				document.getElementById('webcam').style.opacity = '1';
+				document.getElementById('trapezoid').style.opacity = '1';
+				document.getElementById('base').style.opacity = '1';
+		};
 	</script>
 </html>

@@ -304,8 +304,8 @@
 
 		//Website Animation
 		function websiteClick(){
-		  var w = document.body.scrollWidth;
-		  var h = (window.innerHeight - 72);
+		  var w = window.innerWidth;
+		  var h = (window.innerHeight - 80);
 			document.getElementById('info').style.height = '0px';
 			document.getElementById('info').style.padding = '0px 0px 0px 0px';
 			document.getElementById('profilePic').style.opacity = '0';
@@ -313,15 +313,14 @@
 			document.getElementById('intro').style.opacity = '0';
 			document.getElementById('seperator').style.opacity = '0';
 			document.getElementById('websiteInfo').style.width = '100%';
-			document.getElementById('computer').style.width = (w - 16)+'px';
+			document.getElementById('computer').style.width = (w)+'px';
 			document.getElementById('computer').style.height = h+'px';
 			document.getElementById('screen').style.margin = '16px';
-			document.getElementById('screen').style.width = (w - 48)+'px';
+			document.getElementById('screen').style.width = (w - 32)+'px';
 			document.getElementById('screen').style.height = (h - 32)+'px';;
 			document.getElementById('webcam').style.opacity = '0';
 			document.getElementById('trapezoid').style.opacity = '0';
 			document.getElementById('base').style.opacity = '0';
-
 		};
 
 	function aboutClick(){
