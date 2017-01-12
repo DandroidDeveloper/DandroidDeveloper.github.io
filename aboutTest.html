@@ -4,13 +4,12 @@
 	<title>About</title>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<style type="text/css">
 			html,body {
 				padding:0; 
 				margin:0;
-				min-width:500px;
 				font-family: 'Roboto-Thin', sans-serif;
+				min-width:500px;
 				background-color:#FAFAFA;
 			}
 			.header{
@@ -41,34 +40,57 @@
 				cursor:pointer;
 			}
 			.content{
-				background-color:none;
 				width:100%;
-				height:500px;
 				text-align:center;
 				padding-top:72px;
+				-webkit-transition: padding 1s; /* For Safari 3.1 to 6.0 */
+				transition: padding 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.profilePic{
 				height:150px;
 				width:150px;
+				opacity:1;
 				border-radius:75px;
+				-webkit-transition: opacity 1s, height 1s, width 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s, height  1s, width 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.name{
 				font-size:250%;
+				-webkit-transition: font-size 1s; /* For Safari 3.1 to 6.0 */
+				transition: font-size 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.intro{
 				font-size:150%;
+				-webkit-transition: font-size 1s; /* For Safari 3.1 to 6.0 */
+				transition: font-size 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.seperator{
 				border-bottom:thin solid gray;
 				margin:auto;
 				width:500px;
 				margin-bottom:32px;
+				-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.paragraph{
 				width:500px;
 				background-color:none;
    		  margin: auto;
 				margin-bottom:56px;
+				-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.bulletPoint{
 				float:left;
@@ -84,6 +106,11 @@
 				border-radius:8px;
 				position:absolute;
 				box-shadow: 2px 4px 5px #888888;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.screen{
 				width:80px;
@@ -92,6 +119,10 @@
 				position:absolute;
 				margin-top:10px;
 				margin-left:10px;
+				-webkit-transition: width 1s, height 1s, background-color 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s background-color 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.webcam{
 				position:absolute;
@@ -101,6 +132,11 @@
 				width:5px;
 				border-radius:2.5px;
 				background-color:#EEEEEE;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.trapezoid {
 				position:absolute;
@@ -111,6 +147,11 @@
 				border-right: 10px solid transparent;
 				height: 0;
 				width: 20px;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.base{
 				width:60px;
@@ -119,25 +160,44 @@
 				margin-top:90px;
 				margin-left:20px;
 				background-color:#9E9E9E;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.heading {
 				font-size:150%;
 				margin-bottom:8px;
+				cursor:pointer;
+				color:#3F51B5;
+				-webkit-transition: font-size 1s; /* For Safari 3.1 to 6.0 */
+				transition: font-size 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.description{
 				width:384px;
 				margin-left:132px;
 				background-color:none;
 				text-align:left;
+				-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.description p{
 				line-height:200%;
 				margin-top:0;
     		opacity: 0.70;
+				-webkit-transition: font-size 1s; /* For Safari 3.1 to 6.0 */
+				transition: font-size 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 		</style>
 	</head>
-	<body onload="markAboutActive()">
+	<body onload="markActive('aboutUnderline')">
 		<div class="header">
 			<div class="headerItem" id="about">
 				About
@@ -151,45 +211,77 @@
 				Resume
 				<div class="underline"></div>
 			</div>
-			<div class="headerItem" id="website">
+			<div class="headerItem" id="website" onclick="websiteClick();">
 				Website
-				<div class="underline"></div>
+				<div class="underline" id="websiteUnderline"></div>
 			</div>
 		</div>
-		<div class="content">
-			<img src="profile.png" class="profilePic"></img>
-			<h1 class="name">Daniel Marcoux</h1>
-			<p class="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#3F51B5;">computer science</span></p>
-			<div class="seperator"></div>
+		<div class="content" id="content">
+			<img src="profile.png" class="profilePic" id="profilePic"></img>
+			<h1 class="name" id="myName">Daniel Marcoux</h1>
+			<p class="intro" id="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#E91E63;">computer science</span></p>
+			<div class="seperator" id="seperator"></div>
 
-			<div class="paragraph">
+			<div class="paragraph" id="paragraph1">
 				<div class="bulletPoint">
-					<div class="computer"></div>
-					<div class="screen"></div>
-					<div class="webcam"></div>
-					<div class="trapezoid"></div>
-					<div class="base"></div>
+					<div class="computer" id="computer"></div>
+					<div class="screen" id="screen"></div>
+					<div class="webcam" id="webcam"></div>
+					<div class="trapezoid" id="trapezoid"></div>
+					<div class="base" id="base"></div>
 				</div>
-				<div class="description">
-					<div class="heading">Website</div>
-					<p>My collection of notes that I have kept about various projects. Topics include Mathematics, Computer Science, and Music Theory.</p>
-				</div>
-			</div>
-
-			<div class="paragraph">
-				<div class="bulletPoint"></div>
-				<div class="description">
-					<div class="heading">Website</div>
-					<p>My collection of notes that I have kept about various projects. Topics include Mathematics, Computer Science, and Music Theory.</p>
+				<div class="description" id="description1">
+					<div class="heading" onclick = "websiteClick();" id="heading1">Website</div>
+					<p id="p1">My collection of notes that I have kept about various projects. Topics include Mathematics, Computer Science, and Music Theory.</p>
 				</div>
 			</div>
 
 		</div>
 	</body>
 	<script>
-		function markAboutActive(){
-			document.getElementById("aboutUnderline").style.width = "100%";
-			document.getElementById("aboutUnderline").style.backgroundColor = "#3F51B5";
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		};
+		function markActive(someID){
+			document.getElementById(someID).style.width = "100%";
+			document.getElementById(someID).style.backgroundColor = "#3F51B5";
+		};
+		function markInactive(someID){
+			document.getElementById(someID).style.width = "0%";
+			document.getElementById(someID).style.backgroundColor = "#3F51B5";
+		};
+		function websiteClick(){
+			websiteAnimation();
+			clearDom();
+		};
+		function websiteAnimation(){
+			document.body.style.overflow = "hidden";
+			document.getElementById("profilePic").style.opacity = "0";
+			document.getElementById("profilePic").style.height = "0px";
+			document.getElementById("profilePic").style.width = "0px";
+			document.getElementById("seperator").style.width = "0px";
+			document.getElementById("content").style.padding = "0px";
+			document.getElementById("myName").style.fontSize = "0";
+			document.getElementById("intro").style.fontSize = "0";
+			document.getElementById("description1").style.width = "0px";
+			document.getElementById("heading1").style.fontSize = "0px";
+			document.getElementById("p1").style.fontSize = "0px";
+			document.getElementById("screen").style.width = "100%";
+			document.getElementById("screen").style.height = "100%";
+			document.getElementById("screen").style.backgroundColor = "#FAFAFA";
+			document.getElementById("paragraph1").style.width = "100%";
+			document.getElementById("computer").style.opacity = "0";
+			document.getElementById("webcam").style.opacity = "0";
+			document.getElementById("trapezoid").style.opacity = "0";
+			document.getElementById("base").style.opacity = "0";
+			markActive('websiteUnderline');
+			markInactive('aboutUnderline');
+		};
+		async function clearDom(){
+			await sleep(1000);
+			console.log("sup");
+			document.getElementById("profilePic").style.display = "none";
+			document.getElementById("paragraph1").style.display = "none";
 		};
 	</script>
 </html>
