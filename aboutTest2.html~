@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>About</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			html,body {
+				padding:0; 
+				margin:0;
+				font-family: 'Roboto-Thin', sans-serif;
+				min-width:500px;
+				background-color:#FAFAFA;
+			}
+			.header{
+				width:100%;
+				display:inline-block;
+				background-color:none;
+			}
+			.headerItem{
+				line-height:5;
+				position:relative;
+				float:right;
+				cursor:pointer;
+				text-align:center;
+				background-color:none;
+				height:56px;
+				width:100px;
+				overflow:hidden;
+				margin:8px 16px 8px 0px;
+			}
+			.circle{
+				background-color:gray;
+				opacity: 0.25;
+			}
+			.underline{
+				width:100%;
+				background-color:black;
+				height:2px;
+				margin-top:-26px;
+			}
+			.info{
+				width:100%;
+				background-color:none;
+				text-align:center;
+				padding-top:72px;
+			}
+			.profilePic{
+				height:150px;
+				width:150px;
+				border-radius:75px;
+			}
+			.name{
+				font-size:250%;
+			}
+			.intro{
+				font-size:150%;
+			}
+			.seperator{
+				border-bottom:thin solid gray;
+				margin:auto;
+				width:500px;
+				margin-bottom:32px;
+			}
+		</style>
+	</header>
+	<body>
+		<div class="header">
+			<div class="headerItem" id="github">Github<div class="underline"></div></div>
+			<div class="headerItem" id="resume">Resume<div class="underline"></div></div>
+			<div class="headerItem" id="website">Website<div class="underline"></div></div>
+			<div class="headerItem" id="about">About<div class="underline"></div></div>
+		</div>
+		<div class="info">
+			<img src="profile.png" class="profilePic"></img>
+			<h1 class="name" id="myName">Daniel Marcoux</h1>
+			<p class="intro" id="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#E91E63;">computer science</span></p>
+			<div class="seperator" id="seperator"></div>
+		</div>
+	</body>
+	<script>
+		function splash(event) {
+			var ID = event.toElement.id;
+			var myDiv = document.getElementById(ID);
+			var position = myDiv.getBoundingClientRect();
+			var x = position.left;
+			var y = position.top;
+			var newDiv = document.createElement("div");
+			newDiv.className = "circle";
+			newDiv.id = "circle";
+			newDiv.style.position = "relative";
+			document.getElementById(ID).appendChild(newDiv);
+			var id = setInterval(draw, 1);
+			var i = 0;
+			function draw(){
+				if (i >= (myDiv.height * 3)){
+					clearInterval(id);
+				}
+				else {
+					i = i+10
+					newDiv.style.height = i + 'px';
+					newDiv.style.width = i + 'px';
+					newDiv.style.borderRadius = (i/2) + 'px';
+					newDiv.style.top = ((event.clientY -y) - (i/2)) + 'px';
+					newDiv.style.left = ((event.clientX -x) - (i/2)) + 'px';
+				}
+			}
+		document.addEventListener("mouseup", deleteCircle);
+		};
+		function deleteCircle(event){
+				document.getElementById("circle").remove();
+		};
+		document.getElementById("about").addEventListener("mousedown", splash);
+		document.getElementById("website").addEventListener("mousedown", splash);
+		document.getElementById("resume").addEventListener("mousedown", splash);
+		document.getElementById("github").addEventListener("mousedown", splash);
+	</script>
+</html>
