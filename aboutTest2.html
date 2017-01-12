@@ -56,18 +56,38 @@
 				height:150px;
 				width:150px;
 				border-radius:75px;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.name{
 				font-size:250%;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.intro{
 				font-size:150%;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.seperator{
 				border-bottom:thin solid gray;
 				margin:auto;
 				width:500px;
 				margin-bottom:32px;
+				opacity:1;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.websiteInfo{
 				margin:auto;
@@ -185,10 +205,10 @@
 			<div class="headerItem" id="about">About<div class="underline" id="aboutUnderline"></div></div>
 		</div>
 		<div class="info" id="info">
-			<img src="profile.png" class="profilePic"></img>
-			<h1 class="name">Daniel Marcoux</h1>
-			<p class="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#E91E63;">computer science</span></p>
-			<div class="seperator"></div>
+			<img src="profile.png" class="profilePic" id="profilePic"></img>
+			<h1 class="name" id="myName">Daniel Marcoux</h1>
+			<p class="intro" id="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#E91E63;">computer science</span></p>
+			<div class="seperator" id="seperator"></div>
 		</div>
 
 		<div class="websiteInfo" id="websiteInfo">
@@ -285,9 +305,13 @@
 		//Website Animation
 		function websiteClick(){
 		  var w = document.body.scrollWidth;
-		  var h = window.innerHeight;
+		  var h = (window.innerHeight - 72);
 			document.getElementById('info').style.height = '0px';
 			document.getElementById('info').style.padding = '0px 0px 0px 0px';
+			document.getElementById('profilePic').style.opacity = '0';
+			document.getElementById('myName').style.opacity = '0';
+			document.getElementById('intro').style.opacity = '0';
+			document.getElementById('seperator').style.opacity = '0';
 			document.getElementById('websiteInfo').style.width = '100%';
 			document.getElementById('computer').style.width = (w - 16)+'px';
 			document.getElementById('computer').style.height = h+'px';
@@ -303,6 +327,10 @@
 	function aboutClick(){
 			document.getElementById('info').style.height = '350px';
 			document.getElementById('info').style.padding = '72px 0px 0px 0px';
+			document.getElementById('profilePic').style.opacity = '1';
+			document.getElementById('myName').style.opacity = '1';
+			document.getElementById('intro').style.opacity = '1';
+			document.getElementById('seperator').style.opacity = '1';
 			document.getElementById('websiteInfo').style.width = '500px';
 			document.getElementById('computer').style.width = '100px';
 			document.getElementById('computer').style.height = '70px';
