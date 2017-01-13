@@ -91,8 +91,9 @@
 			}
 			.websiteInfo{
 				margin:auto;
-				margin-bottom:56px;
+				margin-bottom:50px;
 				width:500px;
+				height:150px;
 				background-color:none;
 				-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
 				transition: width 1s;
@@ -104,14 +105,24 @@
 				width:100px;
 				height:100px;
 				margin-right:32px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.bulletPoint1{
 				float:left;
 				width:100px;
 				height:100px;
 				border-radius:50px;
-				background-color:#E91E63;
+				background-color:#4CAF50;
 				margin-right:32px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.bulletPoint2{
 				float:left;
@@ -120,6 +131,11 @@
 				border-radius:50px;
 				background-color:#03A9F4;
 				margin-right:32px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.computer{
 				margin-left:10px;
@@ -129,8 +145,8 @@
 				background-color:#424242;
 				border-radius:8px;
 				position:absolute;
-				-webkit-transition: width 1s, height 1s; /* For Safari 3.1 to 6.0 */
-				transition: width 1s, height 1s;
+				-webkit-transition: width 1s, height 1s, margin 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s, margin 1s;
 				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
@@ -221,29 +237,53 @@
 				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
+			.resumeFrame{
+				height:100px;
+				background-color:transparent;
+				position:absolute;
+				top:92px;
+				left:16px;
+			}
+			.resumeIframe{
+				width:0%;
+				height:0%;
+				-webkit-transition: width 1s, height 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+			}
 			.resumeInfo{
 				margin:auto;
-				margin-bottom:56px;
+				margin-bottom:50px;
 				width:500px;
+				height:150px;
 				background-color:none;
+				-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.resumeIcon{
+				position:absolute;
 				width:100px;
 				height:100px;
 				border-radius:50px;
 				background-color:#9C27B0;
-
+				-webkit-transition: width 1s, height 1s, border-radius 1s, margin 1s, opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s, border-radius 1s, margin 1s, opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.paper{
 				position:relative;
 				width:50px;
 				height:60px;
-				top:20px;
-				left:25px;	
+				margin-top:20px;
+				margin-left:25px;	
 				background-color:white;
 				opacity:1;
-				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
-				transition: opacity .25s;
+				-webkit-transition: width 1s, height 1s, margin 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s, margin 1s;
 				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
@@ -255,6 +295,11 @@
 				left:5px;
 				top:5px;
 				text-align:center;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.topLine{
 				position:absolute;
@@ -263,6 +308,11 @@
 				height:2.5px;
 				left:25px;
 				top:5px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.topLine2{
 				position:absolute;
@@ -271,6 +321,11 @@
 				height:2.5px;
 				left:25px;
 				top:10px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.topLine3{
 				position:absolute;
@@ -279,6 +334,11 @@
 				height:2.5px;
 				left:25px;
 				top:15px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.topLine4{
 				position:absolute;
@@ -287,6 +347,11 @@
 				height:2.5px;
 				left:25px;
 				top:20px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.boxBullet1{
 				position:absolute;
@@ -295,6 +360,11 @@
 				height:5px;
 				top:30px;
 				left:5px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.paragraph1{
 				position:absolute;
@@ -303,6 +373,11 @@
 				height:2.5px;
 				top:30px;
 				left:15px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.paragraph2{
 				position:absolute;
@@ -311,6 +386,11 @@
 				height:2.5px;
 				top:35px;
 				left:15px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.boxBullet2{
 				position:absolute;
@@ -319,6 +399,11 @@
 				height:5px;
 				top:42.5px;
 				left:5px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.paragraph3{
 				position:absolute;
@@ -327,6 +412,11 @@
 				height:2.5px;
 				top:42.5px;
 				left:15px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.paragraph4{
 				position:absolute;
@@ -335,6 +425,11 @@
 				height:2.5px;
 				top:47.5px;
 				left:15px;
+				opacity:1;
+				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+				transition: opacity .25s;
+				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
 			.githubInfo{
 				margin:auto;
@@ -365,21 +460,21 @@
 		<div class="info" id="info">
 			<img src="profile.png" class="profilePic" id="profilePic"></img>
 			<h1 class="name" id="myName">Daniel Marcoux</h1>
-			<p class="intro" id="intro"><span style="opacity: 0.54;">Recent graduate in</span> <span style="color:#E91E63;">computer science</span></p>
+			<p class="intro" id="intro"><span style="opacity: 0.54;">B.S. in</span> <span style="color:#E91E63;">computer science</span><span style="opacity: 0.54;"> December 2016</span></p>
 			<div class="seperator" id="seperator"></div>
 		</div>
 
 		<div class="websiteInfo" id="websiteInfo">
-				<div class="bulletPoint1">
+				<div class="bulletPoint1" id="bulletPoint1">
 					<div class="computer" id="computer"></div>
 					<div class="screen" id="screen"></div>
 					<div class="webcam" id="webcam"></div>
 					<div class="trapezoid" id="trapezoid"></div>
 					<div class="base" id="base"></div>
 				</div>
-				<div class="description">
-					<div class="heading" onclick="markActive('websiteUnderline');">Website</div>
-					<p>
+				<div class="description" id="websiteDescription">
+					<div class="heading" onclick="markActive('websiteUnderline');" id="websiteHeading">Website</div>
+					<p id="websiteParagraph">
 						My collection of notes that I have kept about various projects. Topics include Mathematics, Computer Science, and Music Theory.
 					</p>
 				</div>
@@ -387,34 +482,34 @@
 
 		<div class="resumeInfo" id="resumeInfo">
 				<div class="bulletPoint">
-					<div class="resumeIcon">
+					<div class="resumeIcon" id="resumeIcon">
 						<div class="paper" id="paper">
-							<div class="pic">
-							<img src="account.png" width="15px"></img>
+							<div class="pic" id="pic">
+							<img src="account.png" width="15px" id="account"></img>
 							</div>
-							<div class="topLine"></div>
-							<div class="topLine2"></div>
-							<div class="topLine3"></div>
-							<div class="topLine4"></div>
-							<div class="boxBullet1"></div>
-							<div class="paragraph1"></div>
-							<div class="paragraph2"></div>
-							<div class="boxBullet2"></div>
-							<div class="paragraph3"></div>
-							<div class="paragraph4"></div>
+							<div class="topLine" id="topLine"></div>
+							<div class="topLine2" id="topLine2"></div>
+							<div class="topLine3" id="topLine3"></div>
+							<div class="topLine4" id="topLine4"></div>
+							<div class="boxBullet1" id="boxBullet1"></div>
+							<div class="paragraph1" id="paragraph1"></div>
+							<div class="paragraph2" id="paragraph2"></div>
+							<div class="boxBullet2" id="boxBullet2"></div>
+							<div class="paragraph3" id="paragraph3"></div>
+							<div class="paragraph4" id="paragraph4"></div>
 						</div>
 					</div>
 				</div>
 				<div class="description">
 					<div class="heading" onclick="markActive('resumeUnderline');">Resume</div>
 					<p>
-						Need someone to make you a website? Need a Software Engineer? Need someone to write you a Machine Learning algorithm? Look no further.
+						Experience with Full Stack development, Mobile Development, Website Development, and an interest in Artificial Intelligence.
 					</p>
 				</div>
 		</div>
 
 		<div class="githubInfo" id="githubInfo">
-				<div class="bulletPoint2">
+				<div class="bulletPoint2" id="bulletPoint2">
 					<img src="github.png" class="gitPic" id="gitPic"></img>
 				</div>
 				<div class="description">
@@ -427,6 +522,7 @@
 
 	</body>
 	<script>
+		var context = 'about';
 		//Splash Animation
 		////////////////////////
 
@@ -488,18 +584,50 @@
 		};
 		//
 		
-		//Animation Handler
+		//Animation Handler (Callback Hell)
 		//////////////////////////////
 		function animationHandler(ID){
-			if (ID == 'website'){
+			if (ID == 'website' && context == 'about'){
 				websiteClick( function(){
 					styleWebsiteIframe();
 				});
+				context = 'website';
+			}
+			else if (ID == 'website' && context == 'resume'){
+				aboutClick( function(){
+					styleIconsCallback();
+				});
+				context = 'about';
+				setTimeout( function(){
+				websiteClick( function(){
+					styleWebsiteIframe();
+				});
+				context = 'website';
+				}, 1250 );
 			}
 			if (ID == 'about'){
 				aboutClick( function(){
-					styleIcons();
+					styleIconsCallback();
 				});
+				context = 'about';
+			}
+			if (ID == 'resume' && context == 'about'){
+				resumeClick( function(){
+					styleResumeIframe();
+				});
+				context = 'resume';
+			}
+			else if (ID == 'resume' && context == 'website'){
+				aboutClick( function(){
+					styleIconsCallback();
+				});
+				context = 'about';
+				setTimeout( function(){
+				resumeClick( function(){
+					styleResumeIframe();
+				});
+				context = 'resume';
+				}, 1250 );
 			}
 		};
 		//
@@ -525,8 +653,9 @@
 			document.getElementById('webcam').style.opacity = '0';
 			document.getElementById('trapezoid').style.opacity = '0';
 			document.getElementById('base').style.opacity = '0';
-			document.getElementById('paper').style.opacity = '0';
 			document.getElementById('gitPic').style.opacity = '0';
+			document.getElementById('resumeIcon').style.opacity = "0";
+			document.getElementById('bulletPoint2').style.opacity = '0';
 			var newDiv = document.createElement("div");
 			newDiv.className = "websiteFrame";
 			newDiv.id = "websiteFrame";
@@ -536,41 +665,135 @@
 			document.getElementById('websiteFrame').innerHTML = '<iframe src="cardAnim.html" class="websiteIframe" id="websiteIframe"></iframe>';
 			callback && callback();
 		};
+		//
+		
+		//About Animation
+		//////////////////////////////
+		function aboutClick(callback){
+				if (document.getElementById("websiteFrame") != null){
+					document.getElementById("websiteFrame").remove();
+				}
+				if (document.getElementById("resumeFrame") != null){
+					document.getElementById("resumeFrame").remove();
+				}
+			document.getElementById('info').style.height = '350px';
+			document.getElementById('info').style.padding = '72px 0px 0px 0px';
+			document.getElementById('profilePic').style.opacity = '1';
+			document.getElementById('myName').style.opacity = '1';
+			document.getElementById('intro').style.opacity = '1';
+			document.getElementById('seperator').style.opacity = '1';
+			document.getElementById('websiteInfo').style.width = '500px';
+			document.getElementById('computer').style.margin = '20px 0px 0px 10px';
+			document.getElementById('computer').style.width = '80px';
+			document.getElementById('computer').style.height = '50px';
+			document.getElementById('screen').style.margin = '25px 15px';
+			document.getElementById('screen').style.width = '70px';
+			document.getElementById('screen').style.height = '40px';
 
+			document.getElementById('paper').style.margin = '20px 0px 0px 25px';
+			document.getElementById('paper').style.width = '50px';
+			document.getElementById('paper').style.height = '60px';
+			document.getElementById('resumeInfo').style.width = "500px";
+			document.getElementById('resumeIcon').style.width = "100px";
+			document.getElementById('resumeIcon').style.height = "100px";
+			document.getElementById('resumeIcon').style.borderRadius = "50px";
+			document.getElementById('resumeIcon').style.margin = "0px 0px 0px 0px";
+			callback && callback();
+		};
+		//
+
+		//Resume Animation
+		///////////////////////////////
+		function resumeClick(callback){
+		  var w = window.innerWidth;
+		  var h = (window.innerHeight - 80);
+			document.getElementById('info').style.height = '0px';
+			document.getElementById('info').style.padding = '0px 0px 0px 0px';
+			document.getElementById('profilePic').style.opacity = '0';
+			document.getElementById('myName').style.opacity = '0';
+			document.getElementById('intro').style.opacity = '0';
+			document.getElementById('seperator').style.opacity = '0';
+			document.getElementById('websiteInfo').style.width = '100%';
+			document.getElementById('resumeInfo').style.width = "100%";
+			document.getElementById('resumeIcon').style.width = w + "px";
+			document.getElementById('resumeIcon').style.height = h + "px";
+
+			document.getElementById('paper').style.margin = '16px 0px 0px 16px';
+			document.getElementById('paper').style.width = (w - 32)+'px';
+			document.getElementById('paper').style.height = (h - 32)+'px';
+
+			document.getElementById('resumeIcon').style.borderRadius = "8px";
+			document.getElementById('resumeIcon').style.margin = "-200px 0px 0px 0px";
+			document.getElementById('pic').style.opacity = '0';
+			document.getElementById('account').style.display = 'none';
+			document.getElementById('topLine').style.opacity = '0';
+			document.getElementById('topLine2').style.opacity = '0';
+			document.getElementById('topLine3').style.opacity = '0';
+			document.getElementById('topLine4').style.opacity = '0';
+			document.getElementById('boxBullet1').style.opacity = '0';
+			document.getElementById('paragraph1').style.opacity = '0';
+			document.getElementById('paragraph2').style.opacity = '0';
+			document.getElementById('boxBullet2').style.opacity = '0';
+			document.getElementById('paragraph3').style.opacity = '0';
+			document.getElementById('paragraph4').style.opacity = '0';
+			document.getElementById('gitPic').style.opacity = '0';
+			document.getElementById('bulletPoint2').style.opacity = '0';
+			var newDiv = document.createElement("div");
+			newDiv.className = "resumeFrame";
+			newDiv.id = "resumeFrame";
+			document.body.append(newDiv);
+			document.getElementById('resumeFrame').style.width = (w - 32)+'px';
+			document.getElementById('resumeFrame').style.height = (h - 32)+'px';
+			document.getElementById('resumeFrame').innerHTML = '<iframe src="cardAnim.html" class="resumeIframe" id="resumeIframe"></iframe>';
+			callback && callback();
+			callback && callback();
+		};
+		//
+		
+		//Website Animation Callback Function
+		//////////////////////////////
 		function styleWebsiteIframe(){
 			setTimeout( function(){
 					document.getElementById('websiteIframe').style.width = '100%';
 					document.getElementById('websiteIframe').style.height = '100%';
 			}, 1000 );
 		};
-		function styleIcons(){
+		//
+
+		//About Animation Callback Function
+		//////////////////////////////
+		function styleIconsCallback(){
 			setTimeout( function(){
-				document.getElementById('paper').style.opacity = '1';
 				document.getElementById('webcam').style.opacity = '1';
 				document.getElementById('trapezoid').style.opacity = '1';
 				document.getElementById('base').style.opacity = '1';
 				document.getElementById('gitPic').style.opacity = '1';
+				document.getElementById('resumeIcon').style.opacity = "1";
+				document.getElementById('bulletPoint2').style.opacity = "1";
+				document.getElementById('pic').style.opacity = '1';
+				document.getElementById('account').style.display = 'block';
+				document.getElementById('topLine').style.opacity = '1';
+				document.getElementById('topLine2').style.opacity = '1';
+				document.getElementById('topLine3').style.opacity = '1';
+				document.getElementById('topLine4').style.opacity = '1';
+				document.getElementById('boxBullet1').style.opacity = '1';
+				document.getElementById('paragraph1').style.opacity = '1';
+				document.getElementById('paragraph2').style.opacity = '1';
+				document.getElementById('boxBullet2').style.opacity = '1';
+				document.getElementById('paragraph3').style.opacity = '1';
+				document.getElementById('paragraph4').style.opacity = '1';
 			}, 1000 );
 		};
+		//
 
-		function aboutClick(callback){
-				if (document.getElementById("websiteFrame") != null){
-					document.getElementById("websiteFrame").remove();
-				}
-				document.getElementById('info').style.height = '350px';
-				document.getElementById('info').style.padding = '72px 0px 0px 0px';
-				document.getElementById('profilePic').style.opacity = '1';
-				document.getElementById('myName').style.opacity = '1';
-				document.getElementById('intro').style.opacity = '1';
-				document.getElementById('seperator').style.opacity = '1';
-				document.getElementById('websiteInfo').style.width = '500px';
-				document.getElementById('computer').style.margin = '20px 0px 0px 10px';
-				document.getElementById('computer').style.width = '80px';
-				document.getElementById('computer').style.height = '50px';
-				document.getElementById('screen').style.margin = '25px 15px';
-				document.getElementById('screen').style.width = '70px';
-				document.getElementById('screen').style.height = '40px';
-				callback && callback();
+		//Resume Animation Callback Function
+		///////////////////////////////
+		function styleResumeIframe(){
+			setTimeout( function(){
+					document.getElementById('resumeIframe').style.width = '100%';
+					document.getElementById('resumeIframe').style.height = '100%';
+			}, 1000 );
 		};
+		//
 	</script>
 </html>
