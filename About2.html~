@@ -8,37 +8,44 @@
 			html,body {
 				padding:0; 
 				margin:0;
-				min-width:400px;
+				min-width:280px;
 				font-family: 'Roboto-Thin', sans-serif;
 				background-color:#FAFAFA;
 			}
 			.header{
 				float:right;
-				width:400px;
-				background-color:red;
+				width:100%;
+				background-color:none;
 			}
 			.headerItem{
+				min-width:70px;
 				float:right;
 				line-height:5;
 				text-align:center;
 				height:56px;
-				width:100px;
+				width:25%;
 				overflow:hidden;
-				background-color:red;
+				background-color:none;
 				cursor:pointer;
 			}
 			.circle{
 				background-color:white;
 				opacity: 0.25;
 			}
+			.underline{
+				width:100%;
+				background-color:#3F51B5;
+				height:2px;
+				margin-top:-26px;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="header">
-			<div class="headerItem">Github</div>
-			<div class="headerItem" id="website">Website</div>
-			<div class="headerItem" id="resume">Resume</div>
-			<div class="headerItem" id="about">About</div>
+			<div class="headerItem">Github<div class="underline"></div></div>
+			<div class="headerItem" id="website">Website<div class="underline"></div></div>
+			<div class="headerItem" id="resume">Resume<div class="underline"></div></div>
+			<div class="headerItem" id="about">About<div class="underline"></div></div>
 		</div>
 	</body>
 	<script>
@@ -48,7 +55,7 @@
 			var POSITION = DIV.getBoundingClientRect();
 			var X = POSITION.left;
 			var Y = POSITION.top;
-			console.log(ID, X, Y);			
+			console.log(ID, X, Y, DIV.offsetWidth);			
 
 		};
 		document.getElementById("about").addEventListener("mousedown", splash);

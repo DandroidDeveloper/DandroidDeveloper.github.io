@@ -13,7 +13,6 @@
 				background-color:#FAFAFA;
 			}
 			.header{
-				float:right;
 				width:100%;
 				background-color:none;
 			}
@@ -25,41 +24,207 @@
 				height:56px;
 				width:25%;
 				overflow:hidden;
-				background-color:none;
 				cursor:pointer;
 			}
 			.circle{
-				background-color:white;
+				background-color:#3F51B5;
 				opacity: 0.25;
 			}
 			.underline{
-				width:100%;
-				background-color:#3F51B5;
+				width:0%;
+				background-color:#E91E63;
 				height:2px;
 				margin-top:-26px;
+				-webkit-transition: width .25s; /* For Safari 3.1 to 6.0 */
+				transition: width .25s;
+			}
+			.banner{
+				width:100%;
+				margin-top:72px;
+				display:inline-block;
+				text-align:center;
+			}
+			.profilePic{
+				height:150px;
+				width:150px;
+				border-radius:75px;
+			}
+			.name{
+				font-size:250%;
+			}
+			.occupation{
+				font-size:150%;
+				color:#E91E63
+;
+			}
+			.seperator{
+				border-bottom:thin solid gray;
+				margin:auto;
+				width:280px;
+				margin-bottom:32px;
+			}
+			.container{
+				width:100%;
+				min-width:280px;
+				max-width:500px;
+				margin:auto;
+				height:200px;
+				background-color:red;
+			}
+			.containerLeft{
+				width:100px;
+				height:200px;
+				float:left;
+				background-color:blue;
+			}
+			.containerRight{
+				min-width:180px;
+				margin-left:100px;
+				padding:0px 16px 0px 16px;
+				background-color:yellow;
+				height:200px;
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="markActive('aboutUnderline')">
+
+		<!--Top Toolbar-->
 		<div class="header">
-			<div class="headerItem">Github<div class="underline"></div></div>
-			<div class="headerItem" id="website">Website<div class="underline"></div></div>
-			<div class="headerItem" id="resume">Resume<div class="underline"></div></div>
-			<div class="headerItem" id="about">About<div class="underline"></div></div>
+			<div class="headerItem">Github</div>
+			<div class="headerItem" id="website">Website<div class="underline" id="websiteUnderline"></div></div>
+			<div class="headerItem" id="resume">Resume<div class="underline" id="resumeUnderline"></div></div>
+			<div class="headerItem" id="about">About<div class="underline" id="aboutUnderline"></div></div>
 		</div>
+		<!---------------------------------------------------------------------------------------------------->
+		
+		<!--Banner-->
+		<div class="banner">
+			<img class="profilePic" src="profile.png"></img>
+			<h1 class="name">Daniel Marcoux</h1>
+			<p class="occupation">Software Engineer</p>
+			<div class="seperator"></div>
+		</div>	
+		<!---------------------------------------------------------------------------------------------------->
+
+		<!--Resume-->
+		<div class="container">
+			<div class="containerLeft">
+
+			</div>
+			<div class="containerRight">
+				<h1>Resume</h1>
+				<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros. 
+				</p>
+			</div>
+		</div>
+		<!---------------------------------------------------------------------------------------------------->
+
+		<!--Website-->
+		<div class="container">
+			<div class="containerLeft">
+
+			</div>
+			<div class="containerRight">
+				<h1>Website</h1>
+				<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros. 
+				</p>
+			</div>
+		</div>
+		<!---------------------------------------------------------------------------------------------------->
+
+		<!--Github-->
+		<div class="container">
+			<div class="containerLeft">
+
+			</div>
+			<div class="containerRight">
+				<h1>Github</h1>
+				<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros. 
+				</p>
+			</div>
+		</div>
+		<!---------------------------------------------------------------------------------------------------->
+
 	</body>
 	<script>
+		var ROUTE = 'about';
+		var mouseDown = 0;
+		document.onmousedown = function() { 
+				mouseDown = 1;
+		}
+		document.onmouseup = function() {
+				mouseDown = 0;
+		}
+		//splash Animation
+		////////////////////
 		function splash(event){
 			var ID = event.toElement.id;
+			ROUTE = ID;
+			console.log(ROUTE);
+			markActive(ROUTE + 'Underline');
 			var DIV = document.getElementById(ID);
-			var POSITION = DIV.getBoundingClientRect();
+			var POSITION = DIV.getBoundingClientRect();	
 			var X = POSITION.left;
 			var Y = POSITION.top;
-			console.log(ID, X, Y, DIV.offsetWidth);			
-
+			var WIDTH = DIV.offsetWidth;
+			var TEMPDIV = document.createElement("div");
+			TEMPDIV.className = "circle";
+			TEMPDIV.id = "circle";
+			TEMPDIV.style.position = "relative";
+			document.getElementById(ID).appendChild(TEMPDIV);
+			var start = new Date;
+			var interval = WIDTH/25 ;
+			var i = 0;
+			var id = setInterval(function(){
+				var timePassed = new Date - start;
+				var progress = timePassed / 250;
+					i = i+interval
+					TEMPDIV.style.height = i + 'px';
+					TEMPDIV.style.width = i + 'px';
+					TEMPDIV.style.borderRadius = (i/2) + 'px';
+					TEMPDIV.style.top = ((event.clientY -Y) - (i/2)) + 'px';
+					TEMPDIV.style.left = ((event.clientX -X) - (i/2)) + 'px';
+				if (progress > 1){
+					progress = 1;
+				}
+				if (progress == 1){
+					clearInterval(id);
+					if (mouseDown == 0){
+						document.getElementById("circle").remove();
+					}
+					else{
+						document.addEventListener("mouseup", deleteCircle);
+					}
+				}
+			},1);
+		};
+		function deleteCircle(event){
+				document.removeEventListener("mouseup", deleteCircle);
+				document.getElementById("circle").remove();
 		};
 		document.getElementById("about").addEventListener("mousedown", splash);
-		document.getElementById("website").addEventListener("mousedown", splash);
 		document.getElementById("resume").addEventListener("mousedown", splash);
+		document.getElementById("website").addEventListener("mousedown", splash);
+
+		//Underline Animation
+		////////////////////////////
+		function markActive(ID){
+			var idList = ['about', 'website', 'resume'];
+			var i;
+			for (i in idList){
+				if ((idList[i]+'Underline') == ID){
+				document.getElementById(ID).style.width = "100%";
+				}
+				else{
+					markInactive(idList[i]+'Underline');
+				}
+			}
+		};
+		function markInactive(someID){
+			document.getElementById(someID).style.width = "0%";
+		};
 	</script>
 </html>
