@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Daniel Marcoux</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=400, initial-scale=1">
+		<style type="text/css">
+			html,body {
+				padding:0; 
+				margin:0;
+				min-width:400px;
+				font-family: 'Roboto-Thin', sans-serif;
+				background-color:#FAFAFA;
+			}
+			.header{
+				float:right;
+				width:400px;
+				background-color:red;
+			}
+			.headerItem{
+				float:right;
+				line-height:5;
+				text-align:center;
+				height:56px;
+				width:100px;
+				overflow:hidden;
+				background-color:red;
+				cursor:pointer;
+			}
+			.circle{
+				background-color:white;
+				opacity: 0.25;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="headerItem">Github</div>
+			<div class="headerItem" id="website">Website</div>
+			<div class="headerItem" id="resume">Resume</div>
+			<div class="headerItem" id="about">About</div>
+		</div>
+	</body>
+	<script>
+		function splash(event){
+			var ID = event.toElement.id;
+			var DIV = document.getElementById(ID);
+			var POSITION = DIV.getBoundingClientRect();
+			var X = POSITION.left;
+			var Y = POSITION.top;
+			console.log(ID, X, Y);			
+
+		};
+		document.getElementById("about").addEventListener("mousedown", splash);
+		document.getElementById("website").addEventListener("mousedown", splash);
+		document.getElementById("resume").addEventListener("mousedown", splash);
+	</script>
+</html>
