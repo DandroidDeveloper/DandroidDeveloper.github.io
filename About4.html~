@@ -110,8 +110,8 @@
 				width:100px;
 				border-radius:50px;
 				background-color:#9C27B0;
-				-webkit-transition: width 5s, height 5s, border-radius 5s, margin 5s; /* For Safari 3.1 to 6.0 */
-				transition: width 5s, height 5s, border-radius 5s, margin 5s;
+				-webkit-transition: width 1s, height 1s, border-radius 1s, margin 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s, border-radius 1s, margin 1s;
 				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
@@ -283,9 +283,8 @@
 				width:100px;
 				border-radius:50px;
 				background-color:black;
-				opacity:1;
-				-webkit-transition: width 5s, height 5s, border-radius 5s, margin 5s, opacity .25s; /* For Safari 3.1 to 6.0 */
-				transition: width 5s, height 5s, border-radius 5s, margin 5s, opacity .25s;
+				-webkit-transition: width 1s, height 1s, border-radius 1s, margin 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s, border-radius 1s, margin 1s;
 				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
@@ -300,9 +299,8 @@
 				width:100px;
 				border-radius:50px;
 				background-color:black;
-				opacity:1;
-				-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
-				transition: opacity .25s;
+				-webkit-transition: width 1s, height 1s, border-radius 1s, margin 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s, height 1s, border-radius 1s, margin 1s;
 				-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 				transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 			}
@@ -314,10 +312,10 @@
 	<body onload="underline('aboutUnderline')">
 
 		<div class="header">
-			<div class="headerItem" onclick="test2()">Github</div>
-			<div class="headerItem" id="website" onclick="animationHandler(this.id)">Website<div class="underline" id="websiteUnderline"></div></div>
-			<div class="headerItem" id="resume" onclick="animationHandler(this.id)">Resume<div class="underline" id="resumeUnderline"></div></div>
-			<div class="headerItem" id="about" onclick="animationHandler(this.id)">About<div class="underline" id="aboutUnderline"></div></div>
+			<div class="headerItem">Github</div>
+			<div class="headerItem" id="website">Website<div class="underline" id="websiteUnderline"></div></div>
+			<div class="headerItem" id="resume">Resume<div class="underline" id="resumeUnderline"></div></div>
+			<div class="headerItem" id="about">About<div class="underline" id="aboutUnderline"></div></div>
 		</div>	
 
 		<div class="container" id="container">
@@ -352,7 +350,7 @@
 					</div>
 				</div>
 				<div class="sectionRight">
-					<h1 class="topic" onclick="animationHandler('resume')">Resume</h1>
+					<h1 class="topic">Resume</h1>
 					<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
 					</p>
@@ -364,7 +362,7 @@
 					<div class="bulletPoint2"  id="bulletPoint2"></div>
 				</div>
 				<div class="sectionRight">
-					<h1 class="topic" onclick="animationHandler('website')">Website</h1>
+					<h1 class="topic">Heading</h1>
 					<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
 					</p>
@@ -373,7 +371,7 @@
 
 			<div class="section">
 				<div class="sectionLeft">
-					<div class="bulletPoint3" id="bulletPoint3"></div>
+					<div class="bulletPoint3" id="bulletPoint3" onclick="test()"></div>
 				</div>
 				<div class="sectionRight">
 					<h1 class="topic">Heading</h1>
@@ -386,8 +384,8 @@
 		</div>
 	</body>
 	<script>
-		//INITIAL STATE
-		///////////////
+		//GLOBAL
+		////////////////////
 		var H = document.getElementById('container').offsetHeight;
 		document.getElementById('container').style.height = H+"px";
 		var ROUTE = 'about';
@@ -398,49 +396,16 @@
 		document.onmouseup = function() {
 				mouseDown = 0;
 		}
-		var resumeIDList = ['paper','pic','account','topLine','topLine2','topLine3','topLine4',
-'boxBullet1','paragraph1','paragraph2','boxBullet2','paragraph3','paragraph4'];
 
-		//Animation Handler
-		function animationHandler(ID){
-			console.log(ROUTE, ID)
-			if (ID == 'about'){
-					console.log('aboutAnimation');
-					ROUTE = 'about';
-			}
-			if (ROUTE == 'about' && ID == 'resume'){
-				underline('resumeUnderline');
-				console.log('resumeAnimation');
-				resumeAnimation('bulletPoint1');
-			}
-			if (ROUTE == 'about' && ID == 'website'){
-				underline('websiteUnderline');
-				console.log('websiteAnimation');
-				test(ID);
-			}
-			else{
-				if (ROUTE == 'resume'){
-					console.log('aboutAnimation');
-					console.log('websiteAnimation');
-
-				}
-				if (ROUTE == 'website'){
-					console.log('aboutAnimation');
-					console.log('resumeAnimation');
-
-				}
-			}
-			ROUTE = ID;
-		};
-	
 		//Underline Animation
-		/////////////////////
+		////////////////////////////
 		function underline(ID){
 			var idList = ['about', 'website', 'resume'];
 			var i;
 			for (i in idList){
 				if ((idList[i]+'Underline') == ID){
 				document.getElementById(ID).style.width = "100%";
+				//ROUTE
 				}
 				else{
 					markInactive(idList[i]+'Underline');
@@ -455,7 +420,9 @@
 		////////////////////
 		function splash(event){
 			var ID = event.toElement.id;
-			underline(ID + 'Underline');
+			ROUTE = ID;
+			console.log(ROUTE);
+			underline(ROUTE + 'Underline');
 			var DIV = document.getElementById(ID);
 			var POSITION = DIV.getBoundingClientRect();	
 			var X = POSITION.left;
@@ -500,109 +467,10 @@
 		document.getElementById("resume").addEventListener("mousedown", splash);
 		document.getElementById("website").addEventListener("mousedown", splash);
 
-
-		//Splash Animation 2
-		////////////////////
-		function splash2(event){
-
-			var ID = event.toElement.id;
-			for (item in resumeIDList){
-				if (ID == resumeIDList[item]){
-					ID = 'bulletPoint1';
-				}
-			}
-			if (ID == 'bulletPoint1'){
-				animationHandler('resume');
-			}
-			if (ID == 'bulletPoint2'){
-				animationHandler('website');
-			}
-			var DIV = document.getElementById(ID);
-			var POSITION = DIV.getBoundingClientRect();	
-			var X = POSITION.left;
-			var Y = POSITION.top;
-			var WIDTH = DIV.offsetWidth;
-
-			var TEMPDIV = document.createElement("div");
-			TEMPDIV.className = "circle2";
-			TEMPDIV.id = "circle2";
-			TEMPDIV.style.position = "relative";
-			TEMPDIV.style.backgroundColor = "white";
-			TEMPDIV.style.opacity = "0.5";
-			document.getElementById(ID).appendChild(TEMPDIV);
-			var start = new Date;
-			var interval = 3.14;
-			var i = 0;
-			var id = setInterval(function(){
-				var timePassed = new Date - start;
-				var progress = timePassed / 250;
-					i = i+interval
-					TEMPDIV.style.height = i + 'px';
-					TEMPDIV.style.width = i + 'px';
-					TEMPDIV.style.borderRadius = (i/2) + 'px';
-					TEMPDIV.style.top = ((event.clientY -Y) - (i/2)) + 'px';
-					TEMPDIV.style.left = ((event.clientX -X) - (i/2)) + 'px';
-				if (progress > 1){
-					progress = 1;
-				}
-				if (progress == 1){
-					clearInterval(id);
-					document.getElementById("circle2").remove();
-				}
-			},1);
-		};
-		function deleteCircle2(event){
-				document.removeEventListener("mouseup", deleteCircle2);
-				document.getElementById("circle2").remove();
-		};
-		
-		document.getElementById("bulletPoint1").addEventListener("mousedown", splash2);
-		document.getElementById("bulletPoint2").addEventListener("mousedown", splash2);
-		document.getElementById("bulletPoint3").addEventListener("mousedown", splash2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		function resumeAnimation(ID){
-			console.log(ID);
-			var h = window.innerHeight;
-			var height = h-56;
-			var DIV = document.getElementById(ID);
-			var position = DIV.getBoundingClientRect();
-			var x = position.left;
-			var y = position.top;
-			console.log(h, y);
-			var marginTop = (H/4)-50;
-			console.log(marginTop);
-			document.getElementById('container').style.height = height+"px";
-			for (i in resumeIDList){
-				tempID = resumeIDList[i];
-				document.getElementById(tempID).style.opacity = "0";
-			}
-			document.getElementById('bulletPoint2').style.opacity = "0";
-			document.getElementById('bulletPoint3').style.opacity = "0";
-			document.getElementById(ID).style.margin = -marginTop+"px 0px 0px 0px";
-		};
-
-
-		function test(ID){
+		function test(){
 			var h = window.innerHeight;
 			var height = h-56;
 			document.getElementById('container').style.height = height+"px";
-		};
-		function test2(){
-			document.getElementById('container').style.height = H+"px";
 		};
 	</script>
 </html>
