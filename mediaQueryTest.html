@@ -12,6 +12,11 @@
 		* {
 				box-sizing: border-box;
 		}
+		.circle{
+
+				background-color:#3F51B5;
+				opacity: 0.25;
+		}
 		.underlineDrawer{
 			width:92%;
 			background-color:#E91E63;
@@ -25,6 +30,7 @@
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 		.container{
+			margin-top:56px;
 			cursor:default;
 			background-color:#FAFAFA;
 			display:inline-block;
@@ -35,10 +41,11 @@
 			-webkit-transition: .25s -webkit-filter linear;
 		}
 		.header{
+			position:absolute;
 			width:100%;
 			height:56px;
+			z-index:1;
 			background-color:#FAFAFA;
-			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 		  -webkit-filter: brightness(100%); /* Safari 6.0 - 9.0 */
 		  filter: brightness(100%);
 			transition: .25s filter linear;
@@ -112,7 +119,7 @@
 		.drawer{
 			display:block;
 			position:absolute;
-			z-index:1;
+			z-index:2;
 			top:0px;
 			width:75%;
 			background-color:#FAFAFA;
@@ -131,10 +138,12 @@
 			height:100%;
 		}
 		.drawerItem{
+			position:absolute;
 			width:100%;
 			height:100px;
 		}
-		.drawerBullet{
+		.drawerBullet1{
+			position:relative;
 			cursor:pointer;
 			float:left;
 			width:100%;
@@ -143,8 +152,85 @@
 			font-size:150%;
 			opacity:0.8;
 			text-align:center;
+			overflow:hidden;
 		}
-		.tab{
+		.drawerBullet2{
+			position:relative;
+			cursor:pointer;
+			float:left;
+			width:100%;
+			height:100%;
+			line-height:6;
+			font-size:150%;
+			opacity:0.8;
+			text-align:center;
+			overflow:hidden;
+		}
+		.drawerBullet3{
+			position:relative;
+			cursor:pointer;
+			float:left;
+			width:100%;
+			height:100%;
+			line-height:6;
+			font-size:150%;
+			opacity:0.8;
+			text-align:center;
+			overflow:hidden;
+		}
+		.drawerBullet4{
+			position:relative;
+			cursor:pointer;
+			float:left;
+			width:100%;
+			height:100%;
+			line-height:6;
+			font-size:150%;
+			opacity:0.8;
+			text-align:center;
+			overflow:hidden;
+		}
+		.tab1{
+			overflow:hidden;
+			cursor:pointer;
+			display:none;
+			float:left;
+			width:25%;
+			height:56px;
+			text-align:center;
+			font-size:150%;
+			line-height:2.75;
+		}
+		.tab2{
+			overflow:hidden;
+			margin-left:25%;
+			position:absolute;
+			cursor:pointer;
+			display:none;
+			float:left;
+			width:25%;
+			height:56px;
+			text-align:center;
+			font-size:150%;
+			line-height:2.75;
+		}
+		.tab3{
+			overflow:hidden;
+			margin-left:50%;
+			position:absolute;
+			cursor:pointer;
+			display:none;
+			float:left;
+			width:25%;
+			height:56px;
+			text-align:center;
+			font-size:150%;
+			line-height:2.75;
+		}
+		.tab4{
+			overflow:hidden;
+			margin-left:75%;
+			position:absolute;
 			cursor:pointer;
 			display:none;
 			float:left;
@@ -205,6 +291,7 @@
 			opacity:0.6;
 		}
 		.bulletPoint1{
+			overflow:hidden;
 			cursor:pointer;
 			margin:auto;
 			margin-top:16px;
@@ -379,6 +466,7 @@
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 		.bulletPoint2{
+			overflow:hidden;
 			cursor:pointer;
 			margin:auto;
 			margin-top:16px;
@@ -539,7 +627,16 @@
 		.spacer{
 			display:none;
 		}
-		.tab{
+		.tab1{
+			display:block;
+		}
+		.tab2{
+			display:block;
+		}
+		.tab3{
+			display:block;
+		}
+		.tab4{
 			display:block;
 		}
 		.seperator{
@@ -572,16 +669,16 @@
 		}
 	</style>
 </head>
-	<body onload="toggleDrawer(true, 'closed')">
+	<body onload="toggleDrawer(true, 'closed'), setup()">
 		<!--Drawer-->
 		<div class="drawer" id="drawer">
 			<div class="drawerHeader">
 			<img src="fibonacci.png" class="fibonacci"></img>
 				<div class="drawerItem">
-					<div class="drawerBullet">About<div class="underlineDrawer" id="aboutDrawerUnderline"></div></div>
-					<div class="drawerBullet">Resume</div>
-					<div class="drawerBullet">Website</div>
-					<div class="drawerBullet" onclick="openInNewTab('https://github.com/DandroidDeveloper'), toggleDrawer(false, 'closed')">Github</div>
+					<div class="drawerBullet1" id="drawerBullet1">About<div class="underlineDrawer" id="aboutDrawerUnderline"></div></div>
+					<div class="drawerBullet2" id="drawerBullet2">Resume</div>
+					<div class="drawerBullet3" id="drawerBullet3">Website</div>
+					<div class="drawerBullet4" id="drawerBullet4">Github</div>
 				</div>
 			</div>
 		</div>
@@ -598,10 +695,10 @@
 				About
 			</div>
 			<div class="spacer" id="back"><img src="back.png"></img></div>
-			<div class="tab">About</div>
-			<div class="tab">Resume</div>
-			<div class="tab">Website</div>
-			<div class="tab" onclick="openInNewTab('https://github.com/DandroidDeveloper')">Github</div>
+			<div class="tab1" id="tab1">About</div>
+			<div class="tab2" id="tab2">Resume</div>
+			<div class="tab3" id="tab3">Website</div>
+			<div class="tab4" id="tab4">Github</div>
 		</div>
 		<!--Body-->
 		<div class="container" id="container">
@@ -615,7 +712,7 @@
 		
 			<div class="section">
 				<div class="sectionLeft">
-					<div class="bulletPoint1">
+					<div class="bulletPoint1" id="bulletPoint1">
 						<div class="paper" id="paper">
 							<div class="pic" id="pic">
 							<img src="account.png" class="base64Logo" id="account"></img>
@@ -676,7 +773,16 @@
 		</div>
 	</body>
 	<script>
-
+	var setup = function(){
+		document.getElementById('drawerBullet1').addEventListener('mousedown', splash);
+		document.getElementById('drawerBullet2').addEventListener('mousedown', splash);
+		document.getElementById('drawerBullet3').addEventListener('mousedown', splash);
+		document.getElementById('drawerBullet4').addEventListener('mousedown', splash);
+		document.getElementById('tab1').addEventListener('mousedown', splash);
+		document.getElementById('tab2').addEventListener('mousedown', splash);
+		document.getElementById('tab3').addEventListener('mousedown', splash);
+		document.getElementById('tab4').addEventListener('mousedown', splash);
+	}
 	//Global Params
 	var ROUTE = 'about';
 	var h = document.body.scrollHeight;
@@ -693,12 +799,19 @@
 		tablet = true;
 		mobile = false;
 	}
+	var mouseDown = 0;
+
+	document.onmousedown = function() { 
+			mouseDown = 1;
+	}
+	document.onmouseup = function() {
+			mouseDown = 0;
+	}
 
 	//Close Drawer Function
 	var closeDrawer = function(){
 		toggleDrawer(false, 'closed');
 	}
-
 	//Toggle Drawer Function
 	var toggleDrawer = function(initial, doorState){
 		if (initial && mobile){
@@ -756,5 +869,75 @@
   	var win = window.open(url, '_blank');
   	win.focus();
 	};
+
+	//Splash Animation
+	var splash = function(event){
+		console.log('splash');
+		var drawerTranslate = false;
+		var tabTranslate = false;
+		var parentID = event.toElement.id;
+		if (parentID.includes('drawer')){
+			console.log('drawer');
+			drawerTranslate = true;
+		}
+		if (parentID.includes('tab')){
+			console.log('tab');
+			tabTranslate = true;
+		}
+		var boundingRect = document.getElementById(parentID).getBoundingClientRect();
+		var w = boundingRect.width;
+		var h = boundingRect.height;
+		var radius = Math.sqrt((w*w)+(h*h));
+		var width = radius*2;
+		var height = radius*2;
+		var x = event.clientX;
+		var y = event.clientY;
+		var circle = document.createElement('div');
+		circle.id = 'circle';
+		circle.className = 'circle';
+		document.getElementById(parentID).appendChild(circle);
+		animate('circle',radius, x, y, drawerTranslate, tabTranslate, function(){
+  setTimeout( function(){
+			deleteSplash();
+  }, 250 );
+		});
+	}
+	var animate = function(ID, radius, x, y, drawerTranslate, tabTranslate, callback){
+		if (drawerTranslate){
+			y=0;
+		}
+		if (tabTranslate){
+			x=100;
+		}
+    var elem = document.getElementById(ID); 
+    var r = 0;
+		var i = 0;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (r >= radius) {
+            clearInterval(id);
+    				callback && callback();
+        } else {
+						i++
+            r = Math.pow(i, 2); 
+            elem.style.width = (r*2)+'px'; 
+            elem.style.height = (r*2)+'px'; 
+            elem.style.borderRadius = r+'px'; 
+						elem.style.transform = 'translate('+(x-r)+'px, '+(y-r)+'px)';
+        }
+    }
+	}
+	var deleteSplash = function(){
+		if (mouseDown == 1){
+			document.addEventListener('mouseup', deleteCircle);
+		}
+		else{
+		document.getElementById('circle').remove()
+		}
+	}
+	var deleteCircle = function(){
+		document.getElementById('circle').remove()
+		document.removeEventListener('mouseup', deleteCircle);
+	}
 	</script>
 </html>

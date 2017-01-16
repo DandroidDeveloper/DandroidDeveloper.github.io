@@ -13,12 +13,14 @@
 				box-sizing: border-box;
 		}
 		.underlineDrawer{
-			width:0%;
+			width:92%;
 			background-color:#E91E63;
 			height:2px;
+			margin-left:4%;
 			margin-top:-50px;
-			-webkit-transition: width .75s; /* For Safari 3.1 to 6.0 */
-			transition: width .75s;
+			opacity:0;
+			-webkit-transition: opacity 1.25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity 1.25s;
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
@@ -388,6 +390,73 @@
 		.bulletPoint2:hover{
 			box-shadow: 2px 2px 5px #888888;
 		}
+		.computer{
+			margin-left:10px;
+			margin-top:20px;
+			width:80px;
+			height:50px;
+			background-color:#424242;
+			border-radius:8px;
+			position:absolute;
+			-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.screen{
+			width:70px;
+			height:40px;
+			background-color:white;
+			position:absolute;
+			margin-top:25px;
+			margin-left:15px;
+			-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.webcam{
+			position:absolute;
+			margin-top:21px;
+			margin-left:49px;
+			height:3px;
+			width:3px;
+			border-radius:1.3px;
+			background-color:#EEEEEE;
+			opacity:1;
+			-webkit-transition: opacity 25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.trapezoid {
+			position:absolute;
+			margin-top:70px;
+			margin-left:31.5px;
+			border-bottom: 18.5px solid #BDBDBD;
+			border-left: 9.25px solid transparent;
+			border-right: 9.25px solid transparent;
+			height: 0;
+			width: 37px;
+			opacity:1;
+			-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.base{
+			width:60px;
+			height:2.5px;
+			position:absolute;
+			margin-top:85px;
+			margin-left:20px;
+			background-color:#9E9E9E;
+			opacity:1;
+			-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
 		.bulletPoint3{
 			cursor:pointer;
 			margin:auto;
@@ -399,6 +468,11 @@
 		}
 		.bulletPoint3:hover{
 			box-shadow: 2px 2px 5px #888888;
+		}
+		.gitPic{
+			width:100px;
+			height:100px;
+			border-radius:50px;
 		}
 		/* For tablets: */
 		@media only screen and (min-width: 400px) {
@@ -507,7 +581,7 @@
 					<div class="drawerBullet">About<div class="underlineDrawer" id="aboutDrawerUnderline"></div></div>
 					<div class="drawerBullet">Resume</div>
 					<div class="drawerBullet">Website</div>
-					<div class="drawerBullet">Github</div>
+					<div class="drawerBullet" onclick="openInNewTab('https://github.com/DandroidDeveloper'), toggleDrawer(false, 'closed')">Github</div>
 				</div>
 			</div>
 		</div>
@@ -527,7 +601,7 @@
 			<div class="tab">About</div>
 			<div class="tab">Resume</div>
 			<div class="tab">Website</div>
-			<div class="tab">Github</div>
+			<div class="tab" onclick="openInNewTab('https://github.com/DandroidDeveloper')">Github</div>
 		</div>
 		<!--Body-->
 		<div class="container" id="container">
@@ -569,10 +643,16 @@
 
 			<div class="section">
 				<div class="sectionLeft">
-					<div class="bulletPoint2"></div>
+					<div class="bulletPoint2">
+						<div class="computer" id="computer"></div>
+						<div class="screen" id="screen"></div>
+						<div class="webcam" id="webcam"></div>
+						<div class="trapezoid" id="trapezoid"></div>
+						<div class="base" id="base"></div>
+					</div>
 				</div>
 				<div class="sectionRight">
-					<h1 class="topic">Resume</h1>
+					<h1 class="topic">Website</h1>
 					<p class="description">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
 					</p>
@@ -581,10 +661,12 @@
 
 			<div class="section">
 				<div class="sectionLeft">
-					<div class="bulletPoint3"></div>
+					<div class="bulletPoint3" onclick="openInNewTab('https://github.com/DandroidDeveloper')">
+						<img src="github.png" class="gitPic"></img>
+					</div>
 				</div>
 				<div class="sectionRight">
-					<h1 class="topic">Resume</h1>
+					<h1 class="topic" onclick="openInNewTab('https://github.com/DandroidDeveloper')">Github</h1>
 					<p class="description">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
 					</p>
@@ -594,6 +676,8 @@
 		</div>
 	</body>
 	<script>
+
+	//Global Params
 	var ROUTE = 'about';
 	var h = document.body.scrollHeight;
 	var w = window.innerWidth;
@@ -609,9 +693,13 @@
 		tablet = true;
 		mobile = false;
 	}
+
+	//Close Drawer Function
 	var closeDrawer = function(){
 		toggleDrawer(false, 'closed');
 	}
+
+	//Toggle Drawer Function
 	var toggleDrawer = function(initial, doorState){
 		if (initial && mobile){
 			document.getElementById('drawer').style.transform = 'translate('+(-w*0.75)+'px, 0px)';
@@ -629,7 +717,7 @@
 			document.getElementById('container').style.filter = 'brightness(50%)';
 			document.getElementById('container').style.cursor = "pointer";
 			if (ROUTE == 'about'){
-				document.getElementById('aboutDrawerUnderline').style.width = '100%';
+				document.getElementById('aboutDrawerUnderline').style.opacity = '1';
 			}
 			document.getElementById('container').addEventListener('click', closeDrawer);
 			document.getElementById('back').addEventListener('click', closeDrawer);
@@ -642,7 +730,7 @@
 			document.getElementById('container').style.filter = 'brightness(100%)';
 			document.getElementById('container').style.cursor = "default";
 			if (ROUTE == 'about'){
-				document.getElementById('aboutDrawerUnderline').style.width = '0%';
+				document.getElementById('aboutDrawerUnderline').style.opacity = '0';
 			}
 			document.getElementById('container').removeEventListener('click', closeDrawer);
 			document.getElementById('back').removeEventListener('click', closeDrawer);
@@ -655,11 +743,18 @@
 			document.getElementById('container').style.filter = 'brightness(100%)';
 			document.getElementById('container').style.cursor = "default";
 			if (ROUTE == 'about'){
-				document.getElementById('aboutDrawerUnderline').style.width = '0%';
+				document.getElementById('aboutDrawerUnderline').style.opacity = '0';
 			}
 			document.getElementById('container').removeEventListener('click', closeDrawer);
 			document.getElementById('back').removeEventListener('click', closeDrawer);
 		}
 	}
+
+	//Navigate to Github
+	////////////////////////////
+	function openInNewTab(url) {
+  	var win = window.open(url, '_blank');
+  	win.focus();
+	};
 	</script>
 </html>
