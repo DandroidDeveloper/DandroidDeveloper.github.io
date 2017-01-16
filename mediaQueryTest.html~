@@ -661,32 +661,5 @@
 			document.getElementById('back').removeEventListener('click', closeDrawer);
 		}
 	}
-	var addEvent = function(object, type, callback) {
-		  if (object == null || typeof(object) == 'undefined') return;
-		  if (object.addEventListener) {
-		      object.addEventListener(type, callback, false);
-		  } else if (object.attachEvent) {
-		      object.attachEvent("on" + type, callback);
-		  } else {
-		      object["on"+type] = callback;
-		  }
-	};
-	addEvent(window, "resize", function(event) {
-		console.log('resized');
-		h = document.body.scrollHeight;
-		w = window.innerWidth;
-		if (w < 400){
-			console.log('mobile');
-			mobile = true;
-			tablet = false;
-			toggleDrawer(true, 'closed');
-		}
-		else if(w >= 600 && w < 768){
-			console.log('tablet');
-			tablet = true;
-			mobile = false;
-			toggleDrawer(true, 'closed');
-		}
-	});
 	</script>
 </html>
