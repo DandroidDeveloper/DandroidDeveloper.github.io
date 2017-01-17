@@ -342,9 +342,9 @@
 	<div class="drawerTab" id="drawerTab1">About</div>
 		<div class="drawerUnderline" id="drawerUnderline1"></div>
 	<div class="drawerTab" id="drawerTab2">Resume</div>
-		<div class="drawerUnderline"></div>
+		<div class="drawerUnderline" id="drawerUnderline2"></div>
 	<div class="drawerTab" id="drawerTab3">Website</div>
-		<div class="drawerUnderline"></div>
+		<div class="drawerUnderline" id="drawerUnderline3"></div>
 	<div class="drawerTab" id="drawerTab4">Github</div>
 		<div class="drawerUnderline"></div>
 	</div>
@@ -470,7 +470,6 @@
 	addEvent(window, "resize", function(event) {
 	  H = document.body.scrollHeight;
 	  W = window.innerWidth;
-		console.log(W, H, DRAWERSTATE);
 		if (W < 400 && DRAWERSTATE == 'closed'){
 			mobile = true;
 			tablet = false;
@@ -508,6 +507,9 @@
 		document.getElementById('tabUnderline3').style.backgroundColor = "#009688";
 		document.getElementById('tabUnderline2').style.marginLeft = "25%";
 		document.getElementById('tabUnderline3').style.marginLeft = "25%";
+		document.getElementById('drawerUnderline1').style.backgroundColor = "#E91E63";
+		document.getElementById('drawerUnderline2').style.backgroundColor = "#9C27B0";
+		document.getElementById('drawerUnderline3').style.backgroundColor = "#009688";
 		document.getElementById("drawer").style.height = H+"px";
 		if (mobile){
 			document.getElementById('drawer').style.transform = 'translate('+(-W*0.75)+'px, 0px)';
@@ -533,9 +535,19 @@
 			document.getElementById('container').style.filter = 'brightness(50%)';
 			document.getElementById('container').style.cursor = "pointer";
 			if (ROUTE == 'about'){
-				document.getElementById('drawerUnderline1').style.backgroundColor = "#E91E63";
 				document.getElementById('drawerUnderline1').style.opacity = "1";
-		
+				document.getElementById('drawerUnderline2').style.opacity = "0";
+				document.getElementById('drawerUnderline3').style.opacity = "0";
+			}
+			if (ROUTE == 'resume'){
+				document.getElementById('drawerUnderline1').style.opacity = "0";
+				document.getElementById('drawerUnderline2').style.opacity = "1";
+				document.getElementById('drawerUnderline3').style.opacity = "0";
+			}
+			if (ROUTE == 'website'){
+				document.getElementById('drawerUnderline1').style.opacity = "0";
+				document.getElementById('drawerUnderline2').style.opacity = "0";
+				document.getElementById('drawerUnderline3').style.opacity = "1";
 			}
 			document.getElementById('container').addEventListener('click', closeDrawer);
 			document.getElementById('back').addEventListener('click', closeDrawer);
@@ -707,6 +719,7 @@
 			document.getElementById('tabUnderline2').style.width = "25%";
 			document.getElementById('tabUnderline3').style.width = "0%";
 			document.getElementById('title').innerHTML = "Resume";
+			toggleDrawer('close');
 		}
 		if (ID == 'drawerTab3'){
 			ROUTE = 'website';
@@ -715,11 +728,12 @@
 			document.getElementById('tabUnderline2').style.width = "0%";
 			document.getElementById('tabUnderline3').style.width = "25%";
 			document.getElementById('title').innerHTML = "Website";
+			toggleDrawer('close');
 		}
 		if (ID == 'drawerTab4'){
-		//Navigate to Github
-  	win = window.open("https://github.com/DandroidDeveloper", "_blank");
-  	win.focus();
+			//Navigate to Github
+			win = window.open("https://github.com/DandroidDeveloper", "_blank");
+			win.focus();
 		}
 	}
 </script>
