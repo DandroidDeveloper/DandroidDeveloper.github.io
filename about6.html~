@@ -22,6 +22,7 @@
 		}
 		.drawer{
 			display:block;
+			height:100%;
 			position:absolute;
 			z-index:1;
 			width:75%;
@@ -545,14 +546,17 @@
 
 	addEvent(window, "resize", function(event) {
 	  W = window.innerWidth;
+		var containerHeight = document.getElementById('container').getBoundingClientRect().height + 56;
 		if (W < 400 && DRAWERSTATE == 'closed'){
 			mobile = true;
 			tablet = false;
+			document.getElementById('drawer').style.height = containerHeight+"px";
 			toggleDrawer('close');
 		}
 		else if(W >= 400 && W < 768 && DRAWERSTATE == 'closed'){
 			tablet = true;
 			mobile = false;
+			document.getElementById('drawer').style.height = containerHeight+"px";
 			toggleDrawer('close');
 		}
 	});
