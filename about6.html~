@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Title</title>
+<title>Daniel Marcoux</title>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
@@ -433,6 +433,7 @@
 </body>
 <script>
 	//GLOBAL SCOPE
+	var DRAWERSTATE = 'closed';
 	var ROUTE = 'about';
 	var mouseDown = 0;
 
@@ -469,15 +470,17 @@
 	addEvent(window, "resize", function(event) {
 	  H = document.body.scrollHeight;
 	  W = window.innerWidth;
-		if (W < 400){
+		console.log(W, H, DRAWERSTATE);
+		if (W < 400 && DRAWERSTATE == 'closed'){
 			mobile = true;
 			tablet = false;
+			toggleDrawer('close');
 		}
-		else if(W >= 400 && W < 768){
+		else if(W >= 400 && W < 768 && DRAWERSTATE == 'closed'){
 			tablet = true;
 			mobile = false;
+			toggleDrawer('close');
 		}
-		toggleDrawer('close');
 	});
 
 	//Add Event Listeners on Load
@@ -518,6 +521,7 @@
 	//Close Drawer Function
 	var closeDrawer = function(){
 		toggleDrawer('close');
+		DRAWERSTATE = 'closed';
 	}
 	//Toggle Drawer Function
 	var toggleDrawer = function(position){
@@ -535,6 +539,7 @@
 			}
 			document.getElementById('container').addEventListener('click', closeDrawer);
 			document.getElementById('back').addEventListener('click', closeDrawer);
+			DRAWERSTATE = 'open';
 		}
 		if (position == "close"){
 			document.getElementById('back').style.opacity = 0;
@@ -550,6 +555,7 @@
 			if (tablet){
 				document.getElementById('drawer').style.transform = 'translate('+(-W*0.50)+'px, 0px)';
 			}
+			DRAWERSTATE = 'closed';
 		}
 	}
 
