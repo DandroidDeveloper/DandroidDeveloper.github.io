@@ -307,6 +307,53 @@
 		.bulletPoint1:hover{
 			box-shadow: 2px 2px 5px #888888;
 		}
+		.paper{
+			display:block;
+			position:relative;		
+			left:20px;
+			top:15px;
+			height:50px;
+			width:40px;		
+			background-color:white;
+		}
+		.pic{
+			position:relative;
+			text-align:center;
+			left:2px;	
+			top:2px;	
+			height:16px;
+			width:16px;
+			border-radius:8px;
+			background-color:#E0E0E0;	
+		}
+		.line1{
+			position:relative;
+			left:22px;
+			top:-10px;
+			width:14px;
+			height:2px;
+			margin-bottom:2px;
+			background-color:#E0E0E0;
+		}
+		.line2{
+			position:relative;
+			left:12px;
+			top:-28px;
+			width:24px;
+			height:2px;
+			margin-bottom:2px;
+			background-color:#E0E0E0;
+		}
+		.resumeBullet{
+			position:relative;
+			width:4px;
+			height:4px;
+			border-radius:2px;
+			background-color:#03A9F4;
+			left:4px;
+			top:-4px;
+			margin-bottom:4px;
+		}
 		.bulletPoint2{
 			overflow:hidden;
 			cursor:pointer;
@@ -321,6 +368,51 @@
 		}
 		.bulletPoint2:hover{
 			box-shadow: 2px 2px 5px #888888;
+		}		
+		.computer{
+			display:block;
+			position:relative;
+			left:14px;
+			top:20px;
+			width:52px;
+			height:30px;
+			border-radius:4px;
+			background-color:#424242;
+		}
+		.webcam{
+			position:relative;
+			width:2px;
+			height:2px;
+			border-radius:1px;
+			left:25px;
+			top:1px;
+			background-color:white;
+		}
+		.screen{
+			position:relative;
+			height:22px;
+			width:44px;
+			left:4px;
+			top:2px;
+			background-color:white;
+		}
+		.stand{
+			position:relative;
+			top:6px;
+			left:10px;
+			border-bottom: 16px solid #BDBDBD;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			height: 0px;
+			width: 16px;
+		}
+		.base{
+			position:relative;
+			top:4px;
+			left:2px;
+			width:46px;
+			height:4px;
+			background-color:#9E9E9E;
 		}
 		.bulletPoint3{
 			overflow:hidden;
@@ -347,6 +439,7 @@
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
+
 		/* For tablets: */
 		@media only screen and (min-width: 400px) {
 			.seperator{
@@ -392,6 +485,7 @@
 			width:500px;
 		}
 		}
+
 		.resumeFrame{
 			position:absolute;
 			top:56px;
@@ -475,6 +569,20 @@
 			<div class="section" id="sectionTest">
 				<div class="sectionLeft">
 					<div class="bulletPoint1" id="bulletPoint1">
+						<div class="paper" id="paper">
+							<div class="pic"><img src="account.png" width="16px" id="account"></div>
+							<div class="line1"></div>
+							<div class="line1"></div>
+							<div class="line1"></div>
+							<div class="resumeBullet"></div>
+							<div class="resumeBullet"></div>
+							<div class="resumeBullet"></div>
+							<div class="line2"></div>
+							<div class="line2"></div>
+							<div class="line2"></div>
+							<div class="line2"></div>
+							<div class="line2"></div>
+						</div>
 					</div>
 				</div>
 				<div class="sectionRight">
@@ -491,7 +599,14 @@
 
 			<div class="section">
 				<div class="sectionLeft">
-					<div class="bulletPoint2" id="bulletPoint2"></div>
+					<div class="bulletPoint2" id="bulletPoint2">
+						<div class="computer" id="computer">
+							<div class="webcam"></div>
+							<div class="screen"></div>
+							<div class="stand"></div>
+							<div class="base"></div>
+						</div>
+					</div>
 				</div>
 				<div class="sectionRight">
 					<div class="topic">
@@ -908,6 +1023,8 @@
 		document.getElementById('bulletPoint1').style.opacity = "1";
 		document.getElementById('bulletPoint2').style.opacity = "1";
 		document.getElementById('bulletPoint3').style.opacity = "1";
+		document.getElementById('paper').style.display = "block";
+		document.getElementById('computer').style.display = "block";
 		callback && callback();
 	}
 	var resumeAnimation = function(){
@@ -941,6 +1058,7 @@
 		document.getElementById('bulletPoint1').style.cursor = "default";
 		document.getElementById('bulletPoint2').style.opacity = "0";
 		document.getElementById('bulletPoint3').style.opacity = "0";
+		document.getElementById('paper').style.display = "none";
 		document.getElementById('bulletPoint1').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
 		loadIframe('resume', containerToHeight);
 	}
@@ -975,6 +1093,7 @@
 		document.getElementById('bulletPoint2').style.cursor = "default";
 		document.getElementById('bulletPoint1').style.opacity = "0";
 		document.getElementById('bulletPoint3').style.opacity = "0";
+		document.getElementById('computer').style.display = "none";
 		document.getElementById('bulletPoint2').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
 		loadIframe('website', containerToHeight);
 	}
