@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body{
+			font-family: 'Roboto-Thin', sans-serif;
+			margin:0;
+		}
+		.drawerUnderline{
+			width:100%;
+			background-color:none;
+			height:2px;
+			opacity:0;
+			-webkit-transition: opacity 1.25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity 1.25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.drawer{
+			display:block;
+			position:absolute;
+			z-index:1;
+			width:75%;
+			background-color:#FAFAFA;
+			-webkit-transition: transform .25s;
+			transition: transform .25s;
+			transition-timing-function: ease-in-out;
+		}
+		.fibonacci{
+			width:100%;
+			height:300px;
+		}
+		.div1{
+			position:absolute;
+			width:61.77%;
+			height:300px;
+			}
+		.div2{
+			position:absolute;
+			width:38.23%;
+			height:185.71px;
+			margin-left:61.77%;
+		}
+		.div3{
+			position:absolute;
+			width:23.59%;
+			height:114.29px;
+			margin-left:76.47%;
+			margin-top:185.71px;
+		}
+		.div4{
+			position:absolute;
+			width:14.7%;
+			height:71.43px;
+			margin-left:61.77%;
+			margin-top:228.57px;
+		}
+		.div5{
+			position:absolute;
+			width:8.82%;
+			height:42.86px;
+			margin-left:61.77%;
+			margin-top:185.71px;
+		}
+		.div6{
+			position:absolute;
+			width:5.88%;
+			height:28.57px;
+			margin-left:70.59%;
+			margin-top:185.71px;
+		}
+		.div7{
+			position:absolute;
+			width:2.94%;
+			height:14.29px;
+			margin-left:73.53%;
+			margin-top:214.28px;
+		}
+		.div8{
+			position:absolute;
+			width:2.94%;
+			height:14.29px;
+			margin-left:70.59%;
+			margin-top:214.28px;
+		}
+		.drawerTab{
+			cursor:pointer;
+			overflow:hidden;
+			float:top;
+			text-align:center;
+			font-size:180%;
+			line-height:3.5;
+			width:100%;
+			height:72px;
+		}
+		.header{
+			width:100%;
+			height:56px;
+			background-color:#FAFAFA;
+		  -webkit-filter: brightness(100%); /* Safari 6.0 - 9.0 */
+		  filter: brightness(100%);
+			transition: .25s filter linear;
+			-webkit-transition: .25s -webkit-filter linear;
+		}
+		.menu{
+			display:block;
+			float:left;
+			width:33.33%;
+			height:56px;
+		}
+		.title{
+			display:block;
+			float:left;
+			width:33.33%;
+			height:56px;
+			text-align:center;
+			font-size:160%;
+			padding-top:12px;
+			opacity:0.8;
+		}
+		.spacer{
+			cursor:default;
+			display:block;
+			float:right;
+			text-align:right;
+			width:31.33%;
+			height:56px;
+			opacity:0;
+			padding-right:2%;
+			-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.hamburger{
+			display:inline-block;
+			height:56px;
+			width:56px;
+			margin:0px;
+			cursor:pointer;
+			opacity:0.8;
+		}
+		.hamburgerTop{
+			margin:12px;
+			margin-top:18px;
+			margin-bottom:3px;
+			height:4px;
+			width:32px;
+			border-radius:2px;
+			background-color:black;
+		}
+		.hamburgerMiddle{
+			margin:12px;
+			margin-top:3px;
+			margin-bottom:3px;
+			height:4px;
+			width:32px;
+			border-radius:2px;
+			background-color:black;
+		}
+		.hamburgerBottom{
+			margin:12px;
+			margin-top:3px;
+			margin-bottom:16px;
+			height:4px;
+			width:32px;
+			border-radius:2px;
+			background-color:black;
+		}
+		.tab{
+			display:none;
+			cursor:pointer;
+			overflow:hidden;
+			float:left;
+			text-align:center;
+			font-size:180%;
+			line-height:2.5;
+			width:25%;
+			height:100%;
+		}
+		.tabUnderlines{
+			display:none;
+			width:100%;
+			height:2px;
+			background-color:#FAFAFA;
+		}
+		.tabUnderline{
+			position:relative;
+			width:0%;
+			float:left;
+			height:100%;
+			-webkit-transition: width .25s; /* For Safari 3.1 to 6.0 */
+			transition: width .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.container{
+			width:100%;
+			min-width:245px;
+			padding-bottom:72px;
+			background-color:#FAFAFA;
+		  -webkit-filter: brightness(100%); /* Safari 6.0 - 9.0 */
+		  filter: brightness(100%);
+			transition: .25s filter linear;
+			-webkit-transition: .25s -webkit-filter linear;
+		}
+		.banner{
+			width:100%;
+			padding-top:128px;
+			text-align:center;
+		}
+		.profilePic{
+			height:150px;
+			width:150px;
+			border-radius:75px;
+		}
+		.name{
+			opacity:0.8;
+			font-size:250%;
+		}
+		.occupation{
+			font-size:150%;
+			color:#E91E63;
+		}
+		.seperator{
+			border-bottom:thin solid gray;
+			width:90%;
+			margin-left:5%;
+			margin-right:5%;
+		}
+		.section{
+			padding-top:72px;
+			width:90%;
+			margin-left:5%;
+			margin-right:5%;
+		}
+		.sectionLeft{
+			float:left;
+			width:96px;
+		}
+		.sectionRight{
+			margin-top:-20px;
+			margin-left:96px;
+		}
+		.bulletPoint1{
+			cursor:pointer;
+			width:80px;
+			height:80px;
+			border-radius:40px;
+			background-color:#9C27B0;
+		}
+		.bulletPoint1:hover{
+			box-shadow: 2px 2px 5px #888888;
+		}
+		.bulletPoint2{
+			cursor:pointer;
+			width:80px;
+			height:80px;
+			border-radius:40px;
+			background-color:#009688;
+		}
+		.bulletPoint2:hover{
+			box-shadow: 2px 2px 5px #888888;
+		}
+		.bulletPoint3{
+			cursor:pointer;
+			width:80px;
+			height:80px;
+			border-radius:40px;
+			background-color:#03A9F4;
+		}
+		.bulletPoint3:hover{
+			box-shadow: 2px 2px 5px #888888;
+		}
+		.gitPic{
+			width:100px;
+			height:100px;
+			border-radius:50px;
+		}
+		/* For tablets: */
+		@media only screen and (min-width: 400px) {
+			.seperator{
+				width:70%;
+				margin-left:15%;
+				margin-right:15%;
+			}
+			.drawer{
+				width:50%;
+			}
+			.section{
+				width:70%;
+				margin-left:15%;
+				margin-right:15%;
+			}
+		}
+		/* For desktop: */
+		@media only screen and (min-width: 768px) {
+		.drawer{
+			display:none;
+		}
+		.menu{
+			display:none;
+		}
+		.title{
+			display:none;
+		}
+		.spacer{
+			display:none;
+		}		
+		.tab{
+			display:block;
+		}
+		.tabUnderlines{
+			display:block;
+		}
+		.seperator{
+			margin:auto;
+			width:500px;
+		}
+		.section{
+			margin:auto;
+			width:500px;
+		}
+		}
+	</style>
+</head>
+<body onload="addListeners()">
+	<div class="drawer" id="drawer">
+	<div class="fibonacci" id="fibonacci">
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4"></div>
+		<div class="div5"></div>
+		<div class="div6"></div>
+		<div class="div7"></div>
+		<div class="div8"></div>
+	</div>
+	<div class="drawerTab" id="drawerTab1">About</div>
+		<div class="drawerUnderline" id="drawerUnderline1"></div>
+	<div class="drawerTab" id="drawerTab2">Resume</div>
+		<div class="drawerUnderline"></div>
+	<div class="drawerTab" id="drawerTab3">Website</div>
+		<div class="drawerUnderline"></div>
+	<div class="drawerTab" id="drawerTab4">Github</div>
+		<div class="drawerUnderline"></div>
+	</div>
+	<!--Header-->
+	<div class="header" id="header">
+		<div class="menu" onclick="toggleDrawer('open')">
+			<div class="hamburger" id="hamburger">
+			<div class="hamburgerTop"></div>
+			<div class="hamburgerMiddle"></div>
+			<div class="hamburgerBottom"></div>
+			</div>
+		</div>
+		<div class="title" id="title">
+			About
+		</div>
+		<div class="spacer" id="back"><img src="back.png"></img></div>
+		<div class="tab" id="tab1">About</div>
+		<div class="tab" id="tab2">Resume</div>
+		<div class="tab" id="tab3">Website</div>
+		<div class="tab" id="tab4">Github</div>
+	</div>
+	<div class="tabUnderlines">
+		<div class="tabUnderline" id="tabUnderline1"></div>
+		<div class="tabUnderline" id="tabUnderline2"></div>
+		<div class="tabUnderline" id="tabUnderline3"></div>
+		<div class="tabUnderline"></div>
+	</div>
+	<div class="container" id="container">
+
+		<div class="banner">
+			<img class="profilePic" src="profile.png"></img>
+			<h1 class="name">Daniel Marcoux</h1>
+			<p class="occupation">Software Engineer</p>
+			<div class="seperator"></div>
+		</div>
+		
+		<div class="section">
+			<div class="sectionLeft">
+				<div class="bulletPoint1"></div>
+			</div>
+			<div class="sectionRight">
+				<div class="topic">
+					<h1>Resume</h1>
+				</div>
+				<div class="description">
+					<p>					
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="sectionLeft">
+				<div class="bulletPoint2"></div>
+			</div>
+			<div class="sectionRight">
+				<div class="topic">
+					<h1>Website</h1>
+				</div>
+				<div class="description">
+					<p>					
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="sectionLeft">
+				<div class="bulletPoint3"></div>
+			</div>
+			<div class="sectionRight">
+				<div class="topic">
+					<h1>Github</h1>
+				</div>
+				<div class="description">
+					<p>					
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script>
+	//GLOBAL SCOPE
+	var ROUTE = 'about';
+	var mouseDown = 0;
+
+	document.onmousedown = function() { 
+		mouseDown = 1;
+	}
+	document.onmouseup = function() {
+		mouseDown = 0;
+	}
+	var H = document.body.scrollHeight;
+	var W = window.innerWidth;
+	var mobile = false;
+	var tablet = false;
+	if (W < 400){
+		mobile = true;
+		tablet = false;
+	}
+	else if(W >= 400 && W < 768){
+		tablet = true;
+		mobile = false;
+	}
+
+	var addEvent = function(object, type, callback) {
+		  if (object == null || typeof(object) == 'undefined') return;
+		  if (object.addEventListener) {
+		      object.addEventListener(type, callback, false);
+		  } else if (object.attachEvent) {
+		      object.attachEvent("on" + type, callback);
+		  } else {
+		      object["on"+type] = callback;
+		  }
+	};
+
+	addEvent(window, "resize", function(event) {
+	  H = document.body.scrollHeight;
+	  W = window.innerWidth;
+		if (W < 400){
+			mobile = true;
+			tablet = false;
+		}
+		else if(W >= 400 && W < 768){
+			tablet = true;
+			mobile = false;
+		}
+		toggleDrawer('close');
+	});
+
+	//Add Event Listeners on Load
+	var addListeners = function(){
+		document.getElementById('tab1').addEventListener('mousedown', splash);
+		document.getElementById('tab2').addEventListener('mousedown', splash);
+		document.getElementById('tab3').addEventListener('mousedown', splash);
+		document.getElementById('tab4').addEventListener('mousedown', splash);
+		document.getElementById('drawerTab1').addEventListener('mousedown', splash);
+		document.getElementById('drawerTab2').addEventListener('mousedown', splash);
+		document.getElementById('drawerTab3').addEventListener('mousedown', splash);
+		document.getElementById('drawerTab4').addEventListener('mousedown', splash);
+
+		document.getElementById('tab1').addEventListener('mouseup', route);
+		document.getElementById('tab2').addEventListener('mouseup', route);
+		document.getElementById('tab3').addEventListener('mouseup', route);
+		document.getElementById('tab4').addEventListener('mouseup', route);
+		document.getElementById('drawerTab1').addEventListener('mouseup', route);
+		document.getElementById('drawerTab2').addEventListener('mouseup', route);
+		document.getElementById('drawerTab3').addEventListener('mouseup', route);
+		document.getElementById('drawerTab4').addEventListener('mouseup', route);
+		styleDrawer();
+		document.getElementById('tabUnderline1').style.backgroundColor = "#E91E63";
+		document.getElementById('tabUnderline2').style.backgroundColor = "#9C27B0";
+		document.getElementById('tabUnderline3').style.backgroundColor = "#009688";
+		document.getElementById('tabUnderline2').style.marginLeft = "25%";
+		document.getElementById('tabUnderline3').style.marginLeft = "25%";
+		document.getElementById("drawer").style.height = H+"px";
+		if (mobile){
+			document.getElementById('drawer').style.transform = 'translate('+(-W*0.75)+'px, 0px)';
+		}
+		if (tablet){
+			document.getElementById('drawer').style.transform = 'translate('+(-W*0.50)+'px, 0px)';
+		}
+		document.getElementById('tabUnderline1').style.width = "25%";
+	}
+
+	//Close Drawer Function
+	var closeDrawer = function(){
+		toggleDrawer('close');
+	}
+	//Toggle Drawer Function
+	var toggleDrawer = function(position){
+		if (position == "open"){
+			document.getElementById('back').style.opacity = 1;
+			document.getElementById('back').style.cursor = "pointer";
+			document.getElementById('drawer').style.transform = 'translate(0px, 0px)';
+			document.getElementById('header').style.filter = 'brightness(50%)';
+			document.getElementById('container').style.filter = 'brightness(50%)';
+			document.getElementById('container').style.cursor = "pointer";
+			if (ROUTE == 'about'){
+				document.getElementById('drawerUnderline1').style.backgroundColor = "#E91E63";
+				document.getElementById('drawerUnderline1').style.opacity = "1";
+		
+			}
+			document.getElementById('container').addEventListener('click', closeDrawer);
+			document.getElementById('back').addEventListener('click', closeDrawer);
+		}
+		if (position == "close"){
+			document.getElementById('back').style.opacity = 0;
+			document.getElementById('back').style.cursor = "default";
+			document.getElementById('header').style.filter = 'brightness(100%)';
+			document.getElementById('container').style.filter = 'brightness(100%)';
+			document.getElementById('container').style.cursor = "default";
+			document.getElementById('container').removeEventListener('click', closeDrawer);
+			document.getElementById('back').removeEventListener('click', closeDrawer);
+			if (mobile){
+				document.getElementById('drawer').style.transform = 'translate('+(-W*0.75)+'px, 0px)';
+			}
+			if (tablet){
+				document.getElementById('drawer').style.transform = 'translate('+(-W*0.50)+'px, 0px)';
+			}
+		}
+	}
+
+	//Style Drawer Function
+	var styleDrawer = function(){
+		if (ROUTE == 'about'){
+			var pinkPalette = ["#F8BBD0","#F48FB1","#F06292","#EC407A","#E91E63","#D81B60","#C2185B","#AD1457"];
+			var fibonacciDivs = document.getElementById('fibonacci').children;
+			for (var i=0; i<8; i++){
+				fibonacciDivs[i].style.backgroundColor = pinkPalette[i];
+			}
+		}
+		if (ROUTE == 'resume'){
+			var purplePalette = ["#E1BEE7","#CE93D8","#BA68C8","#AB47BC","#9C27B0","#8E24AA","#7B1FA2","#6A1B9A"];
+			var fibonacciDivs = document.getElementById('fibonacci').children;
+			for (var i=0; i<8; i++){
+				fibonacciDivs[i].style.backgroundColor = purplePalette[i];
+			}
+		}
+		if (ROUTE == 'website'){
+			var tealPalette = ["#B2DFDB","#80CBC4","#4DB6AC","#26A69A","#009688","#00897B","#00796B","#00695C"]
+			var fibonacciDivs = document.getElementById('fibonacci').children;
+			for (var i=0; i<8; i++){
+				fibonacciDivs[i].style.backgroundColor = tealPalette[i];
+			}
+		}
+	}
+
+	//Splash Animation
+	var splash = function(event){
+		var parentID = event.toElement.id
+		var parentDIV = document.getElementById(parentID);
+		var parentBoundingRect = parentDIV.getBoundingClientRect();
+		var left = parentBoundingRect.left;
+		var top = parentBoundingRect.top;
+		var height = parentBoundingRect.height;
+		var width = parentBoundingRect.width;
+		var radius = Math.sqrt((width*width)+(height*height));
+		var x = event.clientX;
+		var y = event.clientY;
+		var w = 4;
+		var h = 4;
+		var lineHeight = Number(window.getComputedStyle(document.getElementById(parentID)).lineHeight.replace("px", ""));
+		top = top + lineHeight;
+		var cX = ((x-left)-(w/2));
+		var cY = ((y-top)-(h/2));
+		var circle = document.createElement('div');
+		circle.id = 'circle';
+		var style = document.createElement('style');
+		style.type = 'text/css';
+		var styleString = ".circle {position:relative; top:"+cY+"px; left:"+cX+"px;height:4px; width:4px; background-color:#3F51B5; border-radius:2px; opacity:0.4;}";
+		style.innerHTML = styleString;
+		document.getElementsByTagName('head')[0].appendChild(style);
+		circle.className = 'circle';
+		document.getElementById(parentID).appendChild(circle);
+		
+		//Execute functions synchronously! *needs callback.
+		animate('circle',radius, function(){
+			deleteSplash(parentID);
+		});
+	}
+
+
+	//Animate splash first.
+	var animate = function(ID, radius, callback){
+		var scale = radius / 2;
+    var elem = document.getElementById(ID); 
+    var s = 0;
+		var i = 0;
+    var id = setInterval(frame, 25);
+    function frame() {
+        if (s >= scale) {
+            clearInterval(id);
+    				callback && callback();
+        } else {
+						i++
+						//Scale exponentially, for more realistic splash.
+            s = Math.pow(i, 2); 
+						elem.style.transform = 'scale('+s+', '+s+')';
+        }
+    }
+	}
+	
+
+	//Edge Case, wait for mouse to be up to delete splash.
+	var deleteSplash = function(){
+		if (mouseDown == 1){
+			document.addEventListener('mouseup', deleteCircle);
+		}
+
+		//Remove splash.
+		else{
+		document.getElementById('circle').remove()
+		}
+	}
+
+	//Delete event listener when finished to stop incorrect console logs.
+	var deleteCircle = function(){
+		document.getElementById('circle').remove();
+		document.removeEventListener('mouseup', deleteCircle);
+	}
+
+	//Route
+	var route = function(event){
+		var ID = document.getElementById(event.toElement.id).parentNode.id
+		console.log(ID);
+		if (ID == 'tab1'){
+			ROUTE = 'about';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "25%";
+			document.getElementById('tabUnderline2').style.width = "0%";
+			document.getElementById('tabUnderline3').style.width = "0%";
+			document.getElementById('title').innerHTML = "About";
+		}
+		if (ID == 'tab2'){
+			ROUTE = 'resume';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "25%";
+			document.getElementById('tabUnderline3').style.width = "0%";
+			document.getElementById('title').innerHTML = "Resume";
+		}
+		if (ID == 'tab3'){
+			ROUTE = 'website';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "0%";
+			document.getElementById('tabUnderline3').style.width = "25%";
+			document.getElementById('title').innerHTML = "Website";
+		}
+		if (ID == 'tab4'){
+		//Navigate to Github
+  	win = window.open("https://github.com/DandroidDeveloper", "_blank");
+  	win.focus();
+		}
+		if (ID == 'drawerTab1'){
+			ROUTE = 'about';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "25%";
+			document.getElementById('tabUnderline2').style.width = "0%";
+			document.getElementById('tabUnderline3').style.width = "0%";
+			document.getElementById('title').innerHTML = "About";
+			toggleDrawer('close');
+		}
+		if (ID == 'drawerTab2'){
+			ROUTE = 'resume';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "25%";
+			document.getElementById('tabUnderline3').style.width = "0%";
+			document.getElementById('title').innerHTML = "Resume";
+		}
+		if (ID == 'drawerTab3'){
+			ROUTE = 'website';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "0%";
+			document.getElementById('tabUnderline3').style.width = "25%";
+			document.getElementById('title').innerHTML = "Website";
+		}
+		if (ID == 'drawerTab4'){
+		//Navigate to Github
+  	win = window.open("https://github.com/DandroidDeveloper", "_blank");
+  	win.focus();
+		}
+	}
+</script>
+</html>
