@@ -298,7 +298,9 @@
 			border-radius:40px;
 		}
 		.fab{
+			cursor:pointer;
 			opacity:0;
+			text-align:center;
 			position:fixed;
 			z-index:1;
 			bottom:32px;
@@ -312,6 +314,10 @@
 			transition: opacity .75s;
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.fab img{
+			margin-top:16px;
+			opacity:0.5;
 		}
 		/* For tablets: */
 		@media only screen and (min-width: 400px) {
@@ -467,7 +473,7 @@
 
 	</div>
 
-	<div class="fab" id = "fab"></div>
+	<div class="fab" id = "fab"><img src="download.png"></img></div>
 </body>
 <script>
 	//GLOBAL SCOPE
@@ -853,7 +859,6 @@
 		var oW = document.getElementById('container').offsetWidth;
 		var radius = Math.sqrt((oW*oW)+(H*H));
 		var scale = (radius*2) / width;
-		document.getElementById('fab').style.opacity = "1";
 		document.getElementById('bulletPoint1').style.opacity = "0";
 		document.getElementById('bulletPoint3').style.opacity = "0";
 		document.getElementById('bulletPoint2').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
