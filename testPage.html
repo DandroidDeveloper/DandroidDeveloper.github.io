@@ -8,12 +8,22 @@
 		height:1200px;
 		width:100%;
 		background-color:red;
+		opacity:0;
+			-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+			transition: opacity 1s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 	}
 </style>
-<body>
-<div class="container">
+<body onload="test()">
+<div class="container" id="container">
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
 </div>
+<script>
+var test = function(){
+	document.getElementById('container').style.opacity = "1";
+	}
+</script>
 </body>
 </html>
