@@ -248,13 +248,14 @@
 			margin-left:96px;
 		}
 		.bulletPoint1{
+			overflow:hidden;
 			cursor:pointer;
 			width:80px;
 			height:80px;
 			border-radius:40px;
 			background-color:#9C27B0;
-			-webkit-transition: transform .5s; /* For Safari 3.1 to 6.0 */
-			transition: transform .5s;
+			-webkit-transition: transform .5s, opacity .5s; /* For Safari 3.1 to 6.0 */
+			transition: transform .5s, opacity .5s;
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
@@ -262,13 +263,14 @@
 			box-shadow: 2px 2px 5px #888888;
 		}
 		.bulletPoint2{
+			overflow:hidden;
 			cursor:pointer;
 			width:80px;
 			height:80px;
 			border-radius:40px;
 			background-color:#009688;
-			-webkit-transition: transform .5s; /* For Safari 3.1 to 6.0 */
-			transition: transform .5s;
+			-webkit-transition: transform .5s, opacity .5s; /* For Safari 3.1 to 6.0 */
+			transition: transform .5s, opacity .5s;
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
@@ -276,11 +278,16 @@
 			box-shadow: 2px 2px 5px #888888;
 		}
 		.bulletPoint3{
+			overflow:hidden;
 			cursor:pointer;
 			width:80px;
 			height:80px;
 			border-radius:40px;
 			background-color:#03A9F4;
+			-webkit-transition: opacity .5s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .5s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 		.bulletPoint3:hover{
 			box-shadow: 2px 2px 5px #888888;
@@ -425,7 +432,7 @@
 
 		<div class="section">
 			<div class="sectionLeft">
-				<div class="bulletPoint3"></div>
+				<div class="bulletPoint3" id="bulletPoint3"></div>
 			</div>
 			<div class="sectionRight">
 				<div class="topic">
@@ -502,6 +509,9 @@
 		document.getElementById('drawerTab2').addEventListener('mousedown', splash);
 		document.getElementById('drawerTab3').addEventListener('mousedown', splash);
 		document.getElementById('drawerTab4').addEventListener('mousedown', splash);
+		document.getElementById('bulletPoint1').addEventListener('mousedown', splash);
+		document.getElementById('bulletPoint2').addEventListener('mousedown', splash);
+		document.getElementById('bulletPoint3').addEventListener('mousedown', splash);
 
 		document.getElementById('tab1').addEventListener('mouseup', route);
 		document.getElementById('tab2').addEventListener('mouseup', route);
@@ -511,6 +521,9 @@
 		document.getElementById('drawerTab2').addEventListener('mouseup', route);
 		document.getElementById('drawerTab3').addEventListener('mouseup', route);
 		document.getElementById('drawerTab4').addEventListener('mouseup', route);
+		document.getElementById('bulletPoint1').addEventListener('mouseup', route);
+		document.getElementById('bulletPoint2').addEventListener('mouseup', route);
+		document.getElementById('bulletPoint3').addEventListener('mouseup', route);
 		styleDrawer();
 		document.getElementById('tabUnderline1').style.backgroundColor = "#E91E63";
 		document.getElementById('tabUnderline2').style.backgroundColor = "#9C27B0";
@@ -684,6 +697,7 @@
 	var route = function(event){
 		var ID = document.getElementById(event.toElement.id).parentNode.id
 		console.log(ID);
+		console.log(ROUTE);
 		if (ID == 'tab1'){
 			ROUTE = 'about';
 			styleDrawer();
@@ -751,12 +765,40 @@
 			win = window.open("https://github.com/DandroidDeveloper", "_blank");
 			win.focus();
 		}
+		if (ID == 'bulletPoint1'){
+			ROUTE = 'resume';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "25%";
+			document.getElementById('tabUnderline3').style.width = "0%";
+			document.getElementById('title').innerHTML = "Resume";
+			toggleDrawer('close');
+			resumeAnimation();
+		}
+		if (ID == 'bulletPoint2'){
+			ROUTE = 'website';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "0%";
+			document.getElementById('tabUnderline3').style.width = "3%";
+			document.getElementById('title').innerHTML = "Website";
+			toggleDrawer('close');
+			websiteAnimation();
+		}
+		if (ID == 'bulletPoint3'){
+			//Navigate to Github
+			win = window.open("https://github.com/DandroidDeveloper", "_blank");
+			win.focus();
+		}
 	}
 
 	var aboutAnimation = function(callback){
 		console.log(ROUTE);
 		document.getElementById('bulletPoint1').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
 		document.getElementById('bulletPoint2').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
+		document.getElementById('bulletPoint1').style.opacity = "1";
+		document.getElementById('bulletPoint2').style.opacity = "1";
+		document.getElementById('bulletPoint3').style.opacity = "1";
 	  callback && callback();
 	}
 
@@ -775,6 +817,8 @@
 		var oW = document.getElementById('container').offsetWidth;
 		var radius = Math.sqrt((oW*oW)+(H*H));
 		var scale = (radius*2) / width;
+		document.getElementById('bulletPoint2').style.opacity = "0";
+		document.getElementById('bulletPoint3').style.opacity = "0";
 		document.getElementById('bulletPoint1').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
 	}
 
@@ -795,6 +839,8 @@
 		var oW = document.getElementById('container').offsetWidth;
 		var radius = Math.sqrt((oW*oW)+(H*H));
 		var scale = (radius*2) / width;
+		document.getElementById('bulletPoint1').style.opacity = "0";
+		document.getElementById('bulletPoint3').style.opacity = "0";
 		document.getElementById('bulletPoint2').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
 	}
 
