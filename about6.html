@@ -392,6 +392,16 @@
 			width:500px;
 		}
 		}
+
+		.resumeFrame{
+			position:absolute;
+			top:56px;
+			left:0px;
+		}
+		.resumeIframe{
+			width:100%;
+			height:100%;
+		}
 	</style>
 	</head>
 	<body onload="load()">
@@ -916,6 +926,17 @@
 		document.getElementById('bulletPoint2').style.opacity = "0";
 		document.getElementById('bulletPoint3').style.opacity = "0";
 		document.getElementById('bulletPoint1').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
+
+			var newDiv = document.createElement("div");
+			newDiv.className = "resumeFrame";
+			newDiv.id = "resumeFrame";
+			document.body.append(newDiv);
+			var testWidth = window.innerWidth;
+			document.getElementById('resumeFrame').style.width = testWidth+'px';
+			console.log(w);
+			document.body.style.overflow = "hidden";
+			document.getElementById('resumeFrame').style.height = containerToHeight+'px';
+			document.getElementById('resumeFrame').innerHTML = '<iframe src="testPage.html" class="resumeIframe" id="resumeIframe"></iframe>';
 	}
 	var websiteAnimation = function(){
 		aboutAnimation( function(){
