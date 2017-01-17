@@ -8,6 +8,7 @@
 		body{
 			font-family: 'Roboto-Thin', sans-serif;
 			margin:0;
+			background-color:#FAFAFA;
 		}
 		.drawerUnderline{
 			width:100%;
@@ -198,6 +199,7 @@
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 		.container{
+			overflow:hidden;
 			width:100%;
 			min-width:245px;
 			padding-bottom:72px;
@@ -251,6 +253,10 @@
 			height:80px;
 			border-radius:40px;
 			background-color:#9C27B0;
+			-webkit-transition: transform .5s; /* For Safari 3.1 to 6.0 */
+			transition: transform .5s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 		.bulletPoint1:hover{
 			box-shadow: 2px 2px 5px #888888;
@@ -261,6 +267,10 @@
 			height:80px;
 			border-radius:40px;
 			background-color:#009688;
+			-webkit-transition: transform .5s; /* For Safari 3.1 to 6.0 */
+			transition: transform .5s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 		.bulletPoint2:hover{
 			box-shadow: 2px 2px 5px #888888;
@@ -375,15 +385,15 @@
 	<div class="container" id="container">
 
 		<div class="banner">
-			<img class="profilePic" src="profile.png"></img>
+			<img class="profilePic" src="profile.png" id="profilePic"></img>
 			<h1 class="name">Daniel Marcoux</h1>
 			<p class="occupation">Software Engineer</p>
 			<div class="seperator"></div>
 		</div>
 		
-		<div class="section">
+		<div class="section" id="sectionTest">
 			<div class="sectionLeft">
-				<div class="bulletPoint1"></div>
+				<div class="bulletPoint1" id="bulletPoint1"></div>
 			</div>
 			<div class="sectionRight">
 				<div class="topic">
@@ -399,7 +409,7 @@
 
 		<div class="section">
 			<div class="sectionLeft">
-				<div class="bulletPoint2"></div>
+				<div class="bulletPoint2" id="bulletPoint2"></div>
 			</div>
 			<div class="sectionRight">
 				<div class="topic">
@@ -681,6 +691,7 @@
 			document.getElementById('tabUnderline2').style.width = "0%";
 			document.getElementById('tabUnderline3').style.width = "0%";
 			document.getElementById('title').innerHTML = "About";
+			aboutAnimation();
 		}
 		if (ID == 'tab2'){
 			ROUTE = 'resume';
@@ -689,6 +700,7 @@
 			document.getElementById('tabUnderline2').style.width = "25%";
 			document.getElementById('tabUnderline3').style.width = "0%";
 			document.getElementById('title').innerHTML = "Resume";
+			resumeAnimation();
 		}
 		if (ID == 'tab3'){
 			ROUTE = 'website';
@@ -697,6 +709,7 @@
 			document.getElementById('tabUnderline2').style.width = "0%";
 			document.getElementById('tabUnderline3').style.width = "25%";
 			document.getElementById('title').innerHTML = "Website";
+			websiteAnimation();
 		}
 		if (ID == 'tab4'){
 		//Navigate to Github
@@ -711,6 +724,7 @@
 			document.getElementById('tabUnderline3').style.width = "0%";
 			document.getElementById('title').innerHTML = "About";
 			toggleDrawer('close');
+			aboutAnimation();
 		}
 		if (ID == 'drawerTab2'){
 			ROUTE = 'resume';
@@ -720,6 +734,7 @@
 			document.getElementById('tabUnderline3').style.width = "0%";
 			document.getElementById('title').innerHTML = "Resume";
 			toggleDrawer('close');
+			resumeAnimation();
 		}
 		if (ID == 'drawerTab3'){
 			ROUTE = 'website';
@@ -729,12 +744,76 @@
 			document.getElementById('tabUnderline3').style.width = "25%";
 			document.getElementById('title').innerHTML = "Website";
 			toggleDrawer('close');
+			websiteAnimation();
 		}
 		if (ID == 'drawerTab4'){
 			//Navigate to Github
 			win = window.open("https://github.com/DandroidDeveloper", "_blank");
 			win.focus();
 		}
+	}
+
+	var aboutAnimation = function(callback){
+		console.log(ROUTE);
+		console.log(document.body.scrollHeight);
+		document.getElementById('container').style.height = H+"px";
+		document.getElementById('bulletPoint1').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
+		document.getElementById('bulletPoint2').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
+	  callback && callback();
+	}
+
+	var growResume = function(){
+		var w = document.getElementById('container').offsetWidth;
+		var h = window.innerHeight;
+		var marginLeft = document.getElementById('bulletPoint1').getBoundingClientRect().left;
+		var width = document.getElementById('bulletPoint1').getBoundingClientRect().width;
+		var tX = (w/2)-marginLeft - (width/2);
+		var imageTop = document.getElementById('profilePic').getBoundingClientRect().top;
+		var bulletTop = document.getElementById('bulletPoint1').getBoundingClientRect().top;
+		var tY = (imageTop - bulletTop) + width/2;
+		var containerMarginTop = document.getElementById('container').getBoundingClientRect().top;
+		document.getElementById('container').style.height = (h - (containerMarginTop*2))+"px";
+		document.getElementById('drawer').style.height = h+"px";
+		var oH = document.getElementById('container').offsetHeight;
+		var oW = document.getElementById('container').offsetWidth;
+		var radius = Math.sqrt((oW*oW)+(oH*oH));
+		var scale = (radius*2) / width;
+		document.getElementById('bulletPoint1').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
+	}
+
+	var growWebsite = function(){
+		aboutAnimation();
+		var w = document.getElementById('container').offsetWidth;
+		var h = window.innerHeight;
+		var marginLeft = document.getElementById('bulletPoint2').getBoundingClientRect().left;
+		var width = document.getElementById('bulletPoint2').getBoundingClientRect().width;
+		var tX = (w/2)-marginLeft - (width/2);
+		var imageTop = document.getElementById('profilePic').getBoundingClientRect().top;
+		var bulletTop = document.getElementById('bulletPoint2').getBoundingClientRect().top;
+		var tY = (imageTop - bulletTop) + width/2;
+		var containerMarginTop = document.getElementById('container').getBoundingClientRect().top;
+		document.getElementById('container').style.height = (h - (containerMarginTop*2))+"px";
+		document.getElementById('drawer').style.height = h+"px";
+		var oH = document.getElementById('container').offsetHeight;
+		var oW = document.getElementById('container').offsetWidth;
+		var radius = Math.sqrt((oW*oW)+(oH*oH));
+		var scale = (radius*2) / width;
+		document.getElementById('bulletPoint2').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
+	}
+
+	var resumeAnimation = function(){
+		aboutAnimation( function(){
+  		setTimeout( function(){
+				growResume();
+  		}, 500 );
+		});
+	}
+	var websiteAnimation = function(){
+		aboutAnimation( function(){
+  		setTimeout( function(){
+				growWebsite();
+  		}, 500 );
+		});
 	}
 </script>
 </html>

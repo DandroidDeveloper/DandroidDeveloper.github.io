@@ -755,7 +755,6 @@
 
 	var aboutAnimation = function(callback){
 		console.log(ROUTE);
-		document.getElementById('container').style.height = H+"px";
 		document.getElementById('bulletPoint1').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
 		document.getElementById('bulletPoint2').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
 	  callback && callback();
@@ -771,11 +770,10 @@
 		var bulletTop = document.getElementById('bulletPoint1').getBoundingClientRect().top;
 		var tY = (imageTop - bulletTop) + width/2;
 		var containerMarginTop = document.getElementById('container').getBoundingClientRect().top;
-		document.getElementById('container').style.height = (h - (containerMarginTop*2))+"px";
-		document.getElementById('drawer').style.height = h+"px";
-		var oH = document.getElementById('container').offsetHeight;
+		document.getElementById('container').style.height = H+"px";
+		document.getElementById('drawer').style.height = H+"px";
 		var oW = document.getElementById('container').offsetWidth;
-		var radius = Math.sqrt((oW*oW)+(oH*oH));
+		var radius = Math.sqrt((oW*oW)+(H*H));
 		var scale = (radius*2) / width;
 		document.getElementById('bulletPoint1').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
 	}
@@ -792,10 +790,10 @@
 		var tY = (imageTop - bulletTop) + width/2;
 		var containerMarginTop = document.getElementById('container').getBoundingClientRect().top;
 		document.getElementById('container').style.height = (h - (containerMarginTop*2))+"px";
-		document.getElementById('drawer').style.height = h+"px";
-		var oH = document.getElementById('container').offsetHeight;
+		document.getElementById('container').style.height = H+"px";
+		document.getElementById('drawer').style.height = H+"px";
 		var oW = document.getElementById('container').offsetWidth;
-		var radius = Math.sqrt((oW*oW)+(oH*oH));
+		var radius = Math.sqrt((oW*oW)+(H*H));
 		var scale = (radius*2) / width;
 		document.getElementById('bulletPoint2').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
 	}
