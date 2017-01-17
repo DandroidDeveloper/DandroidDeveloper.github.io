@@ -392,13 +392,21 @@
 			width:500px;
 		}
 		}
-
 		.resumeFrame{
 			position:absolute;
 			top:56px;
 			left:0px;
 		}
 		.resumeIframe{
+			width:100%;
+			height:100%;
+		}
+		.websiteFrame{
+			position:absolute;
+			top:56px;
+			left:0px;
+		}
+		.websiteIframe{
 			width:100%;
 			height:100%;
 		}
@@ -881,6 +889,14 @@
 	}
 	var aboutAnimation = function(callback){
 		console.log('about animation');	
+				if (document.getElementById("resumeFrame") != null){
+					document.getElementById("resumeFrame").remove();
+					document.body.style.overflow = "scroll";
+				}
+				if (document.getElementById("websiteFrame") != null){
+					document.getElementById("websiteFrame").remove();
+					document.body.style.overflow = "scroll";
+				}
 		var contentHeight = document.getElementById('content').getBoundingClientRect().height;
 		var contentTop = document.getElementById('content').getBoundingClientRect().top;
 		var containerToHeight = contentHeight;
@@ -926,17 +942,7 @@
 		document.getElementById('bulletPoint2').style.opacity = "0";
 		document.getElementById('bulletPoint3').style.opacity = "0";
 		document.getElementById('bulletPoint1').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
-
-			var newDiv = document.createElement("div");
-			newDiv.className = "resumeFrame";
-			newDiv.id = "resumeFrame";
-			document.body.append(newDiv);
-			var testWidth = window.innerWidth;
-			document.getElementById('resumeFrame').style.width = testWidth+'px';
-			console.log(w);
-			document.body.style.overflow = "hidden";
-			document.getElementById('resumeFrame').style.height = containerToHeight+'px';
-			document.getElementById('resumeFrame').innerHTML = '<iframe src="testPage.html" class="resumeIframe" id="resumeIframe"></iframe>';
+		loadIframe('resume', containerToHeight);
 	}
 	var websiteAnimation = function(){
 		aboutAnimation( function(){
@@ -970,6 +976,34 @@
 		document.getElementById('bulletPoint1').style.opacity = "0";
 		document.getElementById('bulletPoint3').style.opacity = "0";
 		document.getElementById('bulletPoint2').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
+		loadIframe('website', containerToHeight);
+	}
+
+	var loadIframe = function(type, containerToHeight){
+		if (type == 'resume'){
+			scroll(0,0);
+			var newDiv = document.createElement("div");
+			newDiv.className = "resumeFrame";
+			newDiv.id = "resumeFrame";
+			document.body.append(newDiv);
+			var testWidth = window.innerWidth;
+			document.getElementById('resumeFrame').style.width = testWidth+'px';
+			document.body.style.overflow = "hidden";
+			document.getElementById('resumeFrame').style.height = containerToHeight+'px';
+			document.getElementById('resumeFrame').innerHTML = '<iframe src="testPage.html" class="resumeIframe" id="resumeIframe"></iframe>';
+		}
+		if (type == 'website'){
+			scroll(0,0);
+			var newDiv = document.createElement("div");
+			newDiv.className = "websiteFrame";
+			newDiv.id = "websiteFrame";
+			document.body.append(newDiv);
+			var testWidth = window.innerWidth;
+			document.getElementById('websiteFrame').style.width = testWidth+'px';
+			document.body.style.overflow = "hidden";
+			document.getElementById('websiteFrame').style.height = containerToHeight+'px';
+			document.getElementById('websiteFrame').innerHTML = '<iframe src="testPage.html" class="websiteIframe" id="websiteIframe"></iframe>';
+		}
 	}
 	</script>
 </html>
