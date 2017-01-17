@@ -97,6 +97,52 @@
 			width:100%;
 			height:72px;
 		}
+		.container{
+			width:100%;
+			display:inline-block;
+			background-color:#FAFAFA;
+		  -webkit-filter: brightness(100%); /* Safari 6.0 - 9.0 */
+		  filter: brightness(100%);
+			transition: .25s filter linear;
+			-webkit-transition: .25s -webkit-filter linear;
+		}
+		.load-bar {
+			position: relative;
+			width: 100%;
+			height: 6px;
+			background-color: #E91E63;
+			opacity:1;
+			-webkit-transition: opacity 1.25s, height .5s; /* For Safari 3.1 to 6.0 */
+			transition: opacity 1.25s, height .5s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+		}
+		.bar {
+			content: "";
+			display: inline;
+			position: absolute;
+			width: 0;
+			height: 100%;
+			left: 50%;
+			text-align: center;
+		}
+		.bar:nth-child(1) {
+			background-color: #9C27B0;
+			animation: loading 3s linear infinite;
+		}
+		.bar:nth-child(2) {
+			background-color: #009688;
+			animation: loading 3s linear 1s infinite;
+		}
+		.bar:nth-child(3) {
+			background-color: #03A9F4;
+			animation: loading 3s linear 2s infinite;
+		}
+		@keyframes loading {
+				from {left: 50%; width: 0;z-index:100;}
+				33.3333% {left: 0; width: 100%;z-index: 10;}
+				to {left: 0; width: 100%;}
+		}
 		.header{
 			width:100%;
 			height:56px;
@@ -121,6 +167,7 @@
 			font-size:160%;
 			padding-top:12px;
 			opacity:0.8;
+			margin-bottom:-12px;
 		}
 		.spacer{
 			cursor:default;
@@ -186,7 +233,6 @@
 			display:none;
 			width:100%;
 			height:2px;
-			background-color:#FAFAFA;
 		}
 		.tabUnderline{
 			position:relative;
@@ -198,26 +244,23 @@
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
-		.container{
-			overflow:hidden;
+		.content{
 			width:100%;
-			min-width:245px;
-			padding-bottom:72px;
-			background-color:#FAFAFA;
-		  -webkit-filter: brightness(100%); /* Safari 6.0 - 9.0 */
-		  filter: brightness(100%);
-			transition: .25s filter linear;
-			-webkit-transition: .25s -webkit-filter linear;
 		}
 		.banner{
 			width:100%;
-			padding-top:128px;
+			padding-top:72px;
 			text-align:center;
 		}
 		.profilePic{
 			height:150px;
 			width:150px;
 			border-radius:75px;
+			opacity:0;
+			-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 		}
 		.name{
 			opacity:0.8;
@@ -296,28 +339,11 @@
 			width:80px;
 			height:80px;
 			border-radius:40px;
-		}
-		.fab{
-			cursor:pointer;
 			opacity:0;
-			text-align:center;
-			position:fixed;
-			z-index:1;
-			bottom:32px;
-			right:32px;
-			height:80px;
-			width:80px;
-			border-radius:40px;
-			background-color:white;
-			box-shadow: 2px 2px 5px #888888;
-			-webkit-transition: opacity .75s; /* For Safari 3.1 to 6.0 */
-			transition: opacity .75s;
+			-webkit-transition: opacity .25s; /* For Safari 3.1 to 6.0 */
+			transition: opacity .25s;
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1); /* For Safari 3.1 to 6.0 */
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
-		}
-		.fab img{
-			margin-top:16px;
-			opacity:0.5;
 		}
 		/* For tablets: */
 		@media only screen and (min-width: 400px) {
@@ -365,8 +391,8 @@
 		}
 		}
 	</style>
-</head>
-<body onload="addListeners()">
+	</head>
+	<body onload="load()">
 	<div class="drawer" id="drawer">
 	<div class="fibonacci" id="fibonacci">
 		<div class="div1"></div>
@@ -387,6 +413,7 @@
 	<div class="drawerTab" id="drawerTab4">Github</div>
 		<div class="drawerUnderline"></div>
 	</div>
+
 	<!--Header-->
 	<div class="header" id="header">
 		<div class="menu" onclick="toggleDrawer('open')">
@@ -404,78 +431,82 @@
 		<div class="tab" id="tab2">Resume</div>
 		<div class="tab" id="tab3">Website</div>
 		<div class="tab" id="tab4">Github</div>
-	</div>
 	<div class="tabUnderlines">
 		<div class="tabUnderline" id="tabUnderline1"></div>
 		<div class="tabUnderline" id="tabUnderline2"></div>
 		<div class="tabUnderline" id="tabUnderline3"></div>
 		<div class="tabUnderline"></div>
 	</div>
-	<div class="container" id="container">
-
-		<div class="banner">
-			<img class="profilePic" src="profile.png" id="profilePic"></img>
-			<h1 class="name">Daniel Marcoux</h1>
-			<p class="occupation">Software Engineer</p>
-			<div class="seperator"></div>
-		</div>
-		
-		<div class="section" id="sectionTest">
-			<div class="sectionLeft">
-				<div class="bulletPoint1" id="bulletPoint1">
-				</div>
-			</div>
-			<div class="sectionRight">
-				<div class="topic">
-					<h1>Resume</h1>
-				</div>
-				<div class="description">
-					<p>					
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="section">
-			<div class="sectionLeft">
-				<div class="bulletPoint2" id="bulletPoint2"></div>
-			</div>
-			<div class="sectionRight">
-				<div class="topic">
-					<h1>Website</h1>
-				</div>
-				<div class="description">
-					<p>					
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="section">
-			<div class="sectionLeft">
-				<div class="bulletPoint3" id="bulletPoint3">
-					<img src="github.png" class="gitPic"></img>
-				</div>
-			</div>
-			<div class="sectionRight">
-				<div class="topic">
-					<h1>Github</h1>
-				</div>
-				<div class="description">
-					<p>					
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
-					</p>
-				</div>
-			</div>
-		</div>
-
 	</div>
+		<div class="load-bar" id="loader">
+			<div class="bar"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
+		</div>
+	<div class="container" id="container">
+		<div class="content">
+			<div class="banner">
+				<img class="profilePic" src="profile.png" id="profilePic"></img>
+				<h1 class="name">Daniel Marcoux</h1>
+				<p class="occupation">Software Engineer</p>
+				<div class="seperator"></div>
+			</div>
+		
+			<div class="section" id="sectionTest">
+				<div class="sectionLeft">
+					<div class="bulletPoint1" id="bulletPoint1">
+					</div>
+				</div>
+				<div class="sectionRight">
+					<div class="topic">
+						<h1>Resume</h1>
+					</div>
+					<div class="description">
+						<p>					
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
+						</p>
+					</div>
+				</div>
+			</div>
 
-	<div class="fab" id = "fab"><img src="download.png"></img></div>
-</body>
-<script>
+			<div class="section">
+				<div class="sectionLeft">
+					<div class="bulletPoint2" id="bulletPoint2"></div>
+				</div>
+				<div class="sectionRight">
+					<div class="topic">
+						<h1>Website</h1>
+					</div>
+					<div class="description">
+						<p>					
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="section">
+				<div class="sectionLeft">
+					<div class="bulletPoint3" id="bulletPoint3">
+						<img src="github.png" class="gitPic" id="gitPic"></img>
+					</div>
+				</div>
+				<div class="sectionRight">
+					<div class="topic">
+						<h1>Github</h1>
+					</div>
+					<div class="description">
+						<p>					
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque accumsan leo quis eros egestas pretium non id ipsum. Nunc erat nunc, euismod eget elementum vitae, maximus porta eros.
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</body>
+	<script>
 	//GLOBAL SCOPE
 	var DRAWERSTATE = 'closed';
 	var ROUTE = 'about';
@@ -492,14 +523,15 @@
 	var mobile = false;
 	var tablet = false;
 	if (W < 400){
+		console.log('mobile');
 		mobile = true;
 		tablet = false;
 	}
 	else if(W >= 400 && W < 768){
+		console.log('tablet');
 		tablet = true;
 		mobile = false;
 	}
-
 	var addEvent = function(object, type, callback) {
 		  if (object == null || typeof(object) == 'undefined') return;
 		  if (object.addEventListener) {
@@ -512,9 +544,7 @@
 	};
 
 	addEvent(window, "resize", function(event) {
-	  H = document.body.scrollHeight;
 	  W = window.innerWidth;
-		document.getElementById('fab').style.bottom = "0px";
 		if (W < 400 && DRAWERSTATE == 'closed'){
 			mobile = true;
 			tablet = false;
@@ -526,45 +556,93 @@
 			toggleDrawer('close');
 		}
 	});
-
-	//Add Event Listeners on Load
-	var addListeners = function(){
-		document.getElementById('tab1').addEventListener('mousedown', splash);
-		document.getElementById('tab2').addEventListener('mousedown', splash);
-		document.getElementById('tab3').addEventListener('mousedown', splash);
-		document.getElementById('tab4').addEventListener('mousedown', splash);
-		document.getElementById('drawerTab1').addEventListener('mousedown', splash);
-		document.getElementById('drawerTab2').addEventListener('mousedown', splash);
-		document.getElementById('drawerTab3').addEventListener('mousedown', splash);
-		document.getElementById('drawerTab4').addEventListener('mousedown', splash);
-
-		document.getElementById('tab1').addEventListener('mouseup', route);
-		document.getElementById('tab2').addEventListener('mouseup', route);
-		document.getElementById('tab3').addEventListener('mouseup', route);
-		document.getElementById('tab4').addEventListener('mouseup', route);
-		document.getElementById('drawerTab1').addEventListener('mouseup', route);
-		document.getElementById('drawerTab2').addEventListener('mouseup', route);
-		document.getElementById('drawerTab3').addEventListener('mouseup', route);
-		document.getElementById('drawerTab4').addEventListener('mouseup', route);
-		styleDrawer();
-		document.getElementById('tabUnderline1').style.backgroundColor = "#E91E63";
-		document.getElementById('tabUnderline2').style.backgroundColor = "#9C27B0";
-		document.getElementById('tabUnderline3').style.backgroundColor = "#009688";
-		document.getElementById('tabUnderline2').style.marginLeft = "25%";
-		document.getElementById('tabUnderline3').style.marginLeft = "25%";
-		document.getElementById('drawerUnderline1').style.backgroundColor = "#E91E63";
-		document.getElementById('drawerUnderline2').style.backgroundColor = "#9C27B0";
-		document.getElementById('drawerUnderline3').style.backgroundColor = "#009688";
-		document.getElementById("drawer").style.height = H+"px";
+	//Loading Function
+	var load = function(){
 		if (mobile){
 			document.getElementById('drawer').style.transform = 'translate('+(-W*0.75)+'px, 0px)';
 		}
 		if (tablet){
 			document.getElementById('drawer').style.transform = 'translate('+(-W*0.50)+'px, 0px)';
 		}
-		document.getElementById('tabUnderline1').style.width = "25%";
+		console.log('loading...');
+		stylePage( function(){
+			deleteLoader();
+		});
+	}
+	function stylePage( callback ){
+		setTimeout( function(){
+			document.getElementById('profilePic').style.opacity = "1";
+			document.getElementById('gitPic').style.opacity = "1";
+			document.getElementById('tab1').addEventListener('mousedown', splash);
+			document.getElementById('tab2').addEventListener('mousedown', splash);
+			document.getElementById('tab3').addEventListener('mousedown', splash);
+			document.getElementById('tab4').addEventListener('mousedown', splash);
+			document.getElementById('drawerTab1').addEventListener('mousedown', splash);
+			document.getElementById('drawerTab2').addEventListener('mousedown', splash);
+			document.getElementById('drawerTab3').addEventListener('mousedown', splash);
+			document.getElementById('drawerTab4').addEventListener('mousedown', splash);
+			document.getElementById('tab1').addEventListener('mouseup', route);
+			document.getElementById('tab2').addEventListener('mouseup', route);
+			document.getElementById('tab3').addEventListener('mouseup', route);
+			document.getElementById('tab4').addEventListener('mouseup', route);
+			document.getElementById('drawerTab1').addEventListener('mouseup', route);
+			document.getElementById('drawerTab2').addEventListener('mouseup', route);
+			document.getElementById('drawerTab3').addEventListener('mouseup', route);
+			document.getElementById('drawerTab4').addEventListener('mouseup', route);
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.backgroundColor = "#E91E63";
+			document.getElementById('tabUnderline2').style.backgroundColor = "#9C27B0";
+			document.getElementById('tabUnderline3').style.backgroundColor = "#009688";
+			document.getElementById('tabUnderline2').style.marginLeft = "25%";
+			document.getElementById('tabUnderline3').style.marginLeft = "25%";
+			document.getElementById('drawerUnderline1').style.backgroundColor = "#E91E63";
+			document.getElementById('drawerUnderline2').style.backgroundColor = "#9C27B0";
+			document.getElementById('drawerUnderline3').style.backgroundColor = "#009688";
+			document.getElementById("drawer").style.height = H+"px";
+			document.getElementById('tabUnderline1').style.width = "25%";
+		  callback && callback();
+		}, 1000 );
+	}
+	function deleteLoader(){
+		fadeLoader( function(){
+			removeLoader();
+		});
+	}
+	function fadeLoader( callback ){
+	 		document.getElementById('loader').style.opacity = "0";
+		  callback && callback();
+
+	}
+	function removeLoader(){
+			setTimeout( function(){
+	 		document.getElementById('loader').style.height = "0px";
+		}, 1000 );
 	}
 
+	//Style Drawer Function
+	var styleDrawer = function(){
+		if (ROUTE == 'about'){
+			var pinkPalette = ["#F8BBD0","#F48FB1","#F06292","#EC407A","#E91E63","#D81B60","#C2185B","#AD1457"];
+			var fibonacciDivs = document.getElementById('fibonacci').children;
+			for (var i=0; i<8; i++){
+				fibonacciDivs[i].style.backgroundColor = pinkPalette[i];
+			}
+		}
+		if (ROUTE == 'resume'){
+			var purplePalette = ["#E1BEE7","#CE93D8","#BA68C8","#AB47BC","#9C27B0","#8E24AA","#7B1FA2","#6A1B9A"];
+			var fibonacciDivs = document.getElementById('fibonacci').children;
+			for (var i=0; i<8; i++){
+				fibonacciDivs[i].style.backgroundColor = purplePalette[i];
+			}
+		}
+		if (ROUTE == 'website'){
+			var tealPalette = ["#B2DFDB","#80CBC4","#4DB6AC","#26A69A","#009688","#00897B","#00796B","#00695C"]
+			var fibonacciDivs = document.getElementById('fibonacci').children;
+			for (var i=0; i<8; i++){
+				fibonacciDivs[i].style.backgroundColor = tealPalette[i];
+			}
+		}
+	}
 	//Close Drawer Function
 	var closeDrawer = function(){
 		toggleDrawer('close');
@@ -573,9 +651,12 @@
 	//Toggle Drawer Function
 	var toggleDrawer = function(position){
 		if (position == "open"){
+			console.log(position);
+			console.log(document.getElementById('drawer').getBoundingClientRect());
 			document.getElementById('back').style.opacity = 1;
 			document.getElementById('back').style.cursor = "pointer";
 			document.getElementById('drawer').style.transform = 'translate(0px, 0px)';
+			console.log(document.getElementById('drawer').getBoundingClientRect());
 			document.getElementById('header').style.filter = 'brightness(50%)';
 			document.getElementById('container').style.filter = 'brightness(50%)';
 			document.getElementById('container').style.cursor = "pointer";
@@ -615,32 +696,6 @@
 			DRAWERSTATE = 'closed';
 		}
 	}
-
-	//Style Drawer Function
-	var styleDrawer = function(){
-		if (ROUTE == 'about'){
-			var pinkPalette = ["#F8BBD0","#F48FB1","#F06292","#EC407A","#E91E63","#D81B60","#C2185B","#AD1457"];
-			var fibonacciDivs = document.getElementById('fibonacci').children;
-			for (var i=0; i<8; i++){
-				fibonacciDivs[i].style.backgroundColor = pinkPalette[i];
-			}
-		}
-		if (ROUTE == 'resume'){
-			var purplePalette = ["#E1BEE7","#CE93D8","#BA68C8","#AB47BC","#9C27B0","#8E24AA","#7B1FA2","#6A1B9A"];
-			var fibonacciDivs = document.getElementById('fibonacci').children;
-			for (var i=0; i<8; i++){
-				fibonacciDivs[i].style.backgroundColor = purplePalette[i];
-			}
-		}
-		if (ROUTE == 'website'){
-			var tealPalette = ["#B2DFDB","#80CBC4","#4DB6AC","#26A69A","#009688","#00897B","#00796B","#00695C"]
-			var fibonacciDivs = document.getElementById('fibonacci').children;
-			for (var i=0; i<8; i++){
-				fibonacciDivs[i].style.backgroundColor = tealPalette[i];
-			}
-		}
-	}
-
 	//Splash Animation
 	var splash = function(event){
 		var parentID = event.toElement.id
@@ -714,7 +769,6 @@
 		document.getElementById('circle').remove();
 		document.removeEventListener('mouseup', deleteCircle);
 	}
-
 	//Route
 	var route = function(event){
 		var ID = document.getElementById(event.toElement.id).parentNode.id
@@ -813,70 +867,14 @@
 			win.focus();
 		}
 	}
-
-	var aboutAnimation = function(callback){
-		console.log(ROUTE);
-		document.getElementById('bulletPoint1').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
-		document.getElementById('bulletPoint2').style.transform = "translate("+0+"px, "+0+"px) scale("+1+", "+1+")";
-		document.getElementById('fab').style.opacity = "0";
-		document.getElementById('bulletPoint1').style.opacity = "1";
-		document.getElementById('bulletPoint2').style.opacity = "1";
-		document.getElementById('bulletPoint3').style.opacity = "1";
-	  callback && callback();
+	var aboutAnimation = function(){
+		console.log('about animation');	
 	}
-
-	var growResume = function(){
-		var w = document.getElementById('container').offsetWidth;
-		var h = window.innerHeight;
-		var marginLeft = document.getElementById('bulletPoint1').getBoundingClientRect().left;
-		var width = document.getElementById('bulletPoint1').getBoundingClientRect().width;
-		var tX = (w/2)-marginLeft - (width/2);
-		var imageTop = document.getElementById('profilePic').getBoundingClientRect().top;
-		var bulletTop = document.getElementById('bulletPoint1').getBoundingClientRect().top;
-		var tY = (imageTop - bulletTop) + width/2;
-
-		var oW = document.getElementById('container').offsetWidth;
-		var radius = Math.sqrt((oW*oW)+(H*H));
-		var scale = (radius*2) / width;
-		document.getElementById('fab').style.opacity = "1";
-		document.getElementById('bulletPoint2').style.opacity = "0";
-		document.getElementById('bulletPoint3').style.opacity = "0";
-		document.getElementById('bulletPoint1').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
-	}
-
-	var growWebsite = function(){
-		aboutAnimation();
-		var w = document.getElementById('container').offsetWidth;
-		var h = window.innerHeight;
-		var marginLeft = document.getElementById('bulletPoint2').getBoundingClientRect().left;
-		var width = document.getElementById('bulletPoint2').getBoundingClientRect().width;
-		var tX = (w/2)-marginLeft - (width/2);
-		var imageTop = document.getElementById('profilePic').getBoundingClientRect().top;
-		var bulletTop = document.getElementById('bulletPoint2').getBoundingClientRect().top;
-		var tY = (imageTop - bulletTop) + width/2;
-		var containerMarginTop = document.getElementById('container').getBoundingClientRect().top;
-
-		var oW = document.getElementById('container').offsetWidth;
-		var radius = Math.sqrt((oW*oW)+(H*H));
-		var scale = (radius*2) / width;
-		document.getElementById('bulletPoint1').style.opacity = "0";
-		document.getElementById('bulletPoint3').style.opacity = "0";
-		document.getElementById('bulletPoint2').style.transform = "translate("+tX+"px, "+tY+"px) scale("+scale+", "+scale+")";
-	}
-
 	var resumeAnimation = function(){
-		aboutAnimation( function(){
-  		setTimeout( function(){
-				growResume();
-  		}, 500 );
-		});
+		console.log('resume animation');	
 	}
 	var websiteAnimation = function(){
-		aboutAnimation( function(){
-  		setTimeout( function(){
-				growWebsite();
-  		}, 500 );
-		});
+		console.log('website animation');	
 	}
-</script>
+	</script>
 </html>
