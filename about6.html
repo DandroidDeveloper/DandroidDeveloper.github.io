@@ -568,7 +568,7 @@
 		
 			<div class="section" id="sectionTest">
 				<div class="sectionLeft">
-					<div class="bulletPoint1" id="bulletPoint1">
+					<div class="bulletPoint1" id="bulletPoint1" onclick="route2(this.id)">
 						<div class="paper" id="paper">
 							<div class="pic"><img src="account.png" width="16px" id="account"></div>
 							<div class="line1"></div>
@@ -599,7 +599,7 @@
 
 			<div class="section">
 				<div class="sectionLeft">
-					<div class="bulletPoint2" id="bulletPoint2">
+					<div class="bulletPoint2" id="bulletPoint2" onclick="route2(this.id)">
 						<div class="computer" id="computer">
 							<div class="webcam"></div>
 							<div class="screen"></div>
@@ -622,7 +622,7 @@
 
 			<div class="section">
 				<div class="sectionLeft">
-					<div class="bulletPoint3" id="bulletPoint3">
+					<div class="bulletPoint3" id="bulletPoint3" onclick="route2(this.id)">
 						<img src="github.png" class="gitPic" id="gitPic"></img>
 					</div>
 				</div>
@@ -658,12 +658,10 @@
 	var mobile = false;
 	var tablet = false;
 	if (W < 400){
-		console.log('mobile');
 		mobile = true;
 		tablet = false;
 	}
 	else if(W >= 400 && W < 768){
-		console.log('tablet');
 		tablet = true;
 		mobile = false;
 	}
@@ -702,7 +700,6 @@
 		if (tablet){
 			document.getElementById('drawer').style.transform = 'translate('+(-W*0.50)+'px, 0px)';
 		}
-		console.log('loading...');
 		stylePage( function(){
 			deleteLoader();
 		});
@@ -727,6 +724,7 @@
 			document.getElementById('drawerTab2').addEventListener('mouseup', route);
 			document.getElementById('drawerTab3').addEventListener('mouseup', route);
 			document.getElementById('drawerTab4').addEventListener('mouseup', route);
+
 			styleDrawer();
 			document.getElementById('tabUnderline1').style.backgroundColor = "#E91E63";
 			document.getElementById('tabUnderline2').style.backgroundColor = "#9C27B0";
@@ -907,7 +905,6 @@
 	//Route
 	var route = function(event){
 		var ID = document.getElementById(event.toElement.id).parentNode.id
-		console.log(ID);
 		console.log(ROUTE);
 		if (ID == 'tab1'){
 			ROUTE = 'about';
@@ -1002,6 +999,37 @@
 			win.focus();
 		}
 	}
+
+	//Route 2
+	var route2 = function(ID){
+		if (ID == 'bulletPoint1'){
+			ROUTE = 'resume';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "25%";
+			document.getElementById('tabUnderline3').style.width = "0%";
+			document.getElementById('title').innerHTML = "Resume";
+			toggleDrawer('close');
+			resumeAnimation();
+		}
+		if (ID == 'bulletPoint2'){
+			ROUTE = 'website';
+			styleDrawer();
+			document.getElementById('tabUnderline1').style.width = "0%";
+			document.getElementById('tabUnderline2').style.width = "0%";
+			document.getElementById('tabUnderline3').style.width = "3%";
+			document.getElementById('title').innerHTML = "Website";
+			toggleDrawer('close');
+			websiteAnimation();
+		}
+		if (ID == 'bulletPoint3'){
+			//Navigate to Github
+			win = window.open("https://github.com/DandroidDeveloper", "_blank");
+			win.focus();
+		}
+	}
+
+	//About Animation (reverts page back to about)
 	var aboutAnimation = function(callback){
 		console.log('about animation');	
 				if (document.getElementById("resumeFrame") != null){
@@ -1023,6 +1051,8 @@
 		document.getElementById('bulletPoint1').style.opacity = "1";
 		document.getElementById('bulletPoint2').style.opacity = "1";
 		document.getElementById('bulletPoint3').style.opacity = "1";
+		document.getElementById('bulletPoint1').style.cursor = "pointer";
+		document.getElementById('bulletPoint2').style.cursor = "pointer";
 		document.getElementById('paper').style.display = "block";
 		document.getElementById('computer').style.display = "block";
 		callback && callback();
